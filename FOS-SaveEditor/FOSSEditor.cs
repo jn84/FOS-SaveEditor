@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FOS_SaveEditor.Utility;
 
 namespace FOS_SaveEditor
 {
@@ -39,6 +40,7 @@ namespace FOS_SaveEditor
 		private void btnDecrypt_Click(object sender, EventArgs e)
 		{
 			var text = File.ReadAllText(txtFilepathName.Text);
+			CryptoHandler.IsEncrypted(text);
 			var output = Utility.CryptoHandler.DecryptSave(text);
 			File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "decrypted.sav"), output);
 		}
@@ -46,6 +48,7 @@ namespace FOS_SaveEditor
 		private void btnEncrypt_Click(object sender, EventArgs e)
 		{
 			var text = File.ReadAllText(txtFilepathName.Text);
+			CryptoHandler.IsEncrypted(text);
 			var output = Utility.CryptoHandler.EncryptSave(text);
 			File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "encrypted.sav"), output);
 		}

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace FOS_SaveEditor.Utility
 {
@@ -15,6 +16,24 @@ namespace FOS_SaveEditor.Utility
 
 		private const string INITVECTOR = "tu89geji340t89u2";
         private const string PASSPHRASE = "UGxheWVy";
+
+		public static bool IsEncrypted(string inputText)
+		{
+			try
+			{
+				DecryptSave(inputText);
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static string GetDecryptedSave(string inputText)
+		{
+			return IsEncrypted(inputText) ? DecryptSave(inputText) : inputText;
+		}
 
 		public static string EncryptSave(string plainText)
 		{
