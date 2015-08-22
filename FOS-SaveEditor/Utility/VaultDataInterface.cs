@@ -33,6 +33,11 @@ namespace FOS_SaveEditor.Utility
 			return vaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 0);
 		}
 
+		public double GetNumberOfCaps()
+		{
+			return vaultData["storage"]["storage"]["resources"]["Nuka"].Value<double>();
+		}
+
 		public void AddLunchBox()
 		{
 			var lbArr = vaultData["vault"]["LunchBoxesByType"].Values<int>().ToList();
@@ -70,18 +75,14 @@ namespace FOS_SaveEditor.Utility
 			vaultData["vault"]["LunchBoxesCount"] = lbArr.Count;
 		}
 
-		public List<Dweller> GetDwellers()
+		public List<JToken> GetDwellers()
 		{
-			var dwellerList = new List<Dweller>();
-			var dwellerData = vaultData["dwellers"]["dwellers"];
-			foreach (var dweller in dwellerData)
-			{
-				MessageBox.Show(dweller["name"].Value<string>());
-				dweller["name"] = "boob";
-				// populate a dweller object
-			}
-			Console.WriteLine(vaultData);
-			return dwellerList;
-		} 
+			return vaultData["dwellers"]["dwellers"].ToList();
+		}
+
+		public void WriteDwellers(List<JToken> dwellerList)
+		{
+			vaultData["dwellers"]["dwellers"] = new JArray(dwellerList);
+		}
 	}
 }

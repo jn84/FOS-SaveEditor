@@ -32,23 +32,6 @@ namespace FOS_SaveEditor
 			var jsonStr = File.ReadAllText("J:\\Projects\\FOS-SaveEditor\\FOS-SaveEditor\\bin\\Debug\\Vault1.sav");
 			jsonStr = CryptoHandler.DecryptSave(jsonStr);
 			var vData = new VaultDataInterface(jsonStr);
-			vData.AddLunchBox();
-			vData.AddLunchBox();
-			vData.AddLunchBox();
-			vData.AddLunchBox();
-			vData.AddHandyBox();
-			vData.AddHandyBox();
-			vData.AddHandyBox();
-			vData.AddHandyBox();
-
-			Console.WriteLine(vData.GetNumberOfLunchBoxes());
-			Console.WriteLine(vData.GetNumberOfHandyBoxes());
-
-			vData.RemoveLunchBox();
-			vData.AddHandyBox();
-
-			Console.WriteLine(vData.GetNumberOfLunchBoxes());
-			Console.WriteLine(vData.GetNumberOfHandyBoxes());
 
 			//Console.WriteLine(vData.GetNumberOfDwellers());
 			//vData.GetDwellers();

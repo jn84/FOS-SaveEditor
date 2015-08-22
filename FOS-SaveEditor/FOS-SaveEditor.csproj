@@ -86,8 +86,8 @@
       <DependentUpon>VaultLayoutNumbers.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\CryptoHandler.cs" />
+    <Compile Include="Utility\DwellerDataInterface.cs" />
     <Compile Include="Utility\VaultDataInterface.cs" />
-    <Compile Include="VaultObjects\Dweller.cs" />
     <EmbeddedResource Include="FOSSEditor.resx">
       <DependentUpon>FOSSEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
