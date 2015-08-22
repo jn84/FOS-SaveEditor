@@ -27,30 +27,31 @@ namespace FOS_SaveEditor
 			dlgLoadSave.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
 		}
 
-		private void btnLoad_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
-			dlgLoadSave.ShowDialog();
-		}
+			var jsonStr = File.ReadAllText("J:\\Projects\\FOS-SaveEditor\\FOS-SaveEditor\\bin\\Debug\\Vault1.sav");
+			jsonStr = CryptoHandler.DecryptSave(jsonStr);
+			var vData = new VaultDataInterface(jsonStr);
+			vData.AddLunchBox();
+			vData.AddLunchBox();
+			vData.AddLunchBox();
+			vData.AddLunchBox();
+			vData.AddHandyBox();
+			vData.AddHandyBox();
+			vData.AddHandyBox();
+			vData.AddHandyBox();
 
-		private void dlgLoadSave_FileOk(object sender, CancelEventArgs e)
-		{
-			txtFilepathName.Text = dlgLoadSave.FileName;
-		}
+			Console.WriteLine(vData.GetNumberOfLunchBoxes());
+			Console.WriteLine(vData.GetNumberOfHandyBoxes());
 
-		private void btnDecrypt_Click(object sender, EventArgs e)
-		{
-			var text = File.ReadAllText(txtFilepathName.Text);
-			CryptoHandler.IsEncrypted(text);
-			var output = Utility.CryptoHandler.DecryptSave(text);
-			File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "decrypted.sav"), output);
-		}
+			vData.RemoveLunchBox();
+			vData.AddHandyBox();
 
-		private void btnEncrypt_Click(object sender, EventArgs e)
-		{
-			var text = File.ReadAllText(txtFilepathName.Text);
-			CryptoHandler.IsEncrypted(text);
-			var output = Utility.CryptoHandler.EncryptSave(text);
-			File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "encrypted.sav"), output);
+			Console.WriteLine(vData.GetNumberOfLunchBoxes());
+			Console.WriteLine(vData.GetNumberOfHandyBoxes());
+
+			//Console.WriteLine(vData.GetNumberOfDwellers());
+			//vData.GetDwellers();
 		}
 	}
 }

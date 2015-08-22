@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4058234C-3C0A-47A5-993D-73067714E915}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FOS_SaveEditor</RootNamespace>
     <AssemblyName>FOS-SaveEditor</AssemblyName>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -58,7 +61,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\LoadVault.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LoadVault.Designer.cs">
+      <DependentUpon>LoadVault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OverallNumbers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OverallNumbers.Designer.cs">
+      <DependentUpon>OverallNumbers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VaultLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VaultLayout.Designer.cs">
+      <DependentUpon>VaultLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VaultLayoutNumbers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VaultLayoutNumbers.Designer.cs">
+      <DependentUpon>VaultLayoutNumbers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\CryptoHandler.cs" />
+    <Compile Include="Utility\VaultDataInterface.cs" />
+    <Compile Include="VaultObjects\Dweller.cs" />
     <EmbeddedResource Include="FOSSEditor.resx">
       <DependentUpon>FOSSEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -72,6 +101,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\VaultLayout.resx">
+      <DependentUpon>VaultLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
