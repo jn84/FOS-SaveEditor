@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Utility\CryptoHandler.cs" />
     <Compile Include="Utility\DwellerDataInterface.cs" />
+    <Compile Include="Utility\SaveValidator.cs" />
     <Compile Include="Utility\VaultDataInterface.cs" />
     <EmbeddedResource Include="FOSSEditor.resx">
       <DependentUpon>FOSSEditor.cs</DependentUpon>

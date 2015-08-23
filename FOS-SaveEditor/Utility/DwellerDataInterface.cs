@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -71,8 +72,7 @@ namespace FOS_SaveEditor.Utility
 		public void SetS(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][1]["value"] = value;
-			RawDwellerData["stats"]["stats"][1]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 1);
 		}
 
 		public int GetP()
@@ -83,8 +83,7 @@ namespace FOS_SaveEditor.Utility
 		public void SetP(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][2]["value"] = value;
-			RawDwellerData["stats"]["stats"][2]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 2);
 		}
 
 		public int GetE()
@@ -95,8 +94,7 @@ namespace FOS_SaveEditor.Utility
 		public void SetE(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][3]["value"] = value;
-			RawDwellerData["stats"]["stats"][3]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 3);
 		}
 
 		public int GetC()
@@ -107,8 +105,7 @@ namespace FOS_SaveEditor.Utility
 		public void SetC(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][4]["value"] = value;
-			RawDwellerData["stats"]["stats"][4]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 4);
 		}
 
 		public int GetI()
@@ -119,8 +116,7 @@ namespace FOS_SaveEditor.Utility
 		public void SetI(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][5]["value"] = value;
-			RawDwellerData["stats"]["stats"][5]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 5);
 		}
 
 		public int GetA()
@@ -131,8 +127,7 @@ namespace FOS_SaveEditor.Utility
 		public void SetA(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][6]["value"] = value;
-			RawDwellerData["stats"]["stats"][6]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 6);
 		}
 
 		public int GetL()
@@ -143,9 +138,13 @@ namespace FOS_SaveEditor.Utility
 		public void SetL(int value)
 		{
 			if (value <= 0) return;
-			RawDwellerData["stats"]["stats"][7]["value"] = value;
-			RawDwellerData["stats"]["stats"][7]["exp"] = (double)(600 * (value ^ 3 - value));
+			SetSpecial(value, 7);
 		}
 
+		private void SetSpecial(int value, int specialId)
+		{
+			RawDwellerData["stats"]["stats"][specialId]["value"] = value;
+			RawDwellerData["stats"]["stats"][specialId]["exp"] = (double)(600 * ((int)Math.Pow(value, 3) - value));
+		}
 	}
 }

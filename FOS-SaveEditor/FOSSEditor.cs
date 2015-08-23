@@ -36,5 +36,25 @@ namespace FOS_SaveEditor
 			//Console.WriteLine(vData.GetNumberOfDwellers());
 			//vData.GetDwellers();
 		}
+
+		private void btnLoadSave_Click(object sender, EventArgs e)
+		{
+			// Pick the file
+			// Determine whether or not it is encrypted
+			// Decrypt if neccessary
+			// Determine if the file is a valid fallout shelter save
+			// Load the save into a new VaultData object
+			// Enable save buttons
+		}
+
+		private void btnSaveEncrypted_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnSaveJson_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
