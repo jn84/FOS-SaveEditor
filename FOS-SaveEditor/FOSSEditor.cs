@@ -15,6 +15,8 @@ namespace FOS_SaveEditor
 {
 	public partial class FOSSEditor : Form
 	{
+		private VaultDataInterface vaultData;
+
 		public FOSSEditor()
 		{
 			InitializeComponent();
@@ -39,11 +41,36 @@ namespace FOS_SaveEditor
 
 		private void btnLoadSave_Click(object sender, EventArgs e)
 		{
+			string inputFile;
+			string workingData;
+
 			// Pick the file
-			// Determine whether or not it is encrypted
+			dlgLoadSave.ShowDialog();
+
+			// Determine whether or not it is encrypted (done automatically by decryption method)
 			// Decrypt if neccessary
+			inputFile = File.ReadAllText(dlgLoadSave.FileName);
+			workingData = CryptoHandler.GetDecryptedSave(inputFile);
+
 			// Determine if the file is a valid fallout shelter save
+			try
+			{
+				if (!SaveValidator.IsValidSave(workingData))
+				{
+					MessageBox.Show(@"Unknown error when loading " + dlgLoadSave.SafeFileName + @". The file is most likely corrupt or invalid.");
+					return;
+				}
+			}
+			catch (Exception)
+			{
+				MessageBox.Show(@"Unknown error when loading " + dlgLoadSave.SafeFileName + @". The file is most likely corrupt or invalid.");
+				return;
+			}
+
+
 			// Load the save into a new VaultData object
+			// Parse VaultData object into form controls
+			// Enable form controls
 			// Enable save buttons
 		}
 
