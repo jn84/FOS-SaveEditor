@@ -29,8 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.dlgLoadSave = new System.Windows.Forms.OpenFileDialog();
-			this.button1 = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgridDwellers = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,27 +42,27 @@
 			this.specialA = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.specialL = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dwellerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
+			this.numCaps = new System.Windows.Forms.NumericUpDown();
+			this.numLunchBox = new System.Windows.Forms.NumericUpDown();
+			this.numHandyBox = new System.Windows.Forms.NumericUpDown();
+			this.numStimpak = new System.Windows.Forms.NumericUpDown();
+			this.numRadaway = new System.Windows.Forms.NumericUpDown();
+			this.lblCaps = new System.Windows.Forms.Label();
+			this.lblLunchBox = new System.Windows.Forms.Label();
+			this.lblHandyBox = new System.Windows.Forms.Label();
+			this.lblStimpak = new System.Windows.Forms.Label();
+			this.lblRadaway = new System.Windows.Forms.Label();
 			this.grpDwellers = new System.Windows.Forms.GroupBox();
 			this.btnLoadSave = new System.Windows.Forms.Button();
 			this.btnSaveEncrypted = new System.Windows.Forms.Button();
 			this.btnSaveJson = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).BeginInit();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numCaps)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numLunchBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numHandyBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numStimpak)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numRadaway)).BeginInit();
 			this.grpDwellers.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -71,20 +70,10 @@
 			// 
 			this.dlgLoadSave.Filter = "Fallout Shelter Save Files|*.sav|Json Files|*.json";
 			// 
-			// button1
+			// dgridDwellers
 			// 
-			this.button1.Location = new System.Drawing.Point(876, 109);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dgridDwellers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgridDwellers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.firstName,
             this.lastName,
             this.level,
@@ -96,23 +85,24 @@
             this.specialA,
             this.specialL,
             this.dwellerID});
-			this.dataGridView1.Location = new System.Drawing.Point(6, 18);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(541, 222);
-			this.dataGridView1.TabIndex = 1;
+			this.dgridDwellers.Enabled = false;
+			this.dgridDwellers.Location = new System.Drawing.Point(6, 18);
+			this.dgridDwellers.Name = "dgridDwellers";
+			this.dgridDwellers.Size = new System.Drawing.Size(541, 222);
+			this.dgridDwellers.TabIndex = 1;
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.numericUpDown5);
-			this.groupBox1.Controls.Add(this.numericUpDown4);
-			this.groupBox1.Controls.Add(this.numericUpDown3);
-			this.groupBox1.Controls.Add(this.numericUpDown2);
-			this.groupBox1.Controls.Add(this.numericUpDown1);
+			this.groupBox1.Controls.Add(this.lblRadaway);
+			this.groupBox1.Controls.Add(this.lblStimpak);
+			this.groupBox1.Controls.Add(this.lblHandyBox);
+			this.groupBox1.Controls.Add(this.lblLunchBox);
+			this.groupBox1.Controls.Add(this.lblCaps);
+			this.groupBox1.Controls.Add(this.numRadaway);
+			this.groupBox1.Controls.Add(this.numStimpak);
+			this.groupBox1.Controls.Add(this.numHandyBox);
+			this.groupBox1.Controls.Add(this.numLunchBox);
+			this.groupBox1.Controls.Add(this.numCaps);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(241, 160);
@@ -187,89 +177,119 @@
 			this.dwellerID.ReadOnly = true;
 			this.dwellerID.Visible = false;
 			// 
-			// numericUpDown1
+			// numCaps
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(115, 19);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-			this.numericUpDown1.TabIndex = 0;
+			this.numCaps.Enabled = false;
+			this.numCaps.Location = new System.Drawing.Point(115, 19);
+			this.numCaps.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+			this.numCaps.Name = "numCaps";
+			this.numCaps.Size = new System.Drawing.Size(120, 20);
+			this.numCaps.TabIndex = 0;
 			// 
-			// numericUpDown2
+			// numLunchBox
 			// 
-			this.numericUpDown2.Location = new System.Drawing.Point(115, 46);
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-			this.numericUpDown2.TabIndex = 1;
+			this.numLunchBox.Enabled = false;
+			this.numLunchBox.Location = new System.Drawing.Point(115, 46);
+			this.numLunchBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+			this.numLunchBox.Name = "numLunchBox";
+			this.numLunchBox.Size = new System.Drawing.Size(120, 20);
+			this.numLunchBox.TabIndex = 1;
 			// 
-			// numericUpDown3
+			// numHandyBox
 			// 
-			this.numericUpDown3.Location = new System.Drawing.Point(115, 73);
-			this.numericUpDown3.Name = "numericUpDown3";
-			this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
-			this.numericUpDown3.TabIndex = 2;
+			this.numHandyBox.Enabled = false;
+			this.numHandyBox.Location = new System.Drawing.Point(115, 73);
+			this.numHandyBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+			this.numHandyBox.Name = "numHandyBox";
+			this.numHandyBox.Size = new System.Drawing.Size(120, 20);
+			this.numHandyBox.TabIndex = 2;
 			// 
-			// numericUpDown4
+			// numStimpak
 			// 
-			this.numericUpDown4.Location = new System.Drawing.Point(115, 100);
-			this.numericUpDown4.Name = "numericUpDown4";
-			this.numericUpDown4.Size = new System.Drawing.Size(120, 20);
-			this.numericUpDown4.TabIndex = 3;
+			this.numStimpak.Enabled = false;
+			this.numStimpak.Location = new System.Drawing.Point(115, 100);
+			this.numStimpak.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+			this.numStimpak.Name = "numStimpak";
+			this.numStimpak.Size = new System.Drawing.Size(120, 20);
+			this.numStimpak.TabIndex = 3;
 			// 
-			// numericUpDown5
+			// numRadaway
 			// 
-			this.numericUpDown5.Location = new System.Drawing.Point(115, 127);
-			this.numericUpDown5.Name = "numericUpDown5";
-			this.numericUpDown5.Size = new System.Drawing.Size(120, 20);
-			this.numericUpDown5.TabIndex = 4;
+			this.numRadaway.Enabled = false;
+			this.numRadaway.Location = new System.Drawing.Point(115, 127);
+			this.numRadaway.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+			this.numRadaway.Name = "numRadaway";
+			this.numRadaway.Size = new System.Drawing.Size(120, 20);
+			this.numRadaway.TabIndex = 4;
 			// 
-			// label1
+			// lblCaps
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 21);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(31, 13);
-			this.label1.TabIndex = 5;
-			this.label1.Text = "Caps";
+			this.lblCaps.AutoSize = true;
+			this.lblCaps.Location = new System.Drawing.Point(6, 21);
+			this.lblCaps.Name = "lblCaps";
+			this.lblCaps.Size = new System.Drawing.Size(31, 13);
+			this.lblCaps.TabIndex = 5;
+			this.lblCaps.Text = "Caps";
 			// 
-			// label2
+			// lblLunchBox
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 48);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(69, 13);
-			this.label2.TabIndex = 6;
-			this.label2.Text = "Lunch Boxes";
+			this.lblLunchBox.AutoSize = true;
+			this.lblLunchBox.Location = new System.Drawing.Point(6, 48);
+			this.lblLunchBox.Name = "lblLunchBox";
+			this.lblLunchBox.Size = new System.Drawing.Size(69, 13);
+			this.lblLunchBox.TabIndex = 6;
+			this.lblLunchBox.Text = "Lunch Boxes";
 			// 
-			// label3
+			// lblHandyBox
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 75);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(88, 13);
-			this.label3.TabIndex = 7;
-			this.label3.Text = "Mr. Handy Boxes";
+			this.lblHandyBox.AutoSize = true;
+			this.lblHandyBox.Location = new System.Drawing.Point(6, 75);
+			this.lblHandyBox.Name = "lblHandyBox";
+			this.lblHandyBox.Size = new System.Drawing.Size(88, 13);
+			this.lblHandyBox.TabIndex = 7;
+			this.lblHandyBox.Text = "Mr. Handy Boxes";
 			// 
-			// label4
+			// lblStimpak
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(6, 102);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(50, 13);
-			this.label4.TabIndex = 8;
-			this.label4.Text = "Stimpaks";
+			this.lblStimpak.AutoSize = true;
+			this.lblStimpak.Location = new System.Drawing.Point(6, 102);
+			this.lblStimpak.Name = "lblStimpak";
+			this.lblStimpak.Size = new System.Drawing.Size(50, 13);
+			this.lblStimpak.TabIndex = 8;
+			this.lblStimpak.Text = "Stimpaks";
 			// 
-			// label5
+			// lblRadaway
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(6, 129);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(57, 13);
-			this.label5.TabIndex = 9;
-			this.label5.Text = "Radaways";
+			this.lblRadaway.AutoSize = true;
+			this.lblRadaway.Location = new System.Drawing.Point(6, 129);
+			this.lblRadaway.Name = "lblRadaway";
+			this.lblRadaway.Size = new System.Drawing.Size(57, 13);
+			this.lblRadaway.TabIndex = 9;
+			this.lblRadaway.Text = "Radaways";
 			// 
 			// grpDwellers
 			// 
-			this.grpDwellers.Controls.Add(this.dataGridView1);
+			this.grpDwellers.Controls.Add(this.dgridDwellers);
 			this.grpDwellers.Location = new System.Drawing.Point(260, 13);
 			this.grpDwellers.Name = "grpDwellers";
 			this.grpDwellers.Size = new System.Drawing.Size(553, 246);
@@ -289,6 +309,7 @@
 			// 
 			// btnSaveEncrypted
 			// 
+			this.btnSaveEncrypted.Enabled = false;
 			this.btnSaveEncrypted.Location = new System.Drawing.Point(12, 207);
 			this.btnSaveEncrypted.Name = "btnSaveEncrypted";
 			this.btnSaveEncrypted.Size = new System.Drawing.Size(241, 23);
@@ -299,6 +320,7 @@
 			// 
 			// btnSaveJson
 			// 
+			this.btnSaveJson.Enabled = false;
 			this.btnSaveJson.Location = new System.Drawing.Point(12, 236);
 			this.btnSaveJson.Name = "btnSaveJson";
 			this.btnSaveJson.Size = new System.Drawing.Size(241, 23);
@@ -311,25 +333,24 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1025, 270);
+			this.ClientSize = new System.Drawing.Size(827, 270);
 			this.Controls.Add(this.btnSaveJson);
 			this.Controls.Add(this.btnSaveEncrypted);
 			this.Controls.Add(this.btnLoadSave);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.grpDwellers);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "FOSSEditor";
 			this.Text = "Fallout Shelter Save Editor";
 			this.Load += new System.EventHandler(this.Form1_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numCaps)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numLunchBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numHandyBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numStimpak)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numRadaway)).EndInit();
 			this.grpDwellers.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -337,8 +358,7 @@
 
 		#endregion
 		private System.Windows.Forms.OpenFileDialog dlgLoadSave;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgridDwellers;
 		private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn level;
@@ -351,16 +371,16 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn specialL;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dwellerID;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.NumericUpDown numericUpDown5;
-		private System.Windows.Forms.NumericUpDown numericUpDown4;
-		private System.Windows.Forms.NumericUpDown numericUpDown3;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Label lblRadaway;
+		private System.Windows.Forms.Label lblStimpak;
+		private System.Windows.Forms.Label lblHandyBox;
+		private System.Windows.Forms.Label lblLunchBox;
+		private System.Windows.Forms.Label lblCaps;
+		private System.Windows.Forms.NumericUpDown numRadaway;
+		private System.Windows.Forms.NumericUpDown numStimpak;
+		private System.Windows.Forms.NumericUpDown numHandyBox;
+		private System.Windows.Forms.NumericUpDown numLunchBox;
+		private System.Windows.Forms.NumericUpDown numCaps;
 		private System.Windows.Forms.GroupBox grpDwellers;
 		private System.Windows.Forms.Button btnLoadSave;
 		private System.Windows.Forms.Button btnSaveEncrypted;

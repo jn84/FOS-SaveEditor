@@ -11,35 +11,59 @@ namespace FOS_SaveEditor.Utility
 {
 	class VaultDataInterface
 	{
-		private JObject vaultData;
+		private readonly JObject _vaultData;
 
 		private VaultDataInterface() { }
 
 		public VaultDataInterface(string vaultJsonText)
 		{
-			//MessageBox.Show(vaultJsonText);
-			vaultData = JObject.Parse(vaultJsonText);
+			_vaultData = JObject.Parse(vaultJsonText);
 		}
 
 		public int GetNumberOfDwellers()
 		{
-			return vaultData["dwellers"]["dwellers"].Count();
+			return _vaultData["dwellers"]["dwellers"].Count();
 		}
 
 		public int GetNumberOfLunchBoxes()
 		{
-			Console.WriteLine(vaultData["vault"]["LunchBoxesByType"]);
-			return vaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 0);
-		}
-
-		public double GetNumberOfCaps()
-		{
-			return vaultData["vault"]["storage"]["resources"]["Nuka"].Value<double>();
+			Console.WriteLine(_vaultData["vault"]["LunchBoxesByType"]);
+			return _vaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 0);
 		}
 
 		public int GetNumberOfHandyBoxes()
 		{
-			return vaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 1);
+			return _vaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 1);
+		}
+
+		public double GetNumberOfCaps()
+		{
+			return _vaultData["vault"]["storage"]["resources"]["Nuka"].Value<double>();
+		}
+
+		public void SetNumberOfCaps(int caps)
+		{
+			_vaultData["vault"]["storage"]["resources"]["Nuka"] = (double) caps;
+		}
+
+		public int GetNumberOfStimpaks()
+		{
+			return _vaultData["vault"]["storage"]["resources"]["StimPack"].Value<int>();
+		}
+
+		public void SetNumberOfStimPaks(int stims)
+		{
+			
+		}
+
+		public int GetNumberOfRadaways()
+		{
+			return _vaultData["vault"]["storage"]["resources"]["RadAway"].Value<int>();
+		}
+
+		public void SetNumberOfRadaways(int rads)
+		{
+
 		}
 
 		public void SetLunchHandyBoxes(int lunch, int handy)
@@ -49,18 +73,18 @@ namespace FOS_SaveEditor.Utility
 				newArr.Add(0);
 			for (var i = 0; i < handy; i++)
 				newArr.Add(1);
-			vaultData["vault"]["LunchBoxesByType"] = new JArray(newArr);
-			vaultData["vault"]["LunchBoxesCount"] = newArr.Count;
+			_vaultData["vault"]["LunchBoxesByType"] = new JArray(newArr);
+			_vaultData["vault"]["LunchBoxesCount"] = newArr.Count;
 		}
 
 		public List<JToken> GetDwellers()
 		{
-			return vaultData["dwellers"]["dwellers"].ToList();
+			return _vaultData["dwellers"]["dwellers"].ToList();
 		}
 
 		public void WriteDwellers(List<JToken> dwellerList)
 		{
-			vaultData["dwellers"]["dwellers"] = new JArray(dwellerList);
+			_vaultData["dwellers"]["dwellers"] = new JArray(dwellerList);
 		}
 	}
 }
