@@ -58,6 +58,16 @@ namespace FOS_SaveEditor.Utility
 				RawDwellerData["gender"] = 1;
 		}
 
+		public int GetLevel()
+		{
+			return RawDwellerData["experience"]["currentLevel"].Value<int>();
+		}
+
+		public void SetLevel()
+		{
+			// We need the formula for how level relates to experience
+		}
+
 		// It seems that SPECIAL stats require a matching experience value
 		// or else the game will crash when loading the save.
 		// 
