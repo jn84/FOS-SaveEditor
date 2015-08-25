@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FOS_SaveEditor.VaultObjects;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -35,23 +34,7 @@ namespace FOS_SaveEditor.Utility
 
 		public double GetNumberOfCaps()
 		{
-			return vaultData["storage"]["storage"]["resources"]["Nuka"].Value<double>();
-		}
-
-		public void AddLunchBox()
-		{
-			var lbArr = vaultData["vault"]["LunchBoxesByType"].Values<int>().ToList();
-			lbArr.Insert(0, 0);
-			vaultData["vault"]["LunchBoxesByType"] = new JArray(lbArr);
-			vaultData["vault"]["LunchBoxesCount"] = lbArr.Count;
-		}
-
-		public void RemoveLunchBox()
-		{
-			var lbArr = vaultData["vault"]["LunchBoxesByType"].Values<int>().ToList();
-			lbArr.Remove(0);
-			vaultData["vault"]["LunchBoxesByType"] = new JArray(lbArr);
-			vaultData["vault"]["LunchBoxesCount"] = lbArr.Count;
+			return vaultData["vault"]["storage"]["resources"]["Nuka"].Value<double>();
 		}
 
 		public int GetNumberOfHandyBoxes()
@@ -59,20 +42,15 @@ namespace FOS_SaveEditor.Utility
 			return vaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 1);
 		}
 
-		public void AddHandyBox()
+		public void SetLunchHandyBoxes(int lunch, int handy)
 		{
-			var lbArr = vaultData["vault"]["LunchBoxesByType"].Values<int>().ToList();
-			lbArr.Add(1);
-			vaultData["vault"]["LunchBoxesByType"] = new JArray(lbArr);
-			vaultData["vault"]["LunchBoxesCount"] = lbArr.Count;
-		}
-
-		public void RemoveHandyBox()
-		{
-			var lbArr = vaultData["vault"]["LunchBoxesByType"].Values<int>().ToList();
-			lbArr.Remove(1);
-			vaultData["vault"]["LunchBoxesByType"] = new JArray(lbArr);
-			vaultData["vault"]["LunchBoxesCount"] = lbArr.Count;
+			var newArr = new List<int>();
+			for (var i = 0; i < lunch; i++)
+				newArr.Add(0);
+			for (var i = 0; i < handy; i++)
+				newArr.Add(1);
+			vaultData["vault"]["LunchBoxesByType"] = new JArray(newArr);
+			vaultData["vault"]["LunchBoxesCount"] = newArr.Count;
 		}
 
 		public List<JToken> GetDwellers()
