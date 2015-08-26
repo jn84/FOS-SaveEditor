@@ -162,10 +162,7 @@ namespace FOS_SaveEditor
 				dwellerRows[i].Cells[dgridDwellers.Columns["dwellerID"].Index].Value = dwellerList[i].GetId();
 			}
 
-			foreach (var row in dwellerRows)
-				dgridDwellers.Rows.Add(row);
-
-			dgridDwellers.Refresh();
+			dgridDwellers.Rows.AddRange(dwellerRows.ToArray());
 		}
 
 		private void button1_Click(object sender, EventArgs e)
