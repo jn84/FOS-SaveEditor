@@ -31,17 +31,6 @@
 			this.dlgLoadSave = new System.Windows.Forms.OpenFileDialog();
 			this.dgridDwellers = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.specialL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dwellerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.numCaps = new System.Windows.Forms.NumericUpDown();
 			this.numLunchBox = new System.Windows.Forms.NumericUpDown();
 			this.numHandyBox = new System.Windows.Forms.NumericUpDown();
@@ -56,6 +45,20 @@
 			this.btnLoadSave = new System.Windows.Forms.Button();
 			this.btnSaveEncrypted = new System.Windows.Forms.Button();
 			this.btnSaveJson = new System.Windows.Forms.Button();
+			this.dlgSave = new System.Windows.Forms.SaveFileDialog();
+			this.dlgSaveJson = new System.Windows.Forms.SaveFileDialog();
+			this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.specialL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dwellerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numCaps)).BeginInit();
@@ -109,73 +112,6 @@
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Vault Assets";
-			// 
-			// firstName
-			// 
-			this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.firstName.HeaderText = "First Name";
-			this.firstName.Name = "firstName";
-			// 
-			// lastName
-			// 
-			this.lastName.HeaderText = "Last Name";
-			this.lastName.Name = "lastName";
-			this.lastName.Width = 120;
-			// 
-			// level
-			// 
-			this.level.HeaderText = "Level";
-			this.level.Name = "level";
-			this.level.Width = 50;
-			// 
-			// specialS
-			// 
-			this.specialS.HeaderText = "S";
-			this.specialS.Name = "specialS";
-			this.specialS.Width = 30;
-			// 
-			// specialP
-			// 
-			this.specialP.HeaderText = "P";
-			this.specialP.Name = "specialP";
-			this.specialP.Width = 30;
-			// 
-			// specialE
-			// 
-			this.specialE.HeaderText = "E";
-			this.specialE.Name = "specialE";
-			this.specialE.Width = 30;
-			// 
-			// specialC
-			// 
-			this.specialC.HeaderText = "C";
-			this.specialC.Name = "specialC";
-			this.specialC.Width = 30;
-			// 
-			// specialI
-			// 
-			this.specialI.HeaderText = "I";
-			this.specialI.Name = "specialI";
-			this.specialI.Width = 30;
-			// 
-			// specialA
-			// 
-			this.specialA.HeaderText = "A";
-			this.specialA.Name = "specialA";
-			this.specialA.Width = 30;
-			// 
-			// specialL
-			// 
-			this.specialL.HeaderText = "L";
-			this.specialL.Name = "specialL";
-			this.specialL.Width = 30;
-			// 
-			// dwellerID
-			// 
-			this.dwellerID.HeaderText = "ID";
-			this.dwellerID.Name = "dwellerID";
-			this.dwellerID.ReadOnly = true;
-			this.dwellerID.Visible = false;
 			// 
 			// numCaps
 			// 
@@ -329,11 +265,96 @@
 			this.btnSaveJson.UseVisualStyleBackColor = true;
 			this.btnSaveJson.Click += new System.EventHandler(this.btnSaveJson_Click);
 			// 
+			// dlgSave
+			// 
+			this.dlgSave.DefaultExt = "sav";
+			// 
+			// dlgSaveJson
+			// 
+			this.dlgSaveJson.DefaultExt = "json";
+			// 
+			// firstName
+			// 
+			this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.firstName.HeaderText = "First Name";
+			this.firstName.Name = "firstName";
+			// 
+			// lastName
+			// 
+			this.lastName.HeaderText = "Last Name";
+			this.lastName.Name = "lastName";
+			this.lastName.Width = 120;
+			// 
+			// level
+			// 
+			this.level.HeaderText = "Level";
+			this.level.Name = "level";
+			this.level.Width = 50;
+			// 
+			// specialS
+			// 
+			this.specialS.HeaderText = "S";
+			this.specialS.Name = "specialS";
+			this.specialS.Width = 30;
+			// 
+			// specialP
+			// 
+			this.specialP.HeaderText = "P";
+			this.specialP.Name = "specialP";
+			this.specialP.Width = 30;
+			// 
+			// specialE
+			// 
+			this.specialE.HeaderText = "E";
+			this.specialE.Name = "specialE";
+			this.specialE.Width = 30;
+			// 
+			// specialC
+			// 
+			this.specialC.HeaderText = "C";
+			this.specialC.Name = "specialC";
+			this.specialC.Width = 30;
+			// 
+			// specialI
+			// 
+			this.specialI.HeaderText = "I";
+			this.specialI.Name = "specialI";
+			this.specialI.Width = 30;
+			// 
+			// specialA
+			// 
+			this.specialA.HeaderText = "A";
+			this.specialA.Name = "specialA";
+			this.specialA.Width = 30;
+			// 
+			// specialL
+			// 
+			this.specialL.HeaderText = "L";
+			this.specialL.Name = "specialL";
+			this.specialL.Width = 30;
+			// 
+			// dwellerID
+			// 
+			this.dwellerID.HeaderText = "ID";
+			this.dwellerID.Name = "dwellerID";
+			this.dwellerID.ReadOnly = true;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(882, 49);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 7;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// FOSSEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(827, 270);
+			this.ClientSize = new System.Drawing.Size(1041, 270);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btnSaveJson);
 			this.Controls.Add(this.btnSaveEncrypted);
 			this.Controls.Add(this.btnLoadSave);
@@ -359,17 +380,6 @@
 		#endregion
 		private System.Windows.Forms.OpenFileDialog dlgLoadSave;
 		private System.Windows.Forms.DataGridView dgridDwellers;
-		private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn level;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialS;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialP;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialE;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialC;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialI;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialA;
-		private System.Windows.Forms.DataGridViewTextBoxColumn specialL;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dwellerID;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label lblRadaway;
 		private System.Windows.Forms.Label lblStimpak;
@@ -385,6 +395,20 @@
 		private System.Windows.Forms.Button btnLoadSave;
 		private System.Windows.Forms.Button btnSaveEncrypted;
 		private System.Windows.Forms.Button btnSaveJson;
+		private System.Windows.Forms.SaveFileDialog dlgSave;
+		private System.Windows.Forms.SaveFileDialog dlgSaveJson;
+		private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn level;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialS;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialP;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialE;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialC;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialI;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialA;
+		private System.Windows.Forms.DataGridViewTextBoxColumn specialL;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dwellerID;
+		private System.Windows.Forms.Button button1;
 	}
 }
 

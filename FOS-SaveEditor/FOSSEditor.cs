@@ -18,7 +18,11 @@ namespace FOS_SaveEditor
 {
 	public partial class FOSSEditor : Form
 	{
+		private string _qualifiedFilename;
+
 		private VaultDataInterface vaultData;
+
+		private List<DwellerDataInterface> dwellerList; 
 
 		public FOSSEditor()
 		{
@@ -30,6 +34,10 @@ namespace FOS_SaveEditor
 			dlgLoadSave.Multiselect = false;
 			dlgLoadSave.CheckFileExists = true;
 			dlgLoadSave.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+			dlgSave.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+			dlgSaveJson.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
 		}
 
 		private void btnLoadSave_Click(object sender, EventArgs e)
@@ -41,6 +49,8 @@ namespace FOS_SaveEditor
 			dlgLoadSave.ShowDialog();
 			if (dlgLoadSave.SafeFileName == null || dlgLoadSave.SafeFileName.Equals(""))
 				return;
+			_qualifiedFilename = dlgLoadSave.FileName;
+
 
 			// Determine whether or not it is encrypted (done automatically by decryption method)
 			// Decrypt if neccessary
@@ -81,52 +91,86 @@ namespace FOS_SaveEditor
 
 		private void btnSaveEncrypted_Click(object sender, EventArgs e)
 		{
-
+			dlgSave.FileName = Path.GetFileNameWithoutExtension(_qualifiedFilename) + "-modified";
+			if (dlgSave.ShowDialog() != DialogResult.OK)
+				return;
+			WriteVaultData();
+			File.WriteAllText(dlgSave.FileName, CryptoHandler.EncryptSave(vaultData.VaultData.ToString(Formatting.None)));
 		}
 
 		private void btnSaveJson_Click(object sender, EventArgs e)
 		{
+			dlgSaveJson.FileName = Path.GetFileNameWithoutExtension(_qualifiedFilename) + "-modified";
+			if (dlgSaveJson.ShowDialog() != DialogResult.OK)
+				return;
+			WriteVaultData();
+			File.WriteAllText(dlgSaveJson.FileName, vaultData.VaultData.ToString(Formatting.None));
+		}
 
+		private void WriteVaultData()
+		{
+			// Save the dwellers
+			var newDwellerIds = new List<int>();
+			foreach (DataGridViewRow row in dgridDwellers.Rows)
+			{
+				var id = Convert.ToInt32(row.Cells["dwellerID"].Value);
+				var listIndex = dwellerList.FindIndex(dId => dId.GetId().Equals(id));
+				dwellerList[listIndex].SetFirstName(row.Cells["firstName"].Value.ToString());
+				dwellerList[listIndex].SetLastName(row.Cells["lastName"].Value.ToString());
+				dwellerList[listIndex].SetS(Convert.ToInt32(row.Cells["specialS"].Value));
+				dwellerList[listIndex].SetP(Convert.ToInt32(row.Cells["specialP"].Value));
+				dwellerList[listIndex].SetE(Convert.ToInt32(row.Cells["specialE"].Value));
+				dwellerList[listIndex].SetC(Convert.ToInt32(row.Cells["specialC"].Value));
+				dwellerList[listIndex].SetI(Convert.ToInt32(row.Cells["specialI"].Value));
+				dwellerList[listIndex].SetA(Convert.ToInt32(row.Cells["specialA"].Value));
+				dwellerList[listIndex].SetL(Convert.ToInt32(row.Cells["specialL"].Value));
+			}
+			vaultData.SetLunchHandyBoxes(Convert.ToInt32(numLunchBox.Text), Convert.ToInt32(numHandyBox.Text));
+			vaultData.SetNumberOfCaps(Convert.ToInt32(numCaps.Text));
+			vaultData.SetNumberOfStimPaks(Convert.ToInt32(numStimpak.Text));
+			vaultData.SetNumberOfRadaways(Convert.ToInt32(numRadaway.Text));
 		}
 
 		private void PopulateVaultData()
 		{
+			dgridDwellers.Rows.Clear();
+
 			numCaps.Text = vaultData.GetNumberOfCaps().ToString(CultureInfo.InvariantCulture);
 			numLunchBox.Text = vaultData.GetNumberOfLunchBoxes().ToString();
 			numHandyBox.Text = vaultData.GetNumberOfHandyBoxes().ToString();
 			numRadaway.Text = vaultData.GetNumberOfRadaways().ToString();
 			numStimpak.Text = vaultData.GetNumberOfStimpaks().ToString();
 
-			var dwellerList = 
+			dwellerList = 
 				vaultData.GetDwellers().Select(dweller => new DwellerDataInterface(dweller)).ToList();
 
-			foreach (var dweller in dwellerList)
+			List<DataGridViewRow> dwellerRows = new List<DataGridViewRow>();
+
+			for (int i = 0; i < dwellerList.Count; i++)
 			{
-				var row = (DataGridViewRow) dgridDwellers.Rows[0].Clone();
-				row.Cells[dgridDwellers.Columns["firstName"].Index].Value =
-					dweller.GetFirstName();
-				row.Cells[dgridDwellers.Columns["lastName"].Index].Value =
-					dweller.GetLastName();
-				row.Cells[dgridDwellers.Columns["level"].Index].Value =
-					dweller.GetLevel();
-				row.Cells[dgridDwellers.Columns["specialS"].Index].Value =
-					dweller.GetS();
-				row.Cells[dgridDwellers.Columns["specialP"].Index].Value =
-					dweller.GetP();
-				row.Cells[dgridDwellers.Columns["specialE"].Index].Value =
-					dweller.GetE();
-				row.Cells[dgridDwellers.Columns["specialC"].Index].Value =
-					dweller.GetC();
-				row.Cells[dgridDwellers.Columns["specialI"].Index].Value =
-					dweller.GetI();
-				row.Cells[dgridDwellers.Columns["specialA"].Index].Value =
-					dweller.GetA();
-				row.Cells[dgridDwellers.Columns["specialL"].Index].Value =
-					dweller.GetL();
-				row.Cells[dgridDwellers.Columns["dwellerID"].Index].Value =
-					dweller.GetId();
-				dgridDwellers.Rows.Add(row);
+				dwellerRows.Add((DataGridViewRow)dgridDwellers.Rows[0].Clone());
+				dwellerRows[i].Cells[dgridDwellers.Columns["firstName"].Index].Value = dwellerList[i].GetFirstName();
+				dwellerRows[i].Cells[dgridDwellers.Columns["lastName"].Index].Value =  dwellerList[i].GetLastName();
+				dwellerRows[i].Cells[dgridDwellers.Columns["level"].Index].Value =     dwellerList[i].GetLevel();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialS"].Index].Value =  dwellerList[i].GetS();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialP"].Index].Value =  dwellerList[i].GetP();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialE"].Index].Value =  dwellerList[i].GetE();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialC"].Index].Value =  dwellerList[i].GetC();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialI"].Index].Value =  dwellerList[i].GetI();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialA"].Index].Value =  dwellerList[i].GetA();
+				dwellerRows[i].Cells[dgridDwellers.Columns["specialL"].Index].Value =  dwellerList[i].GetL();
+				dwellerRows[i].Cells[dgridDwellers.Columns["dwellerID"].Index].Value = dwellerList[i].GetId();
 			}
+
+			foreach (var row in dwellerRows)
+				dgridDwellers.Rows.Add(row);
+
+			dgridDwellers.Refresh();
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			dgridDwellers.Rows.Add(new DataGridViewRow());
 		}
 	}
 }
