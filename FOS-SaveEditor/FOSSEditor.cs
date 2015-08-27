@@ -113,6 +113,8 @@ namespace FOS_SaveEditor
 			var newDwellerIds = new List<int>();
 			foreach (DataGridViewRow row in dgridDwellers.Rows)
 			{
+				if (row.Cells["dwellerID"].Value == null)
+					continue;
 				var id = Convert.ToInt32(row.Cells["dwellerID"].Value);
 				var listIndex = dwellerList.FindIndex(dId => dId.GetId().Equals(id));
 				dwellerList[listIndex].SetFirstName(row.Cells["firstName"].Value.ToString());
