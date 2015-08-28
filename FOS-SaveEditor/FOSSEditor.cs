@@ -104,7 +104,7 @@ namespace FOS_SaveEditor
 			if (dlgSaveJson.ShowDialog() != DialogResult.OK)
 				return;
 			WriteVaultData();
-			File.WriteAllText(dlgSaveJson.FileName, vaultData.VaultData.ToString(Formatting.None));
+			File.WriteAllText(dlgSaveJson.FileName, vaultData.VaultData.ToString(Formatting.Indented));
 		}
 
 		private void WriteVaultData()
