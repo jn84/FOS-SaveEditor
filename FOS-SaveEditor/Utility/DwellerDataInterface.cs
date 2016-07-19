@@ -57,7 +57,7 @@ namespace FOS_SaveEditor.Utility
 			return RawDwellerData["experience"]["currentLevel"].Value<int>();
 		}
 
-		public void SetLevel()
+		public void SetLevel(int newLevel)
 		{
 			// We need the formula for how level relates to experience
 		}

@@ -21,20 +21,9 @@ namespace FOS_SaveEditor.Utility
 			return VaultData["dwellers"]["dwellers"].Count();
 		}
 
-		public int GetNumberOfLunchBoxes()
+		public int GetNumberOfCaps()
 		{
-			Console.WriteLine(VaultData["vault"]["LunchBoxesByType"]);
-			return VaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 0);
-		}
-
-		public int GetNumberOfHandyBoxes()
-		{
-			return VaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 1);
-		}
-
-		public double GetNumberOfCaps()
-		{
-			return VaultData["vault"]["storage"]["resources"]["Nuka"].Value<double>();
+			return VaultData["vault"]["storage"]["resources"]["Nuka"].Value<int>();
 		}
 
 		public void SetNumberOfCaps(int caps)
@@ -62,14 +51,94 @@ namespace FOS_SaveEditor.Utility
 			VaultData["vault"]["storage"]["resources"]["RadAway"] = (double) rads;
 		}
 
-		public void SetLunchHandyBoxes(int lunch, int handy)
+        public int GetFood()
+        {
+            return VaultData["vault"]["storage"]["resources"]["Food"].Value<int>();
+        }
+
+        public void SetFood(int food)
+        {
+            VaultData["vault"]["storage"]["resources"]["Food"] = (double)food;
+        }
+        public int GetEnergy()
+        {
+            return VaultData["vault"]["storage"]["resources"]["Energy"].Value<int>();
+        }
+
+        public void SetEnergy(int energy)
+        {
+            VaultData["vault"]["storage"]["resources"]["Energy"] = (double)energy;
+        }
+        public int GetWater()
+        {
+            return VaultData["vault"]["storage"]["resources"]["Water"].Value<int>();
+        }
+
+        public void SetWater(int water)
+        {
+            VaultData["vault"]["storage"]["resources"]["Water"] = (double)water;
+        }
+
+        public int GetNumberOfNukaQuantums()
+        {
+            return VaultData["vault"]["storage"]["resources"]["NukaColaQuantum"].Value<int>();
+        }
+
+        public void SetNumberOfNukaQuantums(int quantums)
+        {
+            VaultData["vault"]["storage"]["resources"]["NukaColaQuantum"] = (double)quantums;
+        }
+
+        // Lunchbox Types
+
+        public int GetNumberOfPetCarriers()
+        {
+            return VaultData["vault"]["storage"]["resources"]["PetCarrier"].Value<int>();
+        }
+
+        public int GetNumberOfLunchBoxes()
+        {
+            Console.WriteLine(VaultData["vault"]["LunchBoxesByType"]);
+            return VaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 0);
+        }
+
+        public int GetNumberOfHandyBoxes()
+        {
+            return VaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 1);
+        }
+
+        public int GetNumberOfStarterBoxes()
+        {
+            return VaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 3);
+        }
+
+        public void SetLunchHandyBoxes(int lunch, int handy, int pet, int starter)
 		{
-			var newArr = new List<int>();
-			for (var i = 0; i < lunch; i++)
+            // Box Types:
+            //          : Normal  - 0
+            //          : Handy   - 1 
+            //          : Pet     - 2
+            //          : Starter - 3
+
+            VaultData["vault"]["storage"]["resources"]["Lunchbox"] = (double) lunch;
+            VaultData["vault"]["storage"]["resources"]["MrHandy"] = (double) handy;
+            VaultData["vault"]["storage"]["resources"]["PetCarrier"] = (double) pet;
+
+            var newArr = new List<int>();
+
+            for (var i = 0; i < lunch; i++)
 				newArr.Add(0);
-			for (var i = 0; i < handy; i++)
+
+            for (var i = 0; i < handy; i++)
 				newArr.Add(1);
-			VaultData["vault"]["LunchBoxesByType"] = new JArray(newArr);
+
+            for (var i = 0; i < pet; i++)
+                newArr.Add(2);
+
+            for (var i = 0; i < starter; i++)
+                newArr.Add(3);
+
+            VaultData["vault"]["LunchBoxesByType"] = new JArray(newArr);
 			VaultData["vault"]["LunchBoxesCount"] = newArr.Count;
 		}
 

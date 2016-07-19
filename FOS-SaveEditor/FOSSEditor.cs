@@ -78,6 +78,12 @@ namespace FOS_SaveEditor
 			numHandyBox.Enabled = true;
 			numStimpak.Enabled = true;
 			numRadaway.Enabled = true;
+            numudEnergy.Enabled = true;
+            numudFood.Enabled = true;
+            numudWater.Enabled = true;
+            numudPetCarriers.Enabled = true;
+            numudNukaQuantums.Enabled = true;
+		    numudStarterPacks.Enabled = true;
 			btnSaveEncrypted.Enabled = true;
 			btnSaveJson.Enabled = true;
 		}
@@ -120,23 +126,37 @@ namespace FOS_SaveEditor
 				dwellerList[listIndex].SetA(Convert.ToInt32(row.Cells["specialA"].Value));
 				dwellerList[listIndex].SetL(Convert.ToInt32(row.Cells["specialL"].Value));
 			}
-			vaultData.SetLunchHandyBoxes(Convert.ToInt32(numLunchBox.Text), Convert.ToInt32(numHandyBox.Text));
-			vaultData.SetNumberOfCaps(Convert.ToInt32(numCaps.Text));
-			vaultData.SetNumberOfStimPaks(Convert.ToInt32(numStimpak.Text));
-			vaultData.SetNumberOfRadaways(Convert.ToInt32(numRadaway.Text));
-		}
+            vaultData.SetLunchHandyBoxes(
+                (int)numLunchBox.Value,
+                (int)numHandyBox.Value,
+                (int)numudPetCarriers.Value,
+                (int)numudStarterPacks.Value);
+            vaultData.SetNumberOfCaps((int)numCaps.Value);
+			vaultData.SetNumberOfStimPaks((int)numStimpak.Value);
+			vaultData.SetNumberOfRadaways((int)numRadaway.Value);
+            vaultData.SetNumberOfNukaQuantums((int)numudNukaQuantums.Value);
+
+            vaultData.SetEnergy((int)numudEnergy.Value);
+            vaultData.SetFood((int)numudFood.Value);
+            vaultData.SetWater((int)numudWater.Value);
+        }
 
 		private void PopulateVaultData()
 		{
 			dgridDwellers.Rows.Clear();
 
-			numCaps.Text = vaultData.GetNumberOfCaps().ToString(CultureInfo.InvariantCulture);
-			numLunchBox.Text = vaultData.GetNumberOfLunchBoxes().ToString();
-			numHandyBox.Text = vaultData.GetNumberOfHandyBoxes().ToString();
-			numRadaway.Text = vaultData.GetNumberOfRadaways().ToString();
-			numStimpak.Text = vaultData.GetNumberOfStimpaks().ToString();
+            numCaps.Value = vaultData.GetNumberOfCaps();
+            numLunchBox.Value = vaultData.GetNumberOfLunchBoxes();
+            numHandyBox.Value = vaultData.GetNumberOfHandyBoxes();
+			numRadaway.Value = vaultData.GetNumberOfRadaways();
+			numStimpak.Value = vaultData.GetNumberOfStimpaks();
+            numudEnergy.Value = vaultData.GetEnergy();
+            numudFood.Value = vaultData.GetFood();
+            numudWater.Value = vaultData.GetWater();
+            numudPetCarriers.Value = vaultData.GetNumberOfPetCarriers();
+            numudNukaQuantums.Value = vaultData.GetNumberOfNukaQuantums();
 
-			dwellerList = 
+            dwellerList = 
 				vaultData.GetDwellers().Select(dweller => new DwellerDataInterface(dweller)).ToList();
 
 			List<DataGridViewRow> dwellerRows = new List<DataGridViewRow>();
@@ -160,9 +180,32 @@ namespace FOS_SaveEditor
 			dgridDwellers.Rows.AddRange(dwellerRows.ToArray());
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			dgridDwellers.Rows.Add(new DataGridViewRow());
-		}
-	}
+        /// <summary>
+        /// Activates when the max button is clicked in a dweller row
+        /// </summary>
+        private void dgridDwellers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            
+            // Shouldn't happen
+            if (row < 0 || row + 1 > dgridDwellers.Rows.Count)
+            {
+                Console.WriteLine("An error occurred in FOSSEditor.cs: CellContentClick\n"
+                                + "The row index is out of range.");
+                return;
+            }
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialS"].Index].Value = 10;
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialP"].Index].Value = 10;
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialE"].Index].Value = 10;
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialC"].Index].Value = 10;
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialI"].Index].Value = 10;
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialA"].Index].Value = 10;
+            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialL"].Index].Value = 10;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
