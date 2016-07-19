@@ -23,11 +23,17 @@ namespace FOS_SaveEditor
         {
             dlgLoadSave.Multiselect = false;
             dlgLoadSave.CheckFileExists = true;
-            dlgLoadSave.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\Fallout Shelter";
 
-            dlgSave.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\Fallout Shelter";
+            String dir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\Fallout Shelter";
 
-            dlgSaveJson.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\Fallout Shelter";
+            if (Directory.Exists(dir))
+            {
+                dlgLoadSave.InitialDirectory = dir;
+
+                dlgSave.InitialDirectory = dir;
+
+                dlgSaveJson.InitialDirectory = dir;
+            }
         }
 
         private void btnLoadSave_Click(object sender, EventArgs e)
