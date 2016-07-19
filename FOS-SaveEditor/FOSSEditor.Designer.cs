@@ -32,6 +32,8 @@
             this.dlgLoadSave = new System.Windows.Forms.OpenFileDialog();
             this.dgridDwellers = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numudPetCarriers = new System.Windows.Forms.NumericUpDown();
+            this.lblPetCarriers = new System.Windows.Forms.Label();
             this.lblRadaway = new System.Windows.Forms.Label();
             this.lblStimpak = new System.Windows.Forms.Label();
             this.lblHandyBox = new System.Windows.Forms.Label();
@@ -49,21 +51,23 @@
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.dlgSaveJson = new System.Windows.Forms.SaveFileDialog();
             this.grpVaultResources = new System.Windows.Forms.GroupBox();
-            this.lblElectricity = new System.Windows.Forms.Label();
-            this.lblFood = new System.Windows.Forms.Label();
-            this.lblWater = new System.Windows.Forms.Label();
-            this.lblPetCarriers = new System.Windows.Forms.Label();
-            this.numudPetCarriers = new System.Windows.Forms.NumericUpDown();
+            this.lblMaxWater = new System.Windows.Forms.Label();
+            this.lblMaxFood = new System.Windows.Forms.Label();
+            this.lblMaxElectricity = new System.Windows.Forms.Label();
+            this.lblMax3 = new System.Windows.Forms.Label();
+            this.lblMax2 = new System.Windows.Forms.Label();
+            this.lblMax1 = new System.Windows.Forms.Label();
             this.numudWater = new System.Windows.Forms.NumericUpDown();
             this.numudFood = new System.Windows.Forms.NumericUpDown();
             this.numudEnergy = new System.Windows.Forms.NumericUpDown();
-            this.lblMax1 = new System.Windows.Forms.Label();
-            this.lblMax2 = new System.Windows.Forms.Label();
-            this.lblMax3 = new System.Windows.Forms.Label();
+            this.lblWater = new System.Windows.Forms.Label();
+            this.lblFood = new System.Windows.Forms.Label();
+            this.lblElectricity = new System.Windows.Forms.Label();
             this.grpCraftedItems = new System.Windows.Forms.GroupBox();
-            this.lblMaxElectricity = new System.Windows.Forms.Label();
-            this.lblMaxFood = new System.Windows.Forms.Label();
-            this.lblMaxWater = new System.Windows.Forms.Label();
+            this.numudStarterPacks = new System.Windows.Forms.NumericUpDown();
+            this.numudNukaQuantums = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblNukaQuantums = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,12 +80,10 @@
             this.specialL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dwellerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaxBtn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.numudNukaQuantums = new System.Windows.Forms.NumericUpDown();
-            this.lblNukaQuantums = new System.Windows.Forms.Label();
-            this.numudStarterPacks = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.colEditEquipment = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numudPetCarriers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRadaway)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStimpak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHandyBox)).BeginInit();
@@ -89,13 +91,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCaps)).BeginInit();
             this.grpDwellers.SuspendLayout();
             this.grpVaultResources.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudPetCarriers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudWater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudEnergy)).BeginInit();
             this.grpCraftedItems.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudNukaQuantums)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudStarterPacks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numudNukaQuantums)).BeginInit();
             this.SuspendLayout();
             // 
             // dlgLoadSave
@@ -117,7 +118,8 @@
             this.specialA,
             this.specialL,
             this.dwellerID,
-            this.colMaxBtn});
+            this.colMaxBtn,
+            this.colEditEquipment});
             this.dgridDwellers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgridDwellers.Enabled = false;
             this.dgridDwellers.Location = new System.Drawing.Point(3, 16);
@@ -146,6 +148,28 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vault Assets";
+            // 
+            // numudPetCarriers
+            // 
+            this.numudPetCarriers.Enabled = false;
+            this.numudPetCarriers.Location = new System.Drawing.Point(115, 99);
+            this.numudPetCarriers.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numudPetCarriers.Name = "numudPetCarriers";
+            this.numudPetCarriers.Size = new System.Drawing.Size(120, 20);
+            this.numudPetCarriers.TabIndex = 11;
+            // 
+            // lblPetCarriers
+            // 
+            this.lblPetCarriers.AutoSize = true;
+            this.lblPetCarriers.Location = new System.Drawing.Point(6, 101);
+            this.lblPetCarriers.Name = "lblPetCarriers";
+            this.lblPetCarriers.Size = new System.Drawing.Size(61, 13);
+            this.lblPetCarriers.TabIndex = 10;
+            this.lblPetCarriers.Text = "Pet Carriers";
             // 
             // lblRadaway
             // 
@@ -328,54 +352,59 @@
             this.grpVaultResources.TabStop = false;
             this.grpVaultResources.Text = "Vault Resources";
             // 
-            // lblElectricity
+            // lblMaxWater
             // 
-            this.lblElectricity.AutoSize = true;
-            this.lblElectricity.Location = new System.Drawing.Point(6, 21);
-            this.lblElectricity.Name = "lblElectricity";
-            this.lblElectricity.Size = new System.Drawing.Size(52, 13);
-            this.lblElectricity.TabIndex = 0;
-            this.lblElectricity.Text = "Electricity";
+            this.lblMaxWater.AutoSize = true;
+            this.lblMaxWater.Location = new System.Drawing.Point(159, 77);
+            this.lblMaxWater.Name = "lblMaxWater";
+            this.lblMaxWater.Size = new System.Drawing.Size(13, 13);
+            this.lblMaxWater.TabIndex = 11;
+            this.lblMaxWater.Text = "0";
             // 
-            // lblFood
+            // lblMaxFood
             // 
-            this.lblFood.AutoSize = true;
-            this.lblFood.Location = new System.Drawing.Point(6, 48);
-            this.lblFood.Name = "lblFood";
-            this.lblFood.Size = new System.Drawing.Size(31, 13);
-            this.lblFood.TabIndex = 1;
-            this.lblFood.Text = "Food";
+            this.lblMaxFood.AutoSize = true;
+            this.lblMaxFood.Location = new System.Drawing.Point(159, 50);
+            this.lblMaxFood.Name = "lblMaxFood";
+            this.lblMaxFood.Size = new System.Drawing.Size(13, 13);
+            this.lblMaxFood.TabIndex = 10;
+            this.lblMaxFood.Text = "0";
             // 
-            // lblWater
+            // lblMaxElectricity
             // 
-            this.lblWater.AutoSize = true;
-            this.lblWater.Location = new System.Drawing.Point(6, 75);
-            this.lblWater.Name = "lblWater";
-            this.lblWater.Size = new System.Drawing.Size(36, 13);
-            this.lblWater.TabIndex = 2;
-            this.lblWater.Text = "Water";
+            this.lblMaxElectricity.AutoSize = true;
+            this.lblMaxElectricity.Location = new System.Drawing.Point(159, 23);
+            this.lblMaxElectricity.Name = "lblMaxElectricity";
+            this.lblMaxElectricity.Size = new System.Drawing.Size(13, 13);
+            this.lblMaxElectricity.TabIndex = 9;
+            this.lblMaxElectricity.Text = "0";
             // 
-            // lblPetCarriers
+            // lblMax3
             // 
-            this.lblPetCarriers.AutoSize = true;
-            this.lblPetCarriers.Location = new System.Drawing.Point(6, 101);
-            this.lblPetCarriers.Name = "lblPetCarriers";
-            this.lblPetCarriers.Size = new System.Drawing.Size(61, 13);
-            this.lblPetCarriers.TabIndex = 10;
-            this.lblPetCarriers.Text = "Pet Carriers";
+            this.lblMax3.AutoSize = true;
+            this.lblMax3.Location = new System.Drawing.Point(129, 77);
+            this.lblMax3.Name = "lblMax3";
+            this.lblMax3.Size = new System.Drawing.Size(30, 13);
+            this.lblMax3.TabIndex = 8;
+            this.lblMax3.Text = "Max:";
             // 
-            // numudPetCarriers
+            // lblMax2
             // 
-            this.numudPetCarriers.Enabled = false;
-            this.numudPetCarriers.Location = new System.Drawing.Point(115, 99);
-            this.numudPetCarriers.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numudPetCarriers.Name = "numudPetCarriers";
-            this.numudPetCarriers.Size = new System.Drawing.Size(120, 20);
-            this.numudPetCarriers.TabIndex = 11;
+            this.lblMax2.AutoSize = true;
+            this.lblMax2.Location = new System.Drawing.Point(129, 50);
+            this.lblMax2.Name = "lblMax2";
+            this.lblMax2.Size = new System.Drawing.Size(30, 13);
+            this.lblMax2.TabIndex = 7;
+            this.lblMax2.Text = "Max:";
+            // 
+            // lblMax1
+            // 
+            this.lblMax1.AutoSize = true;
+            this.lblMax1.Location = new System.Drawing.Point(129, 23);
+            this.lblMax1.Name = "lblMax1";
+            this.lblMax1.Size = new System.Drawing.Size(30, 13);
+            this.lblMax1.TabIndex = 6;
+            this.lblMax1.Text = "Max:";
             // 
             // numudWater
             // 
@@ -416,32 +445,32 @@
             this.numudEnergy.Size = new System.Drawing.Size(59, 20);
             this.numudEnergy.TabIndex = 3;
             // 
-            // lblMax1
+            // lblWater
             // 
-            this.lblMax1.AutoSize = true;
-            this.lblMax1.Location = new System.Drawing.Point(129, 23);
-            this.lblMax1.Name = "lblMax1";
-            this.lblMax1.Size = new System.Drawing.Size(30, 13);
-            this.lblMax1.TabIndex = 6;
-            this.lblMax1.Text = "Max:";
+            this.lblWater.AutoSize = true;
+            this.lblWater.Location = new System.Drawing.Point(6, 75);
+            this.lblWater.Name = "lblWater";
+            this.lblWater.Size = new System.Drawing.Size(36, 13);
+            this.lblWater.TabIndex = 2;
+            this.lblWater.Text = "Water";
             // 
-            // lblMax2
+            // lblFood
             // 
-            this.lblMax2.AutoSize = true;
-            this.lblMax2.Location = new System.Drawing.Point(129, 50);
-            this.lblMax2.Name = "lblMax2";
-            this.lblMax2.Size = new System.Drawing.Size(30, 13);
-            this.lblMax2.TabIndex = 7;
-            this.lblMax2.Text = "Max:";
+            this.lblFood.AutoSize = true;
+            this.lblFood.Location = new System.Drawing.Point(6, 48);
+            this.lblFood.Name = "lblFood";
+            this.lblFood.Size = new System.Drawing.Size(31, 13);
+            this.lblFood.TabIndex = 1;
+            this.lblFood.Text = "Food";
             // 
-            // lblMax3
+            // lblElectricity
             // 
-            this.lblMax3.AutoSize = true;
-            this.lblMax3.Location = new System.Drawing.Point(129, 77);
-            this.lblMax3.Name = "lblMax3";
-            this.lblMax3.Size = new System.Drawing.Size(30, 13);
-            this.lblMax3.TabIndex = 8;
-            this.lblMax3.Text = "Max:";
+            this.lblElectricity.AutoSize = true;
+            this.lblElectricity.Location = new System.Drawing.Point(6, 21);
+            this.lblElectricity.Name = "lblElectricity";
+            this.lblElectricity.Size = new System.Drawing.Size(52, 13);
+            this.lblElectricity.TabIndex = 0;
+            this.lblElectricity.Text = "Electricity";
             // 
             // grpCraftedItems
             // 
@@ -456,32 +485,50 @@
             this.grpCraftedItems.TabStop = false;
             this.grpCraftedItems.Text = "Crafted Items";
             // 
-            // lblMaxElectricity
+            // numudStarterPacks
             // 
-            this.lblMaxElectricity.AutoSize = true;
-            this.lblMaxElectricity.Location = new System.Drawing.Point(159, 23);
-            this.lblMaxElectricity.Name = "lblMaxElectricity";
-            this.lblMaxElectricity.Size = new System.Drawing.Size(13, 13);
-            this.lblMaxElectricity.TabIndex = 9;
-            this.lblMaxElectricity.Text = "0";
+            this.numudStarterPacks.Enabled = false;
+            this.numudStarterPacks.Location = new System.Drawing.Point(105, 46);
+            this.numudStarterPacks.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.numudStarterPacks.Name = "numudStarterPacks";
+            this.numudStarterPacks.Size = new System.Drawing.Size(93, 20);
+            this.numudStarterPacks.TabIndex = 16;
             // 
-            // lblMaxFood
+            // numudNukaQuantums
             // 
-            this.lblMaxFood.AutoSize = true;
-            this.lblMaxFood.Location = new System.Drawing.Point(159, 50);
-            this.lblMaxFood.Name = "lblMaxFood";
-            this.lblMaxFood.Size = new System.Drawing.Size(13, 13);
-            this.lblMaxFood.TabIndex = 10;
-            this.lblMaxFood.Text = "0";
+            this.numudNukaQuantums.Enabled = false;
+            this.numudNukaQuantums.Location = new System.Drawing.Point(105, 19);
+            this.numudNukaQuantums.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.numudNukaQuantums.Name = "numudNukaQuantums";
+            this.numudNukaQuantums.Size = new System.Drawing.Size(93, 20);
+            this.numudNukaQuantums.TabIndex = 14;
             // 
-            // lblMaxWater
+            // label1
             // 
-            this.lblMaxWater.AutoSize = true;
-            this.lblMaxWater.Location = new System.Drawing.Point(159, 77);
-            this.lblMaxWater.Name = "lblMaxWater";
-            this.lblMaxWater.Size = new System.Drawing.Size(13, 13);
-            this.lblMaxWater.TabIndex = 11;
-            this.lblMaxWater.Text = "0";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Starter Packs";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblNukaQuantums
+            // 
+            this.lblNukaQuantums.AutoSize = true;
+            this.lblNukaQuantums.Location = new System.Drawing.Point(6, 21);
+            this.lblNukaQuantums.Name = "lblNukaQuantums";
+            this.lblNukaQuantums.Size = new System.Drawing.Size(84, 13);
+            this.lblNukaQuantums.TabIndex = 13;
+            this.lblNukaQuantums.Text = "Nuka Quantums";
             // 
             // firstName
             // 
@@ -495,14 +542,14 @@
             this.lastName.HeaderText = "Last Name";
             this.lastName.Name = "lastName";
             this.lastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.lastName.Width = 120;
+            this.lastName.Width = 90;
             // 
             // level
             // 
             this.level.HeaderText = "Level";
             this.level.Name = "level";
             this.level.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.level.Width = 50;
+            this.level.Width = 40;
             // 
             // specialS
             // 
@@ -568,50 +615,10 @@
             this.colMaxBtn.Text = "Max";
             this.colMaxBtn.ToolTipText = "Set all SPECIAL to maximum";
             // 
-            // numudNukaQuantums
+            // colEditEquipment
             // 
-            this.numudNukaQuantums.Enabled = false;
-            this.numudNukaQuantums.Location = new System.Drawing.Point(105, 19);
-            this.numudNukaQuantums.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.numudNukaQuantums.Name = "numudNukaQuantums";
-            this.numudNukaQuantums.Size = new System.Drawing.Size(93, 20);
-            this.numudNukaQuantums.TabIndex = 14;
-            // 
-            // lblNukaQuantums
-            // 
-            this.lblNukaQuantums.AutoSize = true;
-            this.lblNukaQuantums.Location = new System.Drawing.Point(6, 21);
-            this.lblNukaQuantums.Name = "lblNukaQuantums";
-            this.lblNukaQuantums.Size = new System.Drawing.Size(84, 13);
-            this.lblNukaQuantums.TabIndex = 13;
-            this.lblNukaQuantums.Text = "Nuka Quantums";
-            // 
-            // numudStarterPacks
-            // 
-            this.numudStarterPacks.Enabled = false;
-            this.numudStarterPacks.Location = new System.Drawing.Point(105, 46);
-            this.numudStarterPacks.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.numudStarterPacks.Name = "numudStarterPacks";
-            this.numudStarterPacks.Size = new System.Drawing.Size(93, 20);
-            this.numudStarterPacks.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Starter Packs";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.colEditEquipment.HeaderText = "Equipment";
+            this.colEditEquipment.Name = "colEditEquipment";
             // 
             // FOSSEditor
             // 
@@ -633,6 +640,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numudPetCarriers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRadaway)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStimpak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHandyBox)).EndInit();
@@ -641,14 +649,13 @@
             this.grpDwellers.ResumeLayout(false);
             this.grpVaultResources.ResumeLayout(false);
             this.grpVaultResources.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudPetCarriers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudWater)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudEnergy)).EndInit();
             this.grpCraftedItems.ResumeLayout(false);
             this.grpCraftedItems.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudNukaQuantums)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numudStarterPacks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numudNukaQuantums)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -689,6 +696,10 @@
         private System.Windows.Forms.NumericUpDown numudFood;
         private System.Windows.Forms.NumericUpDown numudEnergy;
         private System.Windows.Forms.GroupBox grpCraftedItems;
+        private System.Windows.Forms.NumericUpDown numudNukaQuantums;
+        private System.Windows.Forms.Label lblNukaQuantums;
+        private System.Windows.Forms.NumericUpDown numudStarterPacks;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn level;
@@ -701,10 +712,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn specialL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dwellerID;
         private System.Windows.Forms.DataGridViewButtonColumn colMaxBtn;
-        private System.Windows.Forms.NumericUpDown numudNukaQuantums;
-        private System.Windows.Forms.Label lblNukaQuantums;
-        private System.Windows.Forms.NumericUpDown numudStarterPacks;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewButtonColumn colEditEquipment;
     }
 }
 
