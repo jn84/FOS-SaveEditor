@@ -120,6 +120,12 @@
     <Content Include="fosicon.ico" />
     <Content Include="Resources\fosicon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="UserControls\MAC_Slider_C_Sharp_src\MACTrackBarLib\MACTrackBarLib.csproj">
+      <Project>{77a112b1-5440-440b-a0f6-2edcc5b093cb}</Project>
+      <Name>MACTrackBarLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

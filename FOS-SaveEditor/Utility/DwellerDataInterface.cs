@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FOS_SaveEditor.Utility
 {
-	class DwellerDataInterface
+	public class DwellerDataInterface
 	{
 		public JToken RawDwellerData { get; }
 

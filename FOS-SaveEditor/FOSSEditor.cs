@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace FOS_SaveEditor
     {
         private string _qualifiedFilename;
         private List<DwellerDataInterface> dwellerList;
+        private BindingList<DwellerDataInterface> bindingDwellerList;
+        private BindingSource dwellerListBindingSource; 
         private VaultDataInterface vaultData;
 
         public FOSSEditor()
@@ -25,7 +28,7 @@ namespace FOS_SaveEditor
             dlgLoadSave.Multiselect = false;
             dlgLoadSave.CheckFileExists = true;
 
-            String dir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\Fallout Shelter";
+            var dir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\Fallout Shelter";
 
             if (Directory.Exists(dir))
             {
@@ -39,9 +42,6 @@ namespace FOS_SaveEditor
 
         private void btnLoadSave_Click(object sender, EventArgs e)
         {
-            string inputFile;
-            string workingData;
-
             // Pick the file
             dlgLoadSave.ShowDialog();
             if (dlgLoadSave.SafeFileName == null || dlgLoadSave.SafeFileName.Equals(""))
@@ -51,8 +51,8 @@ namespace FOS_SaveEditor
 
             // Determine whether or not it is encrypted (done automatically by decryption method)
             // Decrypt if neccessary
-            inputFile = File.ReadAllText(dlgLoadSave.FileName);
-            workingData = CryptoHandler.GetDecryptedSave(inputFile);
+            var inputFile = File.ReadAllText(dlgLoadSave.FileName);
+            var workingData = CryptoHandler.GetDecryptedSave(inputFile);
 
             // Determine if the file is a valid fallout shelter save
             try
@@ -162,7 +162,13 @@ namespace FOS_SaveEditor
             numudNukaQuantums.Value = vaultData.GetNumberOfNukaQuantums();
 
             dwellerList =
-                vaultData.GetDwellers().Select(dweller => new DwellerDataInterface(dweller)).ToList();
+                vaultData.GetDwellers().
+                Select(dweller => new DwellerDataInterface(dweller)).ToList();
+
+            bindingDwellerList = new BindingList<DwellerDataInterface>(dwellerList);
+            dwellerListBindingSource = new BindingSource(bindingDwellerList, null);
+
+            dgridDwellers.DataSource = dwellerListBindingSource;
 
             var dwellerRows = new List<DataGridViewRow>();
 
@@ -193,6 +199,7 @@ namespace FOS_SaveEditor
         private void dgridDwellers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
+            var col = e.ColumnIndex;
 
             // Shouldn't happen
             if (row < 0 || row + 1 > dgridDwellers.Rows.Count)
@@ -201,23 +208,61 @@ namespace FOS_SaveEditor
                                   + "The row index is out of range.");
                 return;
             }
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialS"].Index].Value = 10;
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialP"].Index].Value = 10;
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialE"].Index].Value = 10;
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialC"].Index].Value = 10;
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialI"].Index].Value = 10;
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialA"].Index].Value = 10;
-            dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialL"].Index].Value = 10;
+
+
+            var dataGridViewColumn = dgridDwellers.Columns["colMaxBtn"];
+            if (dataGridViewColumn != null && dataGridViewColumn.Index.Equals(col))
+            {
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialS"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialP"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialE"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialC"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialI"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialA"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialL"].Index].Value = 10;
+                return;
+            }
+
+            var gridViewColumn = dgridDwellers.Columns["colEditEquipment"];
+            if (gridViewColumn != null && gridViewColumn.Index.Equals(col))
+            {
+                
+            }
         }
 
+
+        private void dgridDwellers_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void UpdateDwellerRow(int index)
+        {
+            dwellerRows[index].Cells[dgridDwellers.Columns["firstName"].Index].Value = dwellerList[index].GetFirstName();
+            dwellerRows[index].Cells[dgridDwellers.Columns["lastName"].Index].Value = dwellerList[index].GetLastName();
+            dwellerRows[index].Cells[dgridDwellers.Columns["level"].Index].Value = dwellerList[index].GetLevel();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialS"].Index].Value = dwellerList[index].GetS();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialP"].Index].Value = dwellerList[index].GetP();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialE"].Index].Value = dwellerList[index].GetE();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialC"].Index].Value = dwellerList[index].GetC();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialI"].Index].Value = dwellerList[index].GetI();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialA"].Index].Value = dwellerList[index].GetA();
+            dwellerRows[index].Cells[dgridDwellers.Columns["specialL"].Index].Value = dwellerList[index].GetL();
+            dwellerRows[index].Cells[dgridDwellers.Columns["dwellerID"].Index].Value = dwellerList[index].GetId();
+        }
+
+        public int GetDwellerIndexByID(int id)
+        {
+
+            return 0;
+        }
+
+
+
+
+        // Clean up
         private void label1_Click(object sender, EventArgs e)
         {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var form = new formDwellerEdit();
-            form.Show();
         }
     }
 }

@@ -81,7 +81,6 @@
             this.numudNukaQuantums = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNukaQuantums = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numudPetCarriers)).BeginInit();
@@ -128,6 +127,7 @@
             this.dgridDwellers.Size = new System.Drawing.Size(670, 258);
             this.dgridDwellers.TabIndex = 1;
             this.dgridDwellers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDwellers_CellContentClick);
+            this.dgridDwellers.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDwellers_CellValueChanged);
             // 
             // firstName
             // 
@@ -621,22 +621,11 @@
             this.lblNukaQuantums.TabIndex = 13;
             this.lblNukaQuantums.Text = "Nuka Quantums";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(530, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FOSSEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 480);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.grpCraftedItems);
             this.Controls.Add(this.grpVaultResources);
             this.Controls.Add(this.btnSaveJson);
@@ -725,7 +714,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dwellerID;
         private System.Windows.Forms.DataGridViewButtonColumn colMaxBtn;
         private System.Windows.Forms.DataGridViewButtonColumn colEditEquipment;
-        private System.Windows.Forms.Button button1;
     }
 }
 
