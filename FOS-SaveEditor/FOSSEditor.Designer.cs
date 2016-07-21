@@ -31,6 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FOSSEditor));
             this.dlgLoadSave = new System.Windows.Forms.OpenFileDialog();
             this.dgridDwellers = new System.Windows.Forms.DataGridView();
+            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dwellerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaxBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colEditEquipment = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numudPetCarriers = new System.Windows.Forms.NumericUpDown();
             this.lblPetCarriers = new System.Windows.Forms.Label();
@@ -68,19 +81,7 @@
             this.numudNukaQuantums = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNukaQuantums = new System.Windows.Forms.Label();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dwellerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaxBtn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colEditEquipment = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgridDwellers)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numudPetCarriers)).BeginInit();
@@ -127,6 +128,96 @@
             this.dgridDwellers.Size = new System.Drawing.Size(670, 258);
             this.dgridDwellers.TabIndex = 1;
             this.dgridDwellers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDwellers_CellContentClick);
+            // 
+            // firstName
+            // 
+            this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.firstName.HeaderText = "First Name";
+            this.firstName.Name = "firstName";
+            this.firstName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // lastName
+            // 
+            this.lastName.HeaderText = "Last Name";
+            this.lastName.Name = "lastName";
+            this.lastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.lastName.Width = 90;
+            // 
+            // level
+            // 
+            this.level.HeaderText = "Level";
+            this.level.Name = "level";
+            this.level.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.level.Width = 40;
+            // 
+            // specialS
+            // 
+            this.specialS.HeaderText = "S";
+            this.specialS.Name = "specialS";
+            this.specialS.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialS.Width = 30;
+            // 
+            // specialP
+            // 
+            this.specialP.HeaderText = "P";
+            this.specialP.Name = "specialP";
+            this.specialP.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialP.Width = 30;
+            // 
+            // specialE
+            // 
+            this.specialE.HeaderText = "E";
+            this.specialE.Name = "specialE";
+            this.specialE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialE.Width = 30;
+            // 
+            // specialC
+            // 
+            this.specialC.HeaderText = "C";
+            this.specialC.Name = "specialC";
+            this.specialC.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialC.Width = 30;
+            // 
+            // specialI
+            // 
+            this.specialI.HeaderText = "I";
+            this.specialI.Name = "specialI";
+            this.specialI.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialI.Width = 30;
+            // 
+            // specialA
+            // 
+            this.specialA.HeaderText = "A";
+            this.specialA.Name = "specialA";
+            this.specialA.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialA.Width = 30;
+            // 
+            // specialL
+            // 
+            this.specialL.HeaderText = "L";
+            this.specialL.Name = "specialL";
+            this.specialL.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.specialL.Width = 30;
+            // 
+            // dwellerID
+            // 
+            this.dwellerID.HeaderText = "ID";
+            this.dwellerID.Name = "dwellerID";
+            this.dwellerID.ReadOnly = true;
+            this.dwellerID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dwellerID.Visible = false;
+            // 
+            // colMaxBtn
+            // 
+            this.colMaxBtn.HeaderText = "Max Stats";
+            this.colMaxBtn.Name = "colMaxBtn";
+            this.colMaxBtn.Text = "Max";
+            this.colMaxBtn.ToolTipText = "Set all SPECIAL to maximum";
+            // 
+            // colEditEquipment
+            // 
+            this.colEditEquipment.HeaderText = "Equipment";
+            this.colEditEquipment.Name = "colEditEquipment";
             // 
             // groupBox1
             // 
@@ -530,101 +621,22 @@
             this.lblNukaQuantums.TabIndex = 13;
             this.lblNukaQuantums.Text = "Nuka Quantums";
             // 
-            // firstName
+            // button1
             // 
-            this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.firstName.HeaderText = "First Name";
-            this.firstName.Name = "firstName";
-            this.firstName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // lastName
-            // 
-            this.lastName.HeaderText = "Last Name";
-            this.lastName.Name = "lastName";
-            this.lastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.lastName.Width = 90;
-            // 
-            // level
-            // 
-            this.level.HeaderText = "Level";
-            this.level.Name = "level";
-            this.level.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.level.Width = 40;
-            // 
-            // specialS
-            // 
-            this.specialS.HeaderText = "S";
-            this.specialS.Name = "specialS";
-            this.specialS.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialS.Width = 30;
-            // 
-            // specialP
-            // 
-            this.specialP.HeaderText = "P";
-            this.specialP.Name = "specialP";
-            this.specialP.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialP.Width = 30;
-            // 
-            // specialE
-            // 
-            this.specialE.HeaderText = "E";
-            this.specialE.Name = "specialE";
-            this.specialE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialE.Width = 30;
-            // 
-            // specialC
-            // 
-            this.specialC.HeaderText = "C";
-            this.specialC.Name = "specialC";
-            this.specialC.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialC.Width = 30;
-            // 
-            // specialI
-            // 
-            this.specialI.HeaderText = "I";
-            this.specialI.Name = "specialI";
-            this.specialI.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialI.Width = 30;
-            // 
-            // specialA
-            // 
-            this.specialA.HeaderText = "A";
-            this.specialA.Name = "specialA";
-            this.specialA.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialA.Width = 30;
-            // 
-            // specialL
-            // 
-            this.specialL.HeaderText = "L";
-            this.specialL.Name = "specialL";
-            this.specialL.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.specialL.Width = 30;
-            // 
-            // dwellerID
-            // 
-            this.dwellerID.HeaderText = "ID";
-            this.dwellerID.Name = "dwellerID";
-            this.dwellerID.ReadOnly = true;
-            this.dwellerID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dwellerID.Visible = false;
-            // 
-            // colMaxBtn
-            // 
-            this.colMaxBtn.HeaderText = "Max Stats";
-            this.colMaxBtn.Name = "colMaxBtn";
-            this.colMaxBtn.Text = "Max";
-            this.colMaxBtn.ToolTipText = "Set all SPECIAL to maximum";
-            // 
-            // colEditEquipment
-            // 
-            this.colEditEquipment.HeaderText = "Equipment";
-            this.colEditEquipment.Name = "colEditEquipment";
+            this.button1.Location = new System.Drawing.Point(530, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FOSSEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 480);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.grpCraftedItems);
             this.Controls.Add(this.grpVaultResources);
             this.Controls.Add(this.btnSaveJson);
@@ -713,6 +725,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dwellerID;
         private System.Windows.Forms.DataGridViewButtonColumn colMaxBtn;
         private System.Windows.Forms.DataGridViewButtonColumn colEditEquipment;
+        private System.Windows.Forms.Button button1;
     }
 }
 

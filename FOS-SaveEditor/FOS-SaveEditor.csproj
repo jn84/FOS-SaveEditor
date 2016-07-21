@@ -72,29 +72,11 @@
     <Compile Include="GameDataIDs\Weapons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\LoadVault.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UserControls\DwellerEdit.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControls\LoadVault.Designer.cs">
-      <DependentUpon>LoadVault.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\OverallNumbers.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\OverallNumbers.Designer.cs">
-      <DependentUpon>OverallNumbers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\VaultLayout.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\VaultLayout.Designer.cs">
-      <DependentUpon>VaultLayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\VaultLayoutNumbers.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\VaultLayoutNumbers.Designer.cs">
-      <DependentUpon>VaultLayoutNumbers.cs</DependentUpon>
+    <Compile Include="UserControls\DwellerEdit.Designer.cs">
+      <DependentUpon>DwellerEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\CryptoHandler.cs" />
     <Compile Include="Utility\DwellerDataInterface.cs" />
@@ -113,8 +95,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\VaultLayout.resx">
-      <DependentUpon>VaultLayout.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\DwellerEdit.resx">
+      <DependentUpon>DwellerEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GameDataIDs\csv_dwellers.csv" />
     <None Include="GameDataIDs\csv_outfits.csv" />
@@ -134,7 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fosicon.ico" />
     <Content Include="Resources\fosicon.ico" />

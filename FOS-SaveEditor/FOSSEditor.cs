@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using FOS_SaveEditor.UserControls;
 using FOS_SaveEditor.Utility;
 using Newtonsoft.Json;
 
@@ -211,6 +212,12 @@ namespace FOS_SaveEditor
 
         private void label1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = new formDwellerEdit();
+            form.Show();
         }
     }
 }
