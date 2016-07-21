@@ -7,9 +7,90 @@ namespace FOS_SaveEditor.Utility
 	{
 		public JToken RawDwellerData { get; }
 
-		private DwellerDataInterface() { }
+        // Properties for DataSource mapping
 
-		public DwellerDataInterface(JToken dData)
+	    // ReSharper disable once InconsistentNaming
+	    public int DwellerID
+	    {
+	        get { return RawDwellerData["serializeId"].Value<int>(); }
+	        // ReSharper disable once ValueParameterNotUsed
+            set {  }
+	    }
+
+	    public string DwellerFirstName 
+	    {
+            get { return RawDwellerData["name"].Value<string>(); }
+            set { RawDwellerData["name"] = value; }
+	    }
+
+        public string DwellerLastName
+        {
+            get { return RawDwellerData["lastName"].Value<string>(); }
+            set { RawDwellerData["lastName"] = value; }
+        }
+
+	    public char DwellerGender
+	    {
+	        get { return RawDwellerData["gender"].Value<int>().Equals(1) ? 'F' : 'M'; }
+	        set
+	        {
+                if (value.Equals('M'))
+                    RawDwellerData["gender"] = 2;
+                else if (value.Equals('F'))
+                    RawDwellerData["gender"] = 1;
+            }
+	    }
+
+	    public int DwellerLevel
+	    {
+	        get { return RawDwellerData["experience"]["currentLevel"].Value<int>(); }
+	        // ReSharper disable once ValueParameterNotUsed
+            set { }
+	    }
+
+	    public int DwellerStatS
+	    {
+	        get { return RawDwellerData["stats"]["stats"][1]["value"].Value<int>(); }
+            set { SetSpecial(value, 1); }
+	    }
+
+        public int DwellerStatP
+        {
+            get { return RawDwellerData["stats"]["stats"][2]["value"].Value<int>(); }
+            set { SetSpecial(value, 2); }
+        }
+
+        public int DwellerStatE
+        {
+            get { return RawDwellerData["stats"]["stats"][3]["value"].Value<int>(); }
+            set { SetSpecial(value, 3); }
+        }
+
+        public int DwellerStatC
+        {
+            get { return RawDwellerData["stats"]["stats"][4]["value"].Value<int>(); }
+            set { SetSpecial(value, 4); }
+        }
+
+        public int DwellerStatI
+        {
+            get { return RawDwellerData["stats"]["stats"][5]["value"].Value<int>(); }
+            set { SetSpecial(value, 5); }
+        }
+
+        public int DwellerStatA
+        {
+            get { return RawDwellerData["stats"]["stats"][6]["value"].Value<int>(); }
+            set { SetSpecial(value, 6); }
+        }
+
+        public int DwellerStatL
+        {
+            get { return RawDwellerData["stats"]["stats"][7]["value"].Value<int>(); }
+            set { SetSpecial(value, 7); }
+        }
+
+        public DwellerDataInterface(JToken dData)
 		{
 			RawDwellerData = dData;
 		}
@@ -68,85 +149,86 @@ namespace FOS_SaveEditor.Utility
 		// 600*(n^3-n) where n = stat level
 
 
-		public int GetS()
-		{
-			return RawDwellerData["stats"]["stats"][1]["value"].Value<int>();
-		}
+		//public int GetS()
+		//{
+		//	return RawDwellerData["stats"]["stats"][1]["value"].Value<int>();
+		//}
 
-		public void SetS(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 1);
-		}
+		//public void SetS(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 1);
+		//}
 
-		public int GetP()
-		{
-			return RawDwellerData["stats"]["stats"][2]["value"].Value<int>();
-		}
+		//public int GetP()
+		//{
+		//	return RawDwellerData["stats"]["stats"][2]["value"].Value<int>();
+		//}
 
-		public void SetP(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 2);
-		}
+		//public void SetP(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 2);
+		//}
 
-		public int GetE()
-		{
-			return RawDwellerData["stats"]["stats"][3]["value"].Value<int>();
-		}
+		//public int GetE()
+		//{
+		//	return RawDwellerData["stats"]["stats"][3]["value"].Value<int>();
+		//}
 
-		public void SetE(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 3);
-		}
+		//public void SetE(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 3);
+		//}
 
-		public int GetC()
-		{
-			return RawDwellerData["stats"]["stats"][4]["value"].Value<int>();
-		}
+		//public int GetC()
+		//{
+		//	return RawDwellerData["stats"]["stats"][4]["value"].Value<int>();
+		//}
 
-		public void SetC(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 4);
-		}
+		//public void SetC(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 4);
+		//}
 
-		public int GetI()
-		{
-			return RawDwellerData["stats"]["stats"][5]["value"].Value<int>();
-		}
+		//public int GetI()
+		//{
+		//	return RawDwellerData["stats"]["stats"][5]["value"].Value<int>();
+		//}
 
-		public void SetI(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 5);
-		}
+		//public void SetI(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 5);
+		//}
 
-		public int GetA()
-		{
-			return RawDwellerData["stats"]["stats"][6]["value"].Value<int>();
-		}
+		//public int GetA()
+		//{
+		//	return RawDwellerData["stats"]["stats"][6]["value"].Value<int>();
+		//}
 
-		public void SetA(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 6);
-		}
+		//public void SetA(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 6);
+		//}
 
-		public int GetL()
-		{
-			return RawDwellerData["stats"]["stats"][7]["value"].Value<int>();
-		}
+		//public int GetL()
+		//{
+		//	return RawDwellerData["stats"]["stats"][7]["value"].Value<int>();
+		//}
 
-		public void SetL(int value)
-		{
-			if (value <= 0) return;
-			SetSpecial(value, 7);
-		}
+		//public void SetL(int value)
+		//{
+		//	if (value <= 0) return;
+		//	SetSpecial(value, 7);
+		//}
 
 		private void SetSpecial(int value, int specialId)
 		{
+		    if (value < 1) return;
 			RawDwellerData["stats"]["stats"][specialId]["value"] = value;
 			RawDwellerData["stats"]["stats"][specialId]["exp"] = (double)(600 * ((int)Math.Pow(value, 3) - value));
 		}
