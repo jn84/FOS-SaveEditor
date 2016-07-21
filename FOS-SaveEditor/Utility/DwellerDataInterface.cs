@@ -143,90 +143,12 @@ namespace FOS_SaveEditor.Utility
 			// We need the formula for how level relates to experience
 		}
 
-		// It seems that SPECIAL stats require a matching experience value
-		// or else the game will crash when loading the save.
-		// 
-		// 600*(n^3-n) where n = stat level
+        // SPECIAL stats require a matching experience value
+        // or else the game will crash when loading the save.
+        // 
+        // 600 * ( n ^ 3 - n ) where n = stat level
 
-
-		//public int GetS()
-		//{
-		//	return RawDwellerData["stats"]["stats"][1]["value"].Value<int>();
-		//}
-
-		//public void SetS(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 1);
-		//}
-
-		//public int GetP()
-		//{
-		//	return RawDwellerData["stats"]["stats"][2]["value"].Value<int>();
-		//}
-
-		//public void SetP(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 2);
-		//}
-
-		//public int GetE()
-		//{
-		//	return RawDwellerData["stats"]["stats"][3]["value"].Value<int>();
-		//}
-
-		//public void SetE(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 3);
-		//}
-
-		//public int GetC()
-		//{
-		//	return RawDwellerData["stats"]["stats"][4]["value"].Value<int>();
-		//}
-
-		//public void SetC(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 4);
-		//}
-
-		//public int GetI()
-		//{
-		//	return RawDwellerData["stats"]["stats"][5]["value"].Value<int>();
-		//}
-
-		//public void SetI(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 5);
-		//}
-
-		//public int GetA()
-		//{
-		//	return RawDwellerData["stats"]["stats"][6]["value"].Value<int>();
-		//}
-
-		//public void SetA(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 6);
-		//}
-
-		//public int GetL()
-		//{
-		//	return RawDwellerData["stats"]["stats"][7]["value"].Value<int>();
-		//}
-
-		//public void SetL(int value)
-		//{
-		//	if (value <= 0) return;
-		//	SetSpecial(value, 7);
-		//}
-
-		private void SetSpecial(int value, int specialId)
+        private void SetSpecial(int value, int specialId)
 		{
 		    if (value < 1) return;
 			RawDwellerData["stats"]["stats"][specialId]["value"] = value;

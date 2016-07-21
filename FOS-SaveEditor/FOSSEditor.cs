@@ -114,23 +114,6 @@ namespace FOS_SaveEditor
 
         private void WriteVaultData()
         {
-            // Save the dwellers
-            //foreach (DataGridViewRow row in dgridDwellers.Rows)
-            //{
-            //    if (row.Cells["dwellerID"].Value == null)
-            //        continue;
-            //    var id = Convert.ToInt32(row.Cells["dwellerID"].Value);
-            //    var listIndex = dwellerList.FindIndex(dId => dId.GetId().Equals(id));
-            //    dwellerList[listIndex].SetFirstName(row.Cells["firstName"].Value.ToString());
-            //    dwellerList[listIndex].SetLastName(row.Cells["lastName"].Value.ToString());
-            //    dwellerList[listIndex].SetS(Convert.ToInt32(row.Cells["specialS"].Value));
-            //    dwellerList[listIndex].SetP(Convert.ToInt32(row.Cells["specialP"].Value));
-            //    dwellerList[listIndex].SetE(Convert.ToInt32(row.Cells["specialE"].Value));
-            //    dwellerList[listIndex].SetC(Convert.ToInt32(row.Cells["specialC"].Value));
-            //    dwellerList[listIndex].SetI(Convert.ToInt32(row.Cells["specialI"].Value));
-            //    dwellerList[listIndex].SetA(Convert.ToInt32(row.Cells["specialA"].Value));
-            //    dwellerList[listIndex].SetL(Convert.ToInt32(row.Cells["specialL"].Value));
-            //}
             vaultData.SetLunchHandyBoxes(
                 (int) numLunchBox.Value,
                 (int) numHandyBox.Value,
@@ -170,28 +153,6 @@ namespace FOS_SaveEditor
 
             dgridDwellers.AutoGenerateColumns = false;
             dgridDwellers.DataSource = dwellerListBindingSource;
-
-            //var dwellerRows = new List<DataGridViewRow>();
-
-            //for (var i = 0; i < dwellerList.Count; i++)
-            //{
-            //    dwellerRows.Add((DataGridViewRow) dgridDwellers.Rows[0].Clone());
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["firstName"].Index].Value = dwellerList[i].GetFirstName();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["lastName"].Index].Value = dwellerList[i].GetLastName();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["level"].Index].Value = dwellerList[i].GetLevel();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialS"].Index].Value = dwellerList[i].GetS();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialP"].Index].Value = dwellerList[i].GetP();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialE"].Index].Value = dwellerList[i].GetE();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialC"].Index].Value = dwellerList[i].GetC();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialI"].Index].Value = dwellerList[i].GetI();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialA"].Index].Value = dwellerList[i].GetA();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["specialL"].Index].Value = dwellerList[i].GetL();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["dwellerID"].Index].Value = dwellerList[i].GetId();
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["colMaxBtn"].Index].Value = "Max SPECIAL";
-            //    dwellerRows[i].Cells[dgridDwellers.Columns["colEditEquipment"].Index].Value = "Edit";
-            //}
-
-            //dgridDwellers.Rows.AddRange(dwellerRows.ToArray());
         }
 
         /// <summary>
