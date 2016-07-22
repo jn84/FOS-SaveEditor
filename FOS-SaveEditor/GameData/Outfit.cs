@@ -45,16 +45,17 @@ namespace FOS_SaveEditor.GameData
         public int OutfitSpecialI { get; set; }
         public int OutfitSpecialA { get; set; }
         public int OutfitSpecialL { get; set; }
+
         public string OutfitCraftable
         {
             get { return outfitCraftable ? "Yes" : "No"; }
-            private set { outfitCraftable = (value == "Yes"); }
+            set { outfitCraftable = (value == "Yes"); }
         }
 
         public string OutfitRecipeAvailable
         {
             get { return outfitRecipeAvailable ? "Yes" : "No"; }
-            private set { outfitRecipeAvailable = (value == "Yes"); }
+            set { outfitRecipeAvailable = (value == "Yes"); }
         }
 
         public void Print()
@@ -70,7 +71,7 @@ namespace FOS_SaveEditor.GameData
                 OutfitSpecialI + " " + 
                 OutfitSpecialA + " " + 
                 OutfitSpecialL + " " +
-                OutfitCraftable + " ",
+                OutfitCraftable + " " +
                 OutfitRecipeAvailable);
         }
     }

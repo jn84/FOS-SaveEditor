@@ -99,10 +99,18 @@
     <EmbeddedResource Include="UserControls\DwellerEdit.resx">
       <DependentUpon>DwellerEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Resources\csv_dwellers.csv" />
-    <None Include="Resources\csv_outfits.csv" />
-    <None Include="Resources\csv_pets.csv" />
-    <None Include="Resources\csv_weapons.csv" />
+    <None Include="Resources\csv_dwellers.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\csv_outfits.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\csv_pets.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\csv_weapons.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,7 +137,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(SolutionDir)FOS-SaveEditor\Resources\*.csv" "$(TargetDir)Resources\"
+    <PostBuildEvent>
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
