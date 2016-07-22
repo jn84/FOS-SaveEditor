@@ -66,10 +66,11 @@
     <Compile Include="FOSSEditor.Designer.cs">
       <DependentUpon>FOSSEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameDataIDs\Dwellers.cs" />
-    <Compile Include="GameDataIDs\Outfits.cs" />
-    <Compile Include="GameDataIDs\Pets.cs" />
-    <Compile Include="GameDataIDs\Weapons.cs" />
+    <Compile Include="GameData\Dweller.cs" />
+    <Compile Include="GameData\GameDataIDs.cs" />
+    <Compile Include="GameData\Outfit.cs" />
+    <Compile Include="GameData\Pet.cs" />
+    <Compile Include="GameData\Weapon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\DwellerEdit.cs">
@@ -98,10 +99,10 @@
     <EmbeddedResource Include="UserControls\DwellerEdit.resx">
       <DependentUpon>DwellerEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="GameDataIDs\csv_dwellers.csv" />
-    <None Include="GameDataIDs\csv_outfits.csv" />
-    <None Include="GameDataIDs\csv_pets.csv" />
-    <None Include="GameDataIDs\csv_weapons.csv" />
+    <None Include="Resources\csv_dwellers.csv" />
+    <None Include="Resources\csv_outfits.csv" />
+    <None Include="Resources\csv_pets.csv" />
+    <None Include="Resources\csv_weapons.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -127,6 +128,10 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(SolutionDir)FOS-SaveEditor\Resources\*.csv" "$(TargetDir)Resources\"
+</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

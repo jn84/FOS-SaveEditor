@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using FOS_SaveEditor.UserControls;
 using FOS_SaveEditor.Utility;
 using Newtonsoft.Json;
+using FOS_SaveEditor.GameData;
 
 namespace FOS_SaveEditor
 {
@@ -25,6 +26,7 @@ namespace FOS_SaveEditor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            GameDataIDs.DummyMethod();
             dlgLoadSave.Multiselect = false;
             dlgLoadSave.CheckFileExists = true;
 
@@ -171,24 +173,29 @@ namespace FOS_SaveEditor
                 return;
             }
 
-
+            // Max SPECIAL Button
             var dataGridViewColumn = dgridDwellers.Columns["colMaxBtn"];
             if (dataGridViewColumn != null && dataGridViewColumn.Index.Equals(col))
             {
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialS"].Index].Value = 10;
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialP"].Index].Value = 10;
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialE"].Index].Value = 10;
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialC"].Index].Value = 10;
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialI"].Index].Value = 10;
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialA"].Index].Value = 10;
-                dgridDwellers.Rows[row].Cells[dgridDwellers.Columns["specialL"].Index].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialS"].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialP"].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialE"].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialC"].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialI"].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialA"].Value = 10;
+                dgridDwellers.Rows[row].Cells["specialL"].Value = 10;
                 return;
             }
 
+            // Edit Equipment Button
             var gridViewColumn = dgridDwellers.Columns["colEditEquipment"];
             if (gridViewColumn != null && gridViewColumn.Index.Equals(col))
             {
-                
+                var selectedDwellerId = dgridDwellers.Rows[row].Cells["dwellerID"].Value;
+                var dwellerData = dwellerList.Find(elem => elem.DwellerID.Equals(selectedDwellerId));
+                var dwellerEditForm = new DwellerEdit(dwellerData);
+                dwellerEditForm.ShowDialog();
+                dgridDwellers.Invalidate();
             }
         }
 
@@ -202,6 +209,15 @@ namespace FOS_SaveEditor
         {
 
             return 0;
+        }
+
+        private void dgridDwellers_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (var i = 0; i < e.RowCount; i++)
+            {
+                dgridDwellers.Rows[i + e.RowIndex].Cells["colMaxBtn"].Value = "MAX";
+                dgridDwellers.Rows[i + e.RowIndex].Cells["colEditEquipment"].Value = "Edit";
+            }
         }
 
         // Clean up

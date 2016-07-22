@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Newtonsoft.Json.Linq;
 
 namespace FOS_SaveEditor.Utility
@@ -6,6 +8,8 @@ namespace FOS_SaveEditor.Utility
 	public class DwellerDataInterface
 	{
 		public JToken RawDwellerData { get; }
+
+        // TODO: Implement code to manage dweller equipment
 
         // Properties for DataSource mapping
 

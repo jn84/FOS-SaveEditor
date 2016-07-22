@@ -128,6 +128,7 @@
             this.dgridDwellers.TabIndex = 1;
             this.dgridDwellers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDwellers_CellContentClick);
             this.dgridDwellers.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridDwellers_CellValueChanged);
+            this.dgridDwellers.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgridDwellers_RowsAdded);
             // 
             // groupBox1
             // 
@@ -484,7 +485,7 @@
             this.grpCraftedItems.Size = new System.Drawing.Size(204, 72);
             this.grpCraftedItems.TabIndex = 8;
             this.grpCraftedItems.TabStop = false;
-            this.grpCraftedItems.Text = "Crafted Items";
+            this.grpCraftedItems.Text = "Other Assets";
             // 
             // numudStarterPacks
             // 
@@ -545,7 +546,7 @@
             this.lastName.HeaderText = "Last Name";
             this.lastName.Name = "lastName";
             this.lastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.lastName.Width = 90;
+            this.lastName.Width = 115;
             // 
             // level
             // 
@@ -622,15 +623,22 @@
             // 
             // colMaxBtn
             // 
+            this.colMaxBtn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMaxBtn.DataPropertyName = "ButtonMax";
             this.colMaxBtn.HeaderText = "Max Stats";
             this.colMaxBtn.Name = "colMaxBtn";
             this.colMaxBtn.Text = "Max";
             this.colMaxBtn.ToolTipText = "Set all SPECIAL to maximum";
+            this.colMaxBtn.Width = 60;
             // 
             // colEditEquipment
             // 
+            this.colEditEquipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colEditEquipment.DataPropertyName = "ButtonEditEquipment";
             this.colEditEquipment.HeaderText = "Equipment";
             this.colEditEquipment.Name = "colEditEquipment";
+            this.colEditEquipment.Text = "Edit";
+            this.colEditEquipment.Width = 63;
             // 
             // FOSSEditor
             // 

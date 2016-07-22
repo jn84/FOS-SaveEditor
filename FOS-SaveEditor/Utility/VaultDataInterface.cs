@@ -98,7 +98,6 @@ namespace FOS_SaveEditor.Utility
 
         public int GetNumberOfLunchBoxes()
         {
-            Console.WriteLine(VaultData["vault"]["LunchBoxesByType"]);
             return VaultData["vault"]["LunchBoxesByType"].Values<int>().Count(val => val == 0);
         }
 
