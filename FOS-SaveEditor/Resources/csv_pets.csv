@@ -73,8 +73,8 @@ mainecoon_c,Maine Coon,MaineCoon,Cat,Normal,TrainingBoost,6,10
 rottweiler_l,Maizie Rai,Rottweiler,Dog,Legendary,AddMaxHP,91,100
 havanabrown_l,Merlin,HavanaBrown,Cat,Legendary,FasterCrafting,36,45
 bloodhound_l3,Moose,Bloodhound,Dog,Legendary,WastelandJunkBoost,58,66
-persian_l,Mr, Pebbles,Persian,Cat,Legendary,HappinessBoost,91,100
-germanpointer_l,Mr, Peepers,GermanPointer,Dog,Legendary,RadHealingBoost,4,4
+persian_l,Mr. Pebbles,Persian,Cat,Legendary,HappinessBoost,91,100
+germanpointer_l,Mr. Peepers,GermanPointer,Dog,Legendary,RadHealingBoost,4,4
 blacklab_l,Muttface,BlackLab,Dog,Legendary,TrainingNonStopBoost,26,30
 ocicat_r,Ocicat,Ocicat,Cat,Rare,WastelandItemBoost,16,20
 ocicat_c,Ocicat,Ocicat,Cat,Normal,WastelandItemBoost,6,10
@@ -109,8 +109,8 @@ somali_r,Somali,Somali,Cat,Rare,FasterCrafting,21,30
 ocicat_l,Speckle,Ocicat,Cat,Legendary,WastelandItemBoost,26,30
 sphynx_c,Sphynx,Sphynx,Cat,Normal,FasterWastelandReturnSpeed,1,25,1,25
 sphynx_r,Sphynx,Sphynx,Cat,Rare,FasterWastelandReturnSpeed,2,2
-stbernard_r,St, Bernard,StBernard,Dog,Rare,WastelandJunkBoost,58,66
-stbernard_c,St, Bernard,StBernard,Dog,Normal,WastelandJunkBoost,25,33
+stbernard_r,St. Bernard,StBernard,Dog,Rare,WastelandJunkBoost,58,66
+stbernard_c,St. Bernard,StBernard,Dog,Normal,WastelandJunkBoost,25,33
 laperm_l2,Static,LaPerm,Cat,Legendary,WastelandJunkBoost,25,33
 american_l,Sterling,AmericanShorthair,Cat,Legendary,WastelandCapsBoost,36,45
 manx_l3,Stubbs,Manx,Cat,Legendary,ChildMultiplier,50,50
