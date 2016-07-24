@@ -15,6 +15,7 @@ namespace FOS_SaveEditor.GameData
         {
             Map(m => m.OutfitID).Name("ID");
             Map(m => m.OutfitName).Name("Name");
+            Map(m => m.OutfitType).Name("Type");
             Map(m => m.OutfitRarity).Name("Rarity");
             Map(m => m.OutfitSpecialS).Name("S");
             Map(m => m.OutfitSpecialP).Name("P");
@@ -37,6 +38,7 @@ namespace FOS_SaveEditor.GameData
 
         public string OutfitID { get; set; }
         public string OutfitName { get; set; }
+        public string OutfitType { get; set; }
         public string OutfitRarity { get; set; }
         public int OutfitSpecialS { get; set; }
         public int OutfitSpecialP { get; set; }

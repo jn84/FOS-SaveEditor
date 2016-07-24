@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -23,10 +24,10 @@ namespace FOS_SaveEditor.GameData
             CsvParser("//Resources//csv_weapons.csv", weaponList, new WeaponMap());
             CsvParser("//Resources//csv_dwellers.csv", dwellerList, new DwellerMap());
 
-            foreach (var elem in weaponList)
+
+            foreach (var elem in outfitList)
             {
-                // Add code to see if each item type corresponds to a filename
-                Console.WriteLine(elem.WeaponType);
+                //Console.WriteLine(elem.);
             }
         }
 

@@ -128,271 +128,271 @@
   <ItemGroup>
     <Content Include="fosicon.ico" />
     <Content Include="Resources\fosicon.ico" />
-    <Content Include="Resources\OutfitImages\Confessor_Cromwells_rags.png">
+    <Content Include="Resources\OutfitImages\CromwellSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\Eulogy_Jones_outfit.png">
+    <Content Include="Resources\OutfitImages\EulogyJonesSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\Fallout_Shelter_vault_suit.png">
+    <Content Include="Resources\OutfitImages\Jumpsuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Abraham%27s_relaxedwear.png">
+    <Content Include="Resources\OutfitImages\AbrahamSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Accountant_outfit.png">
+    <Content Include="Resources\OutfitImages\ArgyleSweater.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_advanced_BoS_uniform.png">
+    <Content Include="Resources\OutfitImages\BOSUniformAdvanced.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Agent_provocateur.png">
+    <Content Include="Resources\OutfitImages\BusinessDress.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_armored_vault_suit.png">
+    <Content Include="Resources\OutfitImages\UtilityJumpsuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_baseball_uniform.png">
+    <Content Include="Resources\OutfitImages\BaseballUniform.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_battle_armor.png">
+    <Content Include="Resources\OutfitImages\BattleArmor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Bespoke_attire.png">
+    <Content Include="Resources\OutfitImages\Suspenders.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Bittercups_outfit.png">
+    <Content Include="Resources\OutfitImages\BittercupSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_BoS_uniform.png">
+    <Content Include="Resources\OutfitImages\BOSUniform.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Bowling_shirt.png">
+    <Content Include="Resources\OutfitImages\LoungeShirt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Business_suit.png">
+    <Content Include="Resources\OutfitImages\BusinessSuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_clergy_outfit.png">
+    <Content Include="Resources\OutfitImages\BishopSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Colonel_Autums_uniform.png">
+    <Content Include="Resources\OutfitImages\ColonelSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_combat_armor.png">
+    <Content Include="Resources\OutfitImages\CombatArmor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Comedian_Outfit.png">
+    <Content Include="Resources\OutfitImages\ComedianSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Country_girl.png">
+    <Content Include="Resources\OutfitImages\TiedBlouse.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Doo-wop_singer.png">
+    <Content Include="Resources\OutfitImages\DooWopOutfit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Drag_racer.png">
+    <Content Include="Resources\OutfitImages\DragRacer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Elder_robe.png">
+    <Content Include="Resources\OutfitImages\ScribeRobeElder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_elf_outfit.png">
+    <Content Include="Resources\OutfitImages\SpecialThemeXmas2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_engineer_outfit.png">
+    <Content Include="Resources\OutfitImages\EngineerSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_expert_BoS_uniform.png">
+    <Content Include="Resources\OutfitImages\BOSUniformExpert.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_flight_suit.png">
+    <Content Include="Resources\OutfitImages\FlightSuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_formal_wear.png">
+    <Content Include="Resources\OutfitImages\FormalWear.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_ghost_costume.png">
+    <Content Include="Resources\OutfitImages\SpecialThemeHalloween.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Greaser_outfit.png">
+    <Content Include="Resources\OutfitImages\GreaserSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_handyman_jumpsuit.png">
+    <Content Include="Resources\OutfitImages\HandymanJumpsuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_horror_fan_outfit.png">
+    <Content Include="Resources\OutfitImages\SlasherSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_hunter_gear.png">
+    <Content Include="Resources\OutfitImages\HunterGear.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Initiate_robe.png">
+    <Content Include="Resources\OutfitImages\ScribeRobe.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Institute_jumper.png">
+    <Content Include="Resources\OutfitImages\InstituteJumper.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Knight_armor.png">
+    <Content Include="Resources\OutfitImages\KnightSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_lab_coat.png">
+    <Content Include="Resources\OutfitImages\LabCoat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_leather_armor.png">
+    <Content Include="Resources\OutfitImages\WandererArmor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_librarian_outfit.png">
+    <Content Include="Resources\OutfitImages\LibrarianSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_lifeguard_outfit.png">
+    <Content Include="Resources\OutfitImages\LifeguardOutfit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_mayor_outfit.png">
+    <Content Include="Resources\OutfitImages\MayorSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Mechanic_jumpsuit.png">
+    <Content Include="Resources\OutfitImages\MechanicJumpsuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_medieval_ruler_outfit.png">
+    <Content Include="Resources\OutfitImages\KingSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_merc_gear.png">
+    <Content Include="Resources\OutfitImages\RiotGear.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_metal_armor.png">
+    <Content Include="Resources\OutfitImages\MetalArmor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_military_fatigues.png">
+    <Content Include="Resources\OutfitImages\MilitaryJumpsuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Motorcycle_jacket.png">
+    <Content Include="Resources\OutfitImages\JacketTshirt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_movie_fan_outfit.png">
+    <Content Include="Resources\OutfitImages\MoviefanSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_nightwear.png">
+    <Content Include="Resources\OutfitImages\AllNightware.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_ninja_outfit.png">
+    <Content Include="Resources\OutfitImages\NinjaSuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_nobility_outfit.png">
+    <Content Include="Resources\OutfitImages\PrinceSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_officer_uniform.png">
+    <Content Include="Resources\OutfitImages\ScientistScrubs.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_pilgrim_outfit.png">
+    <Content Include="Resources\OutfitImages\SpecialThemeThanksGiving.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FOS_Piper_Outfit.png">
+    <Content Include="Resources\OutfitImages\PiperSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Polka_dot_sundress.png">
+    <Content Include="Resources\OutfitImages\PolkaDotDress.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Post-war_Casanova.png">
+    <Content Include="Resources\OutfitImages\Vest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Pre-war_suburbanite.png">
+    <Content Include="Resources\OutfitImages\SweaterVest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Preston_Garveys_outfit.png">
+    <Content Include="Resources\OutfitImages\PrestonSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_professor_outfit.png">
+    <Content Include="Resources\OutfitImages\ProfessorSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_radiation_suit.png">
+    <Content Include="Resources\OutfitImages\RadiationSuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_raider_armor.png">
+    <Content Include="Resources\OutfitImages\RaiderArmor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_republic_robes.png">
+    <Content Include="Resources\OutfitImages\EmpressSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_santa_suit.png">
+    <Content Include="Resources\OutfitImages\SpecialThemeXmas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_sci-fi_fan_outfit.png">
+    <Content Include="Resources\OutfitImages\ScifiSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Sheriffs_duster.png">
+    <Content Include="Resources\OutfitImages\LucasSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_skeleton_costume.png">
+    <Content Include="Resources\OutfitImages\SpecialThemeHalloween2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Soda_fountain_dress.png">
+    <Content Include="Resources\OutfitImages\SodaFountainDress.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_soldier_uniform.png">
+    <Content Include="Resources\OutfitImages\SoldierSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_sports_fan_outfit.png">
+    <Content Include="Resources\OutfitImages\SportsfanSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Spring_casualwear.png">
+    <Content Include="Resources\OutfitImages\CheckeredShirt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_surgeon_outfit.png">
+    <Content Include="Resources\OutfitImages\SurgeonSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_swimsuit.png">
+    <Content Include="Resources\OutfitImages\Swimsuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Swing_dress.png">
+    <Content Include="Resources\OutfitImages\SwingDress.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_synth_armor.png">
+    <Content Include="Resources\OutfitImages\SynthArmorHeavy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_T-45_power_armor.png">
+    <Content Include="Resources\OutfitImages\PowerArmor45.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_T-51_power_armor.png">
+    <Content Include="Resources\OutfitImages\PowerArmor51.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_T-60_power_armor.png">
+    <Content Include="Resources\OutfitImages\PowerArmor60.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Tattered_Longcoat.png">
+    <Content Include="Resources\OutfitImages\FarHarborSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Tenpennys_suit.png">
+    <Content Include="Resources\OutfitImages\AlistairSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Three_Dogs_outfit.png">
+    <Content Include="Resources\OutfitImages\ThreedogSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Tunnel_Snakes_outfit.png">
+    <Content Include="Resources\OutfitImages\ButchSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Vault_socialite.png">
+    <Content Include="Resources\OutfitImages\SequinDress.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_Waitress_uniform.png">
+    <Content Include="Resources\OutfitImages\WaitressUniform.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_wasteland_gear.png">
+    <Content Include="Resources\OutfitImages\HazmatSuit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_wasteland_medic.png">
+    <Content Include="Resources\OutfitImages\WastelandSurgeon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_wrestler_outfit.png">
+    <Content Include="Resources\OutfitImages\WrestlerSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\FoS_X-01_Mk_IV_power_armor.png">
+    <Content Include="Resources\OutfitImages\PowerArmorX01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\Rural_schoolmarm.png">
+    <Content Include="Resources\OutfitImages\WorkDress.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\OutfitImages\Survivor_armor.png">
+    <Content Include="Resources\OutfitImages\SurvivorSpecial.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PetImages\Abyssinian.png">
@@ -596,7 +596,9 @@
     <Content Include="Resources\WeaponImages\LeverActionRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Minigun.png" />
+    <Content Include="Resources\WeaponImages\MiniGun.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\WeaponImages\MissileLauncher.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

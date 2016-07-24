@@ -162,12 +162,12 @@ Railgun_Enhanced,Enhanced Railway Rifle,Railgun,14,16,2,Rare,Yes,Yes
 Railgun_Hardened,Hardened Railway Rifle,Railgun,14,17,2,Legendary,Yes,Yes
 Railgun_Railmaster,Railmaster,Railgun,14,19,2,Legendary,Yes,Yes
 Railgun_Rusty,Rusty Railway Rifle,Railgun,14,14,2,Rare,Yes,Yes
-Rifle,Lever-Action Rifle,Rifle,4,5,2,Normal,Yes,Yes
-Rifle_ArmorPiercing,Armor Piercing Lever-Action Rifle,Rifle,4,8,2,Rare,Yes,Yes
-Rifle_Enhanced,Enhanced Lever-Action Rifle,Rifle,4,6,2,Normal,Yes,Yes
-Rifle_Hardened,Hardened Lever-Action Rifle,Rifle,4,7,2,Rare,Yes,Yes
-Rifle_LincolnsRepeater,Lincoln's Repeater,Rifle,4,9,2,Legendary,Yes,Yes
-Rifle_Rusty,Rusty Lever-Action Rifle,Rifle,4,4,2,Normal,Yes,Yes
+Rifle,Lever-Action Rifle,LeverActionRifle,4,5,2,Normal,Yes,Yes
+Rifle_ArmorPiercing,Armor Piercing Lever-Action Rifle,LeverActionRifle,4,8,2,Rare,Yes,Yes
+Rifle_Enhanced,Enhanced Lever-Action Rifle,LeverActionRifle,4,6,2,Normal,Yes,Yes
+Rifle_Hardened,Hardened Lever-Action Rifle,LeverActionRifle,4,7,2,Rare,Yes,Yes
+Rifle_LincolnsRepeater,Lincoln's Repeater,LeverActionRifle,4,9,2,Legendary,Yes,Yes
+Rifle_Rusty,Rusty Lever-Action Rifle,LeverActionRifle,4,4,2,Normal,Yes,Yes
 SawedOffShotgun,Sawed-Off Shotgun,SawedOffShotgun,6,7,2,Normal,Yes,Yes
 SawedOffShotgun_DoubleBarrelled,Double-Barrel Sawed-Off Shotgun,SawedOffShotgun,6,10,2,Rare,Yes,Yes
 SawedOffShotgun_Enhanced,Enhanced Sawed-Off Shotgun,SawedOffShotgun,6,8,2,Normal,Yes,Yes
