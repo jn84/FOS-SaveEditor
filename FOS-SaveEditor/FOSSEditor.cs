@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using FOS_SaveEditor.GameData;
 using FOS_SaveEditor.UserControls;
 using FOS_SaveEditor.Utility;
 using Newtonsoft.Json;
@@ -21,6 +22,7 @@ namespace FOS_SaveEditor
         public FOSSEditor()
         {
             InitializeComponent();
+            GameDataIDs.DummyMethod();
         }
 
         private void Form1_Load(object sender, EventArgs e)

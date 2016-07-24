@@ -26,6 +26,14 @@ namespace FOS_SaveEditor.GameData
             CsvParser("//Resources//csv_pets.csv", petList, new PetMap());
             CsvParser("//Resources//csv_weapons.csv", weaponList, new WeaponMap());
             CsvParser("//Resources//csv_dwellers.csv", dwellerList, new DwellerMap());
+
+            foreach (var elem in petList)
+                Console.WriteLine(elem.PetBreed);
+        }
+
+        public static void DummyMethod()
+        {
+            
         }
 
         private static void CsvParser<T, TMap>(

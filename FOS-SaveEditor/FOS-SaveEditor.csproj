@@ -398,10 +398,10 @@
     <Content Include="Resources\PetImages\Abyssinian.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\American_Shorthair.png">
+    <Content Include="Resources\PetImages\AmericanShorthair.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\Black_Lab.png">
+    <Content Include="Resources\PetImages\BlackLab.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PetImages\Bombay.png">
@@ -410,94 +410,94 @@
     <Content Include="Resources\PetImages\Boxer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\British_Shorthair.png">
+    <Content Include="Resources\PetImages\BritishShorthair.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\Cattle_Dog.png">
+    <Content Include="Resources\PetImages\CattleDog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PetImages\Doberman.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Akita.png">
+    <Content Include="Resources\PetImages\Akita.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Australian_Shepherd.png">
+    <Content Include="Resources\PetImages\AustralianShepherd.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Bloodhound.png">
+    <Content Include="Resources\PetImages\Bloodhound.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Brittany.png">
+    <Content Include="Resources\PetImages\Brittany.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Burmilla.png">
+    <Content Include="Resources\PetImages\Burmilla.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Collie.png">
+    <Content Include="Resources\PetImages\Collie.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Dalmatian.png">
+    <Content Include="Resources\PetImages\Dalmatian.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_English_Mastiff.png">
+    <Content Include="Resources\PetImages\EnglishMastiff.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Greyhound.png">
+    <Content Include="Resources\PetImages\Greyhound.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Havana.png">
+    <Content Include="Resources\PetImages\HavanaBrown.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_LaPerm.png">
+    <Content Include="Resources\PetImages\LaPerm.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Lykoi.png">
+    <Content Include="Resources\PetImages\Lykoi.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Manul.png">
+    <Content Include="Resources\PetImages\PallasCat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Manx.png">
+    <Content Include="Resources\PetImages\Manx.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_pirate_parrot.png">
+    <Content Include="Resources\PetImages\ScarletMacaw.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Pit_Bull_Terrier.png">
+    <Content Include="Resources\PetImages\PitBullTerrier.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Somali.png">
+    <Content Include="Resources\PetImages\Somali.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_St._Bernard.png">
+    <Content Include="Resources\PetImages\StBernard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Toyger.png">
+    <Content Include="Resources\PetImages\Toyger.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_trained_parrot.png">
+    <Content Include="Resources\PetImages\MilitaryMacaw.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Turkish_van.png">
+    <Content Include="Resources\PetImages\TurkishVan.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\FoS_Vault-Tec_parrot.png">
+    <Content Include="Resources\PetImages\BlueYellowMacaw.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\German_Pointer.png">
+    <Content Include="Resources\PetImages\GermanPointer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\German_Shepherd.png">
+    <Content Include="Resources\PetImages\GermanShepherd.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\Golden_retriever.png">
+    <Content Include="Resources\PetImages\GoldenRetriever.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PetImages\Husky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\Maine_Coon.png">
+    <Content Include="Resources\PetImages\MaineCoon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PetImages\Ocicat.png">
@@ -512,7 +512,7 @@
     <Content Include="Resources\PetImages\Rottweiler.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\PetImages\Scottish_Fold.png">
+    <Content Include="Resources\PetImages\ScottishFold.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\PetImages\Siamese.png">
