@@ -9,12 +9,17 @@ namespace FOS_SaveEditor.Utility
 	{
 		public JToken RawDwellerData { get; }
 
+        public DwellerDataInterface(JToken dData)
+        {
+            RawDwellerData = dData;
+        }
+
         // TODO: Implement code to manage dweller equipment
 
         // Properties for DataSource mapping
 
-	    // ReSharper disable once InconsistentNaming
-	    public int DwellerID
+        // ReSharper disable once InconsistentNaming
+        public int DwellerID
 	    {
 	        get { return RawDwellerData["serializeId"].Value<int>(); }
 	        // ReSharper disable once ValueParameterNotUsed
@@ -94,11 +99,6 @@ namespace FOS_SaveEditor.Utility
             set { SetSpecial(value, 7); }
         }
 
-        public DwellerDataInterface(JToken dData)
-		{
-			RawDwellerData = dData;
-		}
-
 		public int GetId()
 		{
 			return RawDwellerData["serializeId"].Value<int>();
@@ -157,6 +157,87 @@ namespace FOS_SaveEditor.Utility
 		    if (value < 1) return;
 			RawDwellerData["stats"]["stats"][specialId]["value"] = value;
 			RawDwellerData["stats"]["stats"][specialId]["exp"] = (double)(600 * ((int)Math.Pow(value, 3) - value));
-		}
-	}
+        }
+
+        //"equipedOutfit": {
+        //  "id": "jumpsuit",
+        //  "type": "Outfit",
+        //  "hasBeenAssigned": false,
+        //  "hasRandonWeaponBeenAssigned": false
+        //},
+
+	    public string OutfitId
+	    {
+	        get { return RawDwellerData["equipedOutfit"]["id"].Value<string>(); }
+            set { RawDwellerData["equipedOutfit"]["id"] = value; }
+	    }
+
+	    public bool OutfitAssigned
+	    {
+	        get { return RawDwellerData["equipedOutfit"]["hasBeenAssigned"].Value<bool>(); }
+            set { RawDwellerData["equipedOutfit"]["hasBeenAssigned"] = value; }
+	    }
+
+        //"equipedWeapon": {
+        //  "id": "GaussRifle_Accelerated",
+        //  "type": "Weapon",
+        //  "hasBeenAssigned": false,
+        //  "hasRandonWeaponBeenAssigned": false
+        //},
+
+        public string WeaponId
+        {
+            get { return RawDwellerData["equipedWeapon"]["id"].Value<string>(); }
+            set { RawDwellerData["equipedWeapon"]["id"] = value; }
+        }
+
+        public bool WeaponAssigned
+        {
+            get { return RawDwellerData["equipedWeapon"]["hasBeenAssigned"].Value<bool>(); }
+            set { RawDwellerData["equipedWeapon"]["hasBeenAssigned"] = value; }
+        }
+
+        //"equippedPet": {
+        //  "id": "goldenret_c",
+        //  "type": "Pet",
+        //  "hasBeenAssigned": false,
+        //  "hasRandonWeaponBeenAssigned": false,
+        //  "extraData": {
+        //    "uniqueName": "Golden Retriever",
+        //    "bonus": "WastelandItemBoost",
+        //    "bonusValue": 6.0
+        //  }
+        //},
+
+        public string PetId
+        {
+            get { return RawDwellerData["equipedPet"]["id"].Value<string>(); }
+            set { RawDwellerData["equipedPet"]["id"] = value; }
+        }
+
+        public bool PetAssigned
+        {
+            get { return RawDwellerData["equipedPet"]["hasBeenAssigned"].Value<bool>(); }
+            set { RawDwellerData["equipedPet"]["hasBeenAssigned"] = value; }
+        }
+
+	    public string PetName
+	    {
+            get { return RawDwellerData["equipedPet"]["extraData"]["uniqueName"].Value<string>(); }
+            set { RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = value; }
+        }
+
+        public string PetBonusType
+        {
+            get { return RawDwellerData["equipedPet"]["extraData"]["bonus"].Value<string>(); }
+            set { RawDwellerData["equipedPet"]["extraData"]["bonus"] = value; }
+        }
+
+        public int PetBonusValue
+        {
+            get { return (int)RawDwellerData["equipedPet"]["extraData"]["bonusValue"].Value<double>(); }
+            set { RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = (double)value; }
+        }
+
+    }
 }

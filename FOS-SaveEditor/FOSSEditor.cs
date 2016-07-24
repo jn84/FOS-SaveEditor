@@ -7,16 +7,15 @@ using System.Windows.Forms;
 using FOS_SaveEditor.UserControls;
 using FOS_SaveEditor.Utility;
 using Newtonsoft.Json;
-using FOS_SaveEditor.GameData;
 
 namespace FOS_SaveEditor
 {
     public partial class FOSSEditor : Form
     {
         private string _qualifiedFilename;
-        private List<DwellerDataInterface> dwellerList;
         private BindingList<DwellerDataInterface> bindingDwellerList;
-        private BindingSource dwellerListBindingSource; 
+        private List<DwellerDataInterface> dwellerList;
+        private BindingSource dwellerListBindingSource;
         private VaultDataInterface vaultData;
 
         public FOSSEditor()
@@ -26,7 +25,6 @@ namespace FOS_SaveEditor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GameDataIDs.DummyMethod();
             dlgLoadSave.Multiselect = false;
             dlgLoadSave.CheckFileExists = true;
 
@@ -148,7 +146,7 @@ namespace FOS_SaveEditor
 
             dwellerList =
                 vaultData.GetDwellers().
-                Select(dweller => new DwellerDataInterface(dweller)).ToList();
+                    Select(dweller => new DwellerDataInterface(dweller)).ToList();
 
             bindingDwellerList = new BindingList<DwellerDataInterface>(dwellerList);
             dwellerListBindingSource = new BindingSource(bindingDwellerList, null);
@@ -199,15 +197,12 @@ namespace FOS_SaveEditor
             }
         }
 
-
         private void dgridDwellers_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         public int GetDwellerIndexByID(int id)
         {
-
             return 0;
         }
 
