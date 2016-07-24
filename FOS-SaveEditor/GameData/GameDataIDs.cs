@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -27,8 +23,11 @@ namespace FOS_SaveEditor.GameData
             CsvParser("//Resources//csv_weapons.csv", weaponList, new WeaponMap());
             CsvParser("//Resources//csv_dwellers.csv", dwellerList, new DwellerMap());
 
-            foreach (var elem in petList)
-                Console.WriteLine(elem.PetBreed);
+            foreach (var elem in weaponList)
+            {
+                // Add code to see if each item type corresponds to a filename
+                Console.WriteLine(elem.WeaponType);
+            }
         }
 
         public static void DummyMethod()
@@ -50,6 +49,8 @@ namespace FOS_SaveEditor.GameData
                     {
                         using (var fileReader = new CsvReader(fileStreamReader))
                         {
+                            fileReader.Configuration.AllowComments = true;
+                            fileReader.Configuration.Comment = '#';
                             fileReader.Configuration.RegisterClassMap(typeMap);
                             dataList.AddRange(fileReader.GetRecords<T>());
                         }

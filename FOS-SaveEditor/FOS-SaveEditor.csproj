@@ -521,118 +521,119 @@
     <Content Include="Resources\PetImages\Sphynx.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\10mm_pistol_FoS.png">
+    <Content Include="Resources\WeaponImages\10mmPistol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\32_pistol_FoS.png">
+    <Content Include="Resources\WeaponImages\032Pistol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Alien_blaster_FoS.png">
+    <Content Include="Resources\WeaponImages\AlienBlaster.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Assault_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\AssaultRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Baseball_Bat_FoS.png">
+    <Content Include="Resources\WeaponImages\BaseballBat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\BB_gun_FoS.png">
+    <Content Include="Resources\WeaponImages\BBGun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Butcher_Knife_FoS.png">
+    <Content Include="Resources\WeaponImages\ButcherKnife.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Combat_shotgun_FoS.png">
+    <Content Include="Resources\WeaponImages\CombatShotgun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Double-barrel_shotgun_FoS.png">
+    <Content Include="Resources\WeaponImages\Shotgun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Fat_Man_FoS.png">
+    <Content Include="Resources\WeaponImages\FatMan.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Fire_Hydrant_Bat_FoS.png">
+    <Content Include="Resources\WeaponImages\FireHydrantBat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Flamer_FoS.png">
+    <Content Include="Resources\WeaponImages\Flamer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\FoS_fist.png">
+    <Content Include="Resources\WeaponImages\Fist.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Gatling_laser_FoS.png">
+    <Content Include="Resources\WeaponImages\GatlingLaser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Gauss_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\GaussRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Henrietta_FoS.png">
+    <Content Include="Resources\WeaponImages\Henrietta.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Hunting_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\HuntingRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Institute_pistol_FoS.png">
+    <Content Include="Resources\WeaponImages\InstitutePistol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Institute_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\InstituteRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Junk_jet_FoS.png">
+    <Content Include="Resources\WeaponImages\JunkJet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Kitchen_Knife_FoS.png">
+    <Content Include="Resources\WeaponImages\KitchenKnife.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Laser_musket_FoS.png">
+    <Content Include="Resources\WeaponImages\LaserMusket.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Laser_pistol_FoS.png">
+    <Content Include="Resources\WeaponImages\LaserPistol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Laser_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\LaserRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Lever-action_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\LeverActionRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Missile_launcher_FoS.png">
+    <Content Include="Resources\WeaponImages\Minigun.png" />
+    <Content Include="Resources\WeaponImages\MissileLauncher.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Pickaxe_FoS.png">
+    <Content Include="Resources\WeaponImages\Pickaxe.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Pipe_pistol_FoS.png">
+    <Content Include="Resources\WeaponImages\PipePistol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Pipe_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\PipeRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Plasma_pistol_FoS.png">
+    <Content Include="Resources\WeaponImages\PlasmaPistol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Plasma_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\PlasmaRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Plasma_thrower_FoS.png">
+    <Content Include="Resources\WeaponImages\PlasmaThrower.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Pool_Cue_FoS.png">
+    <Content Include="Resources\WeaponImages\PoolCue.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Railway_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\Railgun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Relentless_Raider_Sword_FoS.png">
+    <Content Include="Resources\WeaponImages\RaiderSword.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Sawed-off_shotgun_FoS.png">
+    <Content Include="Resources\WeaponImages\SawedOffShotgun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Scoped_44_FoS.png">
+    <Content Include="Resources\WeaponImages\Magnum.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WeaponImages\Sniper_rifle_FoS.png">
+    <Content Include="Resources\WeaponImages\SniperRifle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
