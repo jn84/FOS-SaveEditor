@@ -153,6 +153,6 @@ WandererArmor_Heavy,Heavy Leather Armor,WandererArmor,Legendary,3,0,4,0,0,0,0,Ye
 WandererArmor_Sturdy,Sturdy Leather Armor,WandererArmor,Rare,2,0,3,0,0,0,0,Yes,Yes
 WastelandSurgeon,Wasteland Surgeon,WastelandSurgeon,Legendary,0,4,0,0,0,0,3,Yes,Yes
 WastelandSurgeon_Doctor,Wasteland Doctor,WastelandSurgeon,Rare,0,3,0,0,0,0,2,Yes,Yes
-WastelandSurgeon_Settler,Wasteland MedicWastelandSurgeon,,Normal,0,2,0,0,0,0,1,Yes,Yes
+WastelandSurgeon_Settler,Wasteland Medic,WastelandSurgeon,Normal,0,2,0,0,0,0,1,Yes,Yes
 WorkDress,Rural Schoolmarm,WorkDress,Normal,0,1,1,0,0,0,0,Yes,Yes
 WrestlerSpecial,Wrestler Outfit,WrestlerSpecial,Rare,2,0,2,0,0,0,1,Yes,Yes

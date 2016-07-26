@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -12,17 +15,31 @@ namespace FOS_SaveEditor.GameData
     /// </summary>
     public static class GameDataIDs
     {
-        public static List<Outfit> outfitList = new List<Outfit>();
-        public static List<Pet> petList = new List<Pet>();
-        public static List<Weapon> weaponList = new List<Weapon>();
-        public static List<Dweller> dwellerList = new List<Dweller>();
+        private static List<Outfit> outfitList = new List<Outfit>();
+        private static List<Pet> petList = new List<Pet>();
+        private static List<Weapon> weaponList = new List<Weapon>();
+        //private static List<Dweller> dwellerList = new List<Dweller>();
+
+        public static BindingSource outfitListBindingSource;
+        public static BindingSource petListBindingSource;
+        public static BindingSource weaponListBindingSource;
+        //private static BindingSource outfitListBindingSource;
+
 
         static GameDataIDs()
         {
             CsvParser("//Resources//csv_outfits.csv", outfitList, new OutfitMap());
             CsvParser("//Resources//csv_pets.csv", petList, new PetMap());
             CsvParser("//Resources//csv_weapons.csv", weaponList, new WeaponMap());
-            CsvParser("//Resources//csv_dwellers.csv", dwellerList, new DwellerMap());
+            //CsvParser("//Resources//csv_dwellers.csv", dwellerList, new DwellerMap());
+
+            outfitList.Sort(Comparer<Outfit>.Create((x, y) => 
+                string.Compare(x.OutfitName, y.OutfitName, StringComparison.Ordinal)));
+
+            // DataSources for equipment editing
+            outfitListBindingSource = new BindingSource(new BindingList<Outfit>(outfitList), null);
+            petListBindingSource = new BindingSource(new BindingList<Pet>(petList), null);
+            weaponListBindingSource = new BindingSource(new BindingList<Weapon>(weaponList), null);
 
 
             foreach (var elem in outfitList)

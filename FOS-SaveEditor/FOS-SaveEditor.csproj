@@ -99,6 +99,9 @@
     <EmbeddedResource Include="UserControls\DwellerEdit.resx">
       <DependentUpon>DwellerEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FOS_SaveEditor.GameData.Outfit.datasource" />
+    <None Include="Properties\DataSources\FOS_SaveEditor.GameData.Pet.datasource" />
+    <None Include="Properties\DataSources\FOS_SaveEditor.GameData.Weapon.datasource" />
     <None Include="Resources\csv_dwellers.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

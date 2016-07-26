@@ -163,6 +163,8 @@ namespace XComponent.SliderBar
 
 		// Instance fields
 		private int _value = 0;
+	    private int _bonusValue = 0;
+	    private int _bonusDisplayValue = 0;
 		private int _minimum = 0;
 		private int _maximum = 10;
 
@@ -186,10 +188,12 @@ namespace XComponent.SliderBar
 
 		private int _trackLineHeight = 3;
 		private Color _trackLineColorMin = SystemColors.Control;
+	    private Color _trackLineColorBonus = SystemColors.Control;
 	    private Color _trackLineColorMax = SystemColors.Control;
 
 		private Color _trackerColor = SystemColors.Control;
 		public RectangleF trackerRect = RectangleF.Empty;
+        public RectangleF bonusRect = RectangleF.Empty;
 
 		private bool _autoSize = true;
 
@@ -237,6 +241,7 @@ namespace XComponent.SliderBar
 			_indentHeight = 6;
 					
 			_trackLineColorMin = Color.FromArgb(90, 93, 90);
+            _trackLineColorBonus = Color.FromArgb(90, 93, 90);
             _trackLineColorMax = Color.FromArgb(90, 93, 90);
             _trackLineHeight = 3;
 
@@ -648,13 +653,55 @@ namespace XComponent.SliderBar
 				}
 			}
 		}
-		
-		/// <summary>
-		/// Gets or sets the lower limit of the range this <see cref="MACTrackBar"/> is working with.
-		/// </summary>
-		/// <remarks>You can use the <see cref="SetRange"/> method to set both the <see cref="Maximum"/> and <see cref="Minimum"/> properties at the same time.</remarks>
-		/// <value>The minimum value for the <see cref="MACTrackBar"/>. The default value is 0.</value>
-		[Description("The lower bound of the range this MACTrackBar is working with.")]
+
+        /// <summary>
+        /// Gets or sets a numeric value that represents the current position of the slider on the track bar.
+        /// </summary>
+        /// <remarks>The Value property contains the number that represents the current position of the slider on the track bar.</remarks>
+        /// <value>A numeric value that is within the <see cref="Minimum"/> and <see cref="Maximum"/> range. 
+        /// The default value is 0.</value>
+        [Description("The current bonus value for the MACTrackBar. An additional segement of the trackline beyond the tracker will be colored with the selected color.")]
+        [Category("Behavior")]
+        public int BonusValue
+        {
+            get
+            {
+                return _bonusValue;
+            }
+            set
+            {
+                if (_bonusValue != value)
+                {
+                    if (value < 0)
+                    {
+                        _bonusValue = 0;
+                        _bonusDisplayValue = 0;
+                    }
+                    else if (value + _value > _maximum)
+                    {
+                        // Set the display value to the unused space above the value
+                        _bonusDisplayValue = _maximum - _value;
+                        _bonusValue = value;
+                    }
+                    else
+                    {
+                        _bonusValue = value;
+                        _bonusDisplayValue = value;
+                    }
+
+                    OnValueChanged(_bonusValue);
+
+                    this.Invalidate();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the lower limit of the range this <see cref="MACTrackBar"/> is working with.
+        /// </summary>
+        /// <remarks>You can use the <see cref="SetRange"/> method to set both the <see cref="Maximum"/> and <see cref="Minimum"/> properties at the same time.</remarks>
+        /// <value>The minimum value for the <see cref="MACTrackBar"/>. The default value is 0.</value>
+        [Description("The lower bound of the range this MACTrackBar is working with.")]
 		[Category( "Behavior")]
 		public int Minimum
 		{
@@ -833,6 +880,25 @@ namespace XComponent.SliderBar
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the track line bonus.
+        /// </summary>
+        /// <value>A <see cref="Color"/> object that represents the color of the track line.</value>
+        [Category("Appearance")]
+        [Description("Gets or sets the color of the track bonus value line.")]
+        public Color TrackLineColorBonus
+        {
+            get { return _trackLineColorBonus; }
+            set
+            {
+                if (value != _trackLineColorBonus)
+                {
+                    _trackLineColorBonus = value;
+                    Invalidate();
+                }
+            }
+        }
+
 
         #endregion
 
@@ -957,7 +1023,7 @@ namespace XComponent.SliderBar
 
 
 					//==========================================================================
-					// Caculate the Tracker's rectangle
+					// Calculate the Tracker's rectangle
 					//==========================================================================
 					float currentTrackerPos;
 					if (_maximum == _minimum)
@@ -966,7 +1032,7 @@ namespace XComponent.SliderBar
 						currentTrackerPos = (workingRect.Width - _trackerSize.Width) * (_value - _minimum)/(_maximum - _minimum)  + workingRect.Left;
 					trackerRect = new RectangleF(currentTrackerPos,currentUsedPos,_trackerSize.Width, _trackerSize.Height);// Remember this for drawing the Tracker later
 					trackerRect.Inflate(0,-1);
-				}
+                }
 				else //_orientation == Orientation.Vertical
 				{
 					currentUsedPos = _indentWidth;
@@ -1001,18 +1067,96 @@ namespace XComponent.SliderBar
 
 				return trackerRect;
 			}
-		}	
+		}
 
-		#endregion
+        [Description("Gets the position of the bonus value.")]
+        private RectangleF BonusRect
+        {
+            get
+            {
+                RectangleF bonusRect;
+                float textAreaSize;
+
+                // Create a Graphics object for the Control.
+                Graphics g = this.CreateGraphics();
+
+                Rectangle workingRect = Rectangle.Inflate(this.ClientRectangle, -_indentWidth, -_indentHeight);
+                float currentUsedPos = 0;
+
+                if (_orientation == Orientation.Horizontal)
+                {
+                    currentUsedPos = _indentHeight;
+                    //==========================================================================
+
+                    // Get Height of Text Area
+                    textAreaSize = g.MeasureString(_maximum.ToString(), this.Font).Height;
+
+                    if (_textTickStyle == TickStyle.TopLeft || _textTickStyle == TickStyle.Both)
+                        currentUsedPos += textAreaSize;
+
+                    if (_tickStyle == TickStyle.TopLeft || _tickStyle == TickStyle.Both)
+                        currentUsedPos += _tickHeight + 1;
+
+                    //==========================================================================
+                    // Calculate the bonus rectangle
+                    //==========================================================================
+                    float currentBonusPos;
+                    if (_maximum == _minimum)
+                        currentBonusPos = workingRect.Left;
+                    else////////////// X Coord calculation
+                        currentBonusPos = (workingRect.Width - _trackerSize.Width) * (_bonusDisplayValue + _value - _minimum) / (_maximum - _minimum) + workingRect.Left;
+                    bonusRect = new RectangleF(currentBonusPos, currentUsedPos, _trackerSize.Width, _trackerSize.Height);// Remember this for drawing the Tracker later
+                    bonusRect.Inflate(0, -1);
+                }
+                else //_orientation == Orientation.Vertical
+                {
+                    currentUsedPos = _indentWidth;
+                    //==========================================================================
+
+                    // Get Width of Text Area
+                    textAreaSize = g.MeasureString(_maximum.ToString(), this.Font).Width;
+
+                    if (_textTickStyle == TickStyle.TopLeft || _textTickStyle == TickStyle.Both)
+                        currentUsedPos += textAreaSize;
+
+                    if (_tickStyle == TickStyle.TopLeft || _tickStyle == TickStyle.Both)
+                        currentUsedPos += _tickHeight + 1;
+
+                    //==========================================================================
+                    // Caculate the Tracker's rectangle
+                    //==========================================================================
+                    float currentBonusPos;
+                    if (_maximum == _minimum)
+                        currentBonusPos = workingRect.Top;
+                    else/////////////////////////////////// Y Coord
+                        currentBonusPos = (workingRect.Height - _trackerSize.Width) * (_value + _bonusDisplayValue - _minimum) / (_maximum - _minimum);
+
+                    bonusRect = new RectangleF(currentUsedPos, workingRect.Bottom - currentBonusPos - _trackerSize.Width, _trackerSize.Height, _trackerSize.Width);// Remember this for drawing the Tracker later
+                    Console.WriteLine(
+                        bonusRect.X + " " +
+                        bonusRect.Y + " " + 
+                        bonusRect.Height + " " +
+                        bonusRect.Width);
+                    bonusRect.Inflate(-1, 0);
+                }
+
+                // Clean up the Graphics object.
+                g.Dispose();
+
+                return bonusRect;
+            }
+        }
+
+        #endregion
 
 
-		#region Public Methods
+        #region Public Methods
 
-		/// <summary>
-		/// Raises the ValueChanged event.
-		/// </summary>
-		/// <param name="value">The new value</param>
-		public virtual void OnValueChanged(int value)
+        /// <summary>
+        /// Raises the ValueChanged event.
+        /// </summary>
+        /// <param name="value">The new value</param>
+        public virtual void OnValueChanged(int value)
 		{
 			// Any attached event handlers?
 			if (ValueChanged != null)
@@ -1468,8 +1612,10 @@ namespace XComponent.SliderBar
                 g, 
                 drawRect,
                 trackerRect,
+                BonusRect,
                 _trackLineColorMin,
                 _trackLineColorMax,
+                _trackLineColorBonus,
                 _orientation);
 		}
 

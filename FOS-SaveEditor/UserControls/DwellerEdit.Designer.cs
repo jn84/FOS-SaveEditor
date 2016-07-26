@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.trackbarS = new XComponent.SliderBar.MACTrackBar();
             this.grpDwellerInfo = new System.Windows.Forms.GroupBox();
             this.btnMaxSPECIAL = new System.Windows.Forms.Button();
@@ -63,15 +64,34 @@
             this.btnCancelClose = new System.Windows.Forms.Button();
             this.tabControlEquipment = new System.Windows.Forms.TabControl();
             this.tabPageOutfit = new System.Windows.Forms.TabPage();
+            this.pictboxOutfit = new System.Windows.Forms.PictureBox();
+            this.lstOutfit = new System.Windows.Forms.ListBox();
+            this.outfitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageWeapon = new System.Windows.Forms.TabPage();
+            this.pictboxWeapons = new System.Windows.Forms.PictureBox();
+            this.lstWeapons = new System.Windows.Forms.ListBox();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPagePet = new System.Windows.Forms.TabPage();
+            this.pictboxPets = new System.Windows.Forms.PictureBox();
+            this.lstPets = new System.Windows.Forms.ListBox();
+            this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grpDwellerInfo.SuspendLayout();
             this.tabControlEquipment.SuspendLayout();
+            this.tabPageOutfit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxOutfit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outfitBindingSource)).BeginInit();
+            this.tabPageWeapon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxWeapons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
+            this.tabPagePet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxPets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // trackbarS
             // 
             this.trackbarS.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarS.BonusValue = 0;
             this.trackbarS.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarS.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -89,6 +109,7 @@
             this.trackbarS.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarS.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarS.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarS.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarS.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarS.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarS.TrackLineHeight = 12;
@@ -280,6 +301,7 @@
             // trackbarL
             // 
             this.trackbarL.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarL.BonusValue = 0;
             this.trackbarL.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -297,6 +319,7 @@
             this.trackbarL.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarL.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarL.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarL.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarL.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarL.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarL.TrackLineHeight = 12;
@@ -318,6 +341,7 @@
             // trackbarA
             // 
             this.trackbarA.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarA.BonusValue = 0;
             this.trackbarA.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarA.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -335,6 +359,7 @@
             this.trackbarA.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarA.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarA.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarA.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarA.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarA.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarA.TrackLineHeight = 12;
@@ -352,6 +377,7 @@
             // trackbarI
             // 
             this.trackbarI.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarI.BonusValue = 0;
             this.trackbarI.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarI.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -369,6 +395,7 @@
             this.trackbarI.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarI.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarI.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarI.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarI.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarI.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarI.TrackLineHeight = 12;
@@ -378,6 +405,7 @@
             // trackbarC
             // 
             this.trackbarC.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarC.BonusValue = 3;
             this.trackbarC.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarC.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -395,6 +423,7 @@
             this.trackbarC.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarC.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarC.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarC.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarC.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarC.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarC.TrackLineHeight = 12;
@@ -411,6 +440,7 @@
             // trackbarE
             // 
             this.trackbarE.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarE.BonusValue = 0;
             this.trackbarE.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarE.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -428,6 +458,7 @@
             this.trackbarE.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarE.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarE.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarE.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarE.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarE.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarE.TrackLineHeight = 12;
@@ -444,6 +475,7 @@
             // trackbarP
             // 
             this.trackbarP.BackColor = System.Drawing.Color.Transparent;
+            this.trackbarP.BonusValue = 0;
             this.trackbarP.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarP.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
@@ -461,6 +493,7 @@
             this.trackbarP.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackbarP.TrackerColor = System.Drawing.Color.LimeGreen;
             this.trackbarP.TrackerSize = new System.Drawing.Size(5, 12);
+            this.trackbarP.TrackLineColorBonus = System.Drawing.Color.DarkGoldenrod;
             this.trackbarP.TrackLineColorMax = System.Drawing.Color.Black;
             this.trackbarP.TrackLineColorMin = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.trackbarP.TrackLineHeight = 12;
@@ -533,11 +566,13 @@
             this.tabControlEquipment.Name = "tabControlEquipment";
             this.tabControlEquipment.SelectedIndex = 0;
             this.tabControlEquipment.Size = new System.Drawing.Size(464, 314);
-            this.tabControlEquipment.TabIndex = 4;
+            this.tabControlEquipment.TabIndex = 0;
             // 
             // tabPageOutfit
             // 
             this.tabPageOutfit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageOutfit.Controls.Add(this.pictboxOutfit);
+            this.tabPageOutfit.Controls.Add(this.lstOutfit);
             this.tabPageOutfit.Location = new System.Drawing.Point(4, 22);
             this.tabPageOutfit.Name = "tabPageOutfit";
             this.tabPageOutfit.Padding = new System.Windows.Forms.Padding(3);
@@ -546,9 +581,36 @@
             this.tabPageOutfit.Text = "Outfit";
             this.tabPageOutfit.UseVisualStyleBackColor = true;
             // 
+            // pictboxOutfit
+            // 
+            this.pictboxOutfit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictboxOutfit.Location = new System.Drawing.Point(6, 107);
+            this.pictboxOutfit.Name = "pictboxOutfit";
+            this.pictboxOutfit.Size = new System.Drawing.Size(171, 171);
+            this.pictboxOutfit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictboxOutfit.TabIndex = 1;
+            this.pictboxOutfit.TabStop = false;
+            // 
+            // lstOutfit
+            // 
+            this.lstOutfit.DataSource = this.outfitBindingSource;
+            this.lstOutfit.DisplayMember = "OutfitName";
+            this.lstOutfit.FormattingEnabled = true;
+            this.lstOutfit.Location = new System.Drawing.Point(6, 6);
+            this.lstOutfit.Name = "lstOutfit";
+            this.lstOutfit.Size = new System.Drawing.Size(171, 95);
+            this.lstOutfit.TabIndex = 0;
+            this.lstOutfit.SelectedIndexChanged += new System.EventHandler(this.lstOutfit_SelectedIndexChanged);
+            // 
+            // outfitBindingSource
+            // 
+            this.outfitBindingSource.DataSource = typeof(FOS_SaveEditor.GameData.Outfit);
+            // 
             // tabPageWeapon
             // 
             this.tabPageWeapon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageWeapon.Controls.Add(this.pictboxWeapons);
+            this.tabPageWeapon.Controls.Add(this.lstWeapons);
             this.tabPageWeapon.Location = new System.Drawing.Point(4, 22);
             this.tabPageWeapon.Name = "tabPageWeapon";
             this.tabPageWeapon.Padding = new System.Windows.Forms.Padding(3);
@@ -557,9 +619,36 @@
             this.tabPageWeapon.Text = "Weapon";
             this.tabPageWeapon.UseVisualStyleBackColor = true;
             // 
+            // pictboxWeapons
+            // 
+            this.pictboxWeapons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictboxWeapons.Location = new System.Drawing.Point(6, 107);
+            this.pictboxWeapons.Name = "pictboxWeapons";
+            this.pictboxWeapons.Size = new System.Drawing.Size(171, 171);
+            this.pictboxWeapons.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictboxWeapons.TabIndex = 1;
+            this.pictboxWeapons.TabStop = false;
+            // 
+            // lstWeapons
+            // 
+            this.lstWeapons.DataSource = this.weaponBindingSource;
+            this.lstWeapons.DisplayMember = "WeaponName";
+            this.lstWeapons.FormattingEnabled = true;
+            this.lstWeapons.Location = new System.Drawing.Point(6, 6);
+            this.lstWeapons.Name = "lstWeapons";
+            this.lstWeapons.Size = new System.Drawing.Size(171, 95);
+            this.lstWeapons.TabIndex = 0;
+            this.lstWeapons.SelectedIndexChanged += new System.EventHandler(this.lstWeapons_SelectedIndexChanged);
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(FOS_SaveEditor.GameData.Weapon);
+            // 
             // tabPagePet
             // 
             this.tabPagePet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPagePet.Controls.Add(this.pictboxPets);
+            this.tabPagePet.Controls.Add(this.lstPets);
             this.tabPagePet.Location = new System.Drawing.Point(4, 22);
             this.tabPagePet.Name = "tabPagePet";
             this.tabPagePet.Padding = new System.Windows.Forms.Padding(3);
@@ -567,6 +656,31 @@
             this.tabPagePet.TabIndex = 2;
             this.tabPagePet.Text = "Pet";
             this.tabPagePet.UseVisualStyleBackColor = true;
+            // 
+            // pictboxPets
+            // 
+            this.pictboxPets.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictboxPets.Location = new System.Drawing.Point(6, 107);
+            this.pictboxPets.Name = "pictboxPets";
+            this.pictboxPets.Size = new System.Drawing.Size(171, 171);
+            this.pictboxPets.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictboxPets.TabIndex = 1;
+            this.pictboxPets.TabStop = false;
+            // 
+            // lstPets
+            // 
+            this.lstPets.DataSource = this.petBindingSource;
+            this.lstPets.DisplayMember = "PetName";
+            this.lstPets.FormattingEnabled = true;
+            this.lstPets.Location = new System.Drawing.Point(6, 6);
+            this.lstPets.Name = "lstPets";
+            this.lstPets.Size = new System.Drawing.Size(171, 95);
+            this.lstPets.TabIndex = 0;
+            this.lstPets.SelectedIndexChanged += new System.EventHandler(this.lstPets_SelectedIndexChanged);
+            // 
+            // petBindingSource
+            // 
+            this.petBindingSource.DataSource = typeof(FOS_SaveEditor.GameData.Pet);
             // 
             // DwellerEdit
             // 
@@ -587,6 +701,15 @@
             this.grpDwellerInfo.ResumeLayout(false);
             this.grpDwellerInfo.PerformLayout();
             this.tabControlEquipment.ResumeLayout(false);
+            this.tabPageOutfit.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxOutfit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outfitBindingSource)).EndInit();
+            this.tabPageWeapon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxWeapons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
+            this.tabPagePet.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictboxPets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -629,5 +752,14 @@
         private System.Windows.Forms.TabPage tabPageOutfit;
         private System.Windows.Forms.TabPage tabPageWeapon;
         private System.Windows.Forms.TabPage tabPagePet;
+        private System.Windows.Forms.ListBox lstOutfit;
+        private System.Windows.Forms.PictureBox pictboxOutfit;
+        private System.Windows.Forms.BindingSource outfitBindingSource;
+        private System.Windows.Forms.BindingSource petBindingSource;
+        private System.Windows.Forms.BindingSource weaponBindingSource;
+        private System.Windows.Forms.PictureBox pictboxWeapons;
+        private System.Windows.Forms.ListBox lstWeapons;
+        private System.Windows.Forms.PictureBox pictboxPets;
+        private System.Windows.Forms.ListBox lstPets;
     }
 }

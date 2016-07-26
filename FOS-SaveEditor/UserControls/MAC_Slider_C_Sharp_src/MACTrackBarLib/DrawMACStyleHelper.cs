@@ -69,19 +69,14 @@ namespace XComponent.SliderBar
         public static void DrawAquaPill(Graphics g, RectangleF drawRectF, Color drawColor, Orientation orientation)
 
         {
-            Color color1;
-            Color color2;
-            Color color3;
-            Color color4;
-            Color color5;
             System.Drawing.Drawing2D.LinearGradientBrush gradientBrush;
             System.Drawing.Drawing2D.ColorBlend colorBlend = new System.Drawing.Drawing2D.ColorBlend();
 
-            color1 = ColorHelper.OpacityMix(Color.White, ColorHelper.SoftLightMix(drawColor, Color.Black, 100), 40);
-            color2 = ColorHelper.OpacityMix(Color.White, ColorHelper.SoftLightMix(drawColor, ColorHelper.CreateColorFromRGB(64, 64, 64), 100), 20);
-            color3 = ColorHelper.SoftLightMix(drawColor, ColorHelper.CreateColorFromRGB(128, 128, 128), 100);
-            color4 = ColorHelper.SoftLightMix(drawColor, ColorHelper.CreateColorFromRGB(192, 192, 192), 100);
-            color5 = ColorHelper.OverlayMix(ColorHelper.SoftLightMix(drawColor, Color.White, 100), Color.White, 75);
+            var color1 = ColorHelper.OpacityMix(Color.White, ColorHelper.SoftLightMix(drawColor, Color.Black, 100), 40);
+            var color2 = ColorHelper.OpacityMix(Color.White, ColorHelper.SoftLightMix(drawColor, ColorHelper.CreateColorFromRGB(64, 64, 64), 100), 20);
+            var color3 = ColorHelper.SoftLightMix(drawColor, ColorHelper.CreateColorFromRGB(128, 128, 128), 100);
+            var color4 = ColorHelper.SoftLightMix(drawColor, ColorHelper.CreateColorFromRGB(192, 192, 192), 100);
+            var color5 = ColorHelper.OverlayMix(ColorHelper.SoftLightMix(drawColor, Color.White, 100), Color.White, 75);
 
             //			
             colorBlend.Colors = new Color[] { color1, color2, color3, color4, color5 };
@@ -114,22 +109,29 @@ namespace XComponent.SliderBar
         /// <param name="trackerRectF"></param>
         /// <param name="drawColorMin"></param>
         /// <param name="drawColorMax"></param>
+        /// <param name ="drawColorAdditional"></param>
         /// <param name="orientation"></param>
         public static void DrawAquaPillSingleLayer(
             Graphics g, 
             RectangleF drawRectF,
             RectangleF trackerRectF,
+            RectangleF bonusRectF,
             Color drawColorMin, 
             Color drawColorMax, 
+            Color drawColorAdditional,
             Orientation orientation)
         {
             RectangleF drawRectMinF;
+            RectangleF drawRectBonusF;
 
             LinearGradientBrush gradientBrushMin;
             var colorBlendMin = new ColorBlend();
 
             LinearGradientBrush gradientBrushMax;
             var colorBlendMax = new ColorBlend();
+
+            LinearGradientBrush gradientBrushBonus;
+            var colorBlendBonus = new ColorBlend();
 
             var color1Min = drawColorMin;
             var color2Min = ControlPaint.Light(color1Min);
@@ -141,11 +143,19 @@ namespace XComponent.SliderBar
             var color3Max = ControlPaint.Light(color2Max);
             var color4Max = ControlPaint.Light(color3Max);
 
+            var color1Bonus = drawColorAdditional;
+            var color2Additional = ControlPaint.Light(color1Bonus);
+            var color3Additional = ControlPaint.Light(color2Additional);
+            var color4Bonus = ControlPaint.Light(color3Additional);
+
             colorBlendMin.Colors = new[] { color1Min, color2Min, color3Min, color4Min };
             colorBlendMin.Positions = new[] { 0, 0.25f, 0.65f, 1 };
 
             colorBlendMax.Colors = new[] { color1Max, color2Max, color3Max, color4Max };
             colorBlendMax.Positions = new[] { 0, 0.25f, 0.65f, 1 };
+
+            colorBlendBonus.Colors = new[] { color1Bonus, color2Additional, color3Additional, color4Bonus };
+            colorBlendBonus.Positions = new[] { 0, 0.25f, 0.65f, 1 };
 
             if (orientation == Orientation.Horizontal)
             {
@@ -154,6 +164,13 @@ namespace XComponent.SliderBar
                     drawRectF.Left,
                     drawRectF.Top,
                     trackerRectF.Right - trackerRectF.Width / 2,
+                    drawRectF.Height);
+
+                //TODO Figure out how to calculate an additional value
+                drawRectBonusF = new RectangleF(
+                    drawRectF.Left,
+                    drawRectF.Top,
+                    drawRectF.Right - bonusRectF.Width,
                     drawRectF.Height);
 
                 gradientBrushMin =
@@ -169,6 +186,13 @@ namespace XComponent.SliderBar
                         new Point((int)drawRectF.Left, (int)drawRectF.Top + (int)drawRectF.Height),
                         color1Max,
                         color4Max);
+
+                gradientBrushBonus =
+                    new LinearGradientBrush(
+                        new Point((int)drawRectF.Left, (int)drawRectF.Top),
+                        new Point((int)drawRectF.Left, (int)drawRectF.Top + (int)drawRectF.Height),
+                        color1Bonus,
+                        color4Bonus);
             }
             else // Vertical
             {
@@ -176,7 +200,25 @@ namespace XComponent.SliderBar
                     drawRectF.Left,
                     trackerRectF.Top,
                     drawRectF.Width,
-                    drawRectF.Bottom - (trackerRectF.Top/* + (trackerRectF.Height / 2)*/));  // height of the rectangle
+                    drawRectF.Bottom - (trackerRectF.Top));  // height of the rectangle
+
+                drawRectBonusF = new RectangleF(
+                    drawRectF.Left,
+                    bonusRectF.Top,
+                    drawRectF.Width,
+                    drawRectF.Bottom - (bonusRectF.Top));  // height of the rectangle
+
+                Console.WriteLine(
+                    bonusRectF.X + " " +
+                    bonusRectF.Y + " " +
+                    bonusRectF.Height + " " +
+                    bonusRectF.Width);
+
+                Console.WriteLine(
+                    drawRectF.X + " " +
+                    drawRectF.Y + " " +
+                    drawRectF.Height + " " +
+                    drawRectF.Width);
 
                 // Min Color
                 gradientBrushMin =
@@ -193,11 +235,22 @@ namespace XComponent.SliderBar
                         new Point((int)drawRectF.Left + (int)drawRectF.Width, (int)drawRectF.Top),
                         color1Max,
                         color4Max);
+
+                // Additional Color
+                gradientBrushBonus =
+                    new LinearGradientBrush(
+                        new Point((int)drawRectF.Left, (int)drawRectF.Top),
+                        new Point((int)drawRectF.Left + (int)drawRectF.Width, (int)drawRectF.Top),
+                        color1Bonus,
+                        color4Bonus);
             }
             gradientBrushMin.InterpolationColors = colorBlendMin;
             gradientBrushMax.InterpolationColors = colorBlendMax;
+            gradientBrushBonus.InterpolationColors = colorBlendBonus;
 
             FillPill(gradientBrushMax, drawRectF, g);
+
+            FillPill(gradientBrushBonus, drawRectBonusF, g);
             // Do this second so that we overlay it
             FillPill(gradientBrushMin, drawRectMinF, g);
 

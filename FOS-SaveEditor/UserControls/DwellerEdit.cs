@@ -1,12 +1,19 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 using FOS_SaveEditor.Utility;
+using FOS_SaveEditor.GameData;
 
 namespace FOS_SaveEditor.UserControls
 {
     public partial class DwellerEdit : Form
     {
-        private DwellerDataInterface dwellerData;
+        private readonly DwellerDataInterface _dwellerData;
+
+        private Image _outfitImage;
+        private Image _weaponImage;
+        private Image _petImage;
 
         public DwellerEdit()
         {
@@ -16,50 +23,57 @@ namespace FOS_SaveEditor.UserControls
         public DwellerEdit(DwellerDataInterface d)
         {
             InitializeComponent();
-            dwellerData = d;
+            _dwellerData = d;
             LoadDwellerData();
+
+            lstOutfit.DataSource = GameDataIDs.outfitListBindingSource;
+            lstWeapons.DataSource = GameDataIDs.weaponListBindingSource;
+            lstPets.DataSource = GameDataIDs.petListBindingSource;
         }
 
         private void LoadDwellerData()
         {
-            if (dwellerData == null)
+            if (_dwellerData == null)
                 return;
 
-            txtFirstName.Text = dwellerData.DwellerFirstName;
-            txtLastName.Text = dwellerData.DwellerLastName;
-            txtLevel.Text = dwellerData.DwellerLevel.ToString();
-            comboGender.SelectedIndex = dwellerData.DwellerGender == 'M' ? 0 : 1;
-            trackbarS.Value = dwellerData.DwellerStatS;
-            trackbarP.Value = dwellerData.DwellerStatP;
-            trackbarE.Value = dwellerData.DwellerStatE;
-            trackbarC.Value = dwellerData.DwellerStatC;
-            trackbarI.Value = dwellerData.DwellerStatI;
-            trackbarA.Value = dwellerData.DwellerStatA;
-            trackbarL.Value = dwellerData.DwellerStatL;
+            txtFirstName.Text = _dwellerData.DwellerFirstName;
+            txtLastName.Text = _dwellerData.DwellerLastName;
+            txtLevel.Text = _dwellerData.DwellerLevel.ToString();
+            comboGender.SelectedIndex = _dwellerData.DwellerGender == 'M' ? 0 : 1;
+            trackbarS.Value = _dwellerData.DwellerStatS;
+            trackbarP.Value = _dwellerData.DwellerStatP;
+            trackbarE.Value = _dwellerData.DwellerStatE;
+            trackbarC.Value = _dwellerData.DwellerStatC;
+            trackbarI.Value = _dwellerData.DwellerStatI;
+            trackbarA.Value = _dwellerData.DwellerStatA;
+            trackbarL.Value = _dwellerData.DwellerStatL;
         }
 
         private void CommitDwellerData()
         {
-            if (dwellerData == null)
+            if (_dwellerData == null)
                 return;
 
-            dwellerData.DwellerFirstName = txtFirstName.Text;
-            dwellerData.DwellerLastName = txtLastName.Text;
+            _dwellerData.DwellerFirstName = txtFirstName.Text;
+            _dwellerData.DwellerLastName = txtLastName.Text;
             // Does nothing since DwellerLevel setter has no code.
-            dwellerData.DwellerLevel = Convert.ToInt32(txtLevel.Text);
-            dwellerData.DwellerGender = comboGender.SelectedIndex == 0 ? 'M' : 'F';
-            dwellerData.DwellerStatS = trackbarS.Value;
-            dwellerData.DwellerStatP = trackbarP.Value;
-            dwellerData.DwellerStatE = trackbarE.Value;
-            dwellerData.DwellerStatC = trackbarC.Value;
-            dwellerData.DwellerStatI = trackbarI.Value;
-            dwellerData.DwellerStatA = trackbarA.Value;
-            dwellerData.DwellerStatL = trackbarL.Value;
+            _dwellerData.DwellerLevel = Convert.ToInt32(txtLevel.Text);
+            _dwellerData.DwellerGender = comboGender.SelectedIndex == 0 ? 'M' : 'F';
+            _dwellerData.DwellerStatS = trackbarS.Value;
+            _dwellerData.DwellerStatP = trackbarP.Value;
+            _dwellerData.DwellerStatE = trackbarE.Value;
+            _dwellerData.DwellerStatC = trackbarC.Value;
+            _dwellerData.DwellerStatI = trackbarI.Value;
+            _dwellerData.DwellerStatA = trackbarA.Value;
+            _dwellerData.DwellerStatL = trackbarL.Value;
         }
 
         private void formDwellerEdit_Load(object sender, EventArgs e)
         {
-
+            //foreach (var outfit in GameData.GameDataIDs.outfitList)
+            //{
+            //    lstOutfit.Items.Add(outfit.OutfitName);
+            //}
         }
 
         public void SetLabel(Label l, string val)
@@ -122,6 +136,30 @@ namespace FOS_SaveEditor.UserControls
         private void btnCancelClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lstOutfit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var outfit = lstOutfit.SelectedItem as Outfit;
+            _outfitImage?.Dispose();
+            _outfitImage = new Bitmap("Resources//OutfitImages//" + outfit.OutfitType + ".png");
+            pictboxOutfit.Image = _outfitImage;
+        }
+
+        private void lstWeapons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var weapon = lstWeapons.SelectedItem as Weapon;
+            _weaponImage?.Dispose();
+            _weaponImage = new Bitmap("Resources//WeaponImages//" + weapon.WeaponType + ".png");
+            pictboxWeapons.Image = _weaponImage;
+        }
+
+        private void lstPets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var pet = lstPets.SelectedItem as Pet;
+            _petImage?.Dispose();
+            _petImage = new Bitmap("Resources//PetImages//" + pet.PetBreed + ".png");
+            pictboxPets.Image = _petImage;
         }
     }
 }
