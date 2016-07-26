@@ -98,6 +98,12 @@
             this.pictboxPets = new System.Windows.Forms.PictureBox();
             this.lstPets = new System.Windows.Forms.ListBox();
             this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnWeaponUndoChanges = new System.Windows.Forms.Button();
+            this.grpWeaponDamage = new System.Windows.Forms.GroupBox();
+            this.lblWeaponMin = new System.Windows.Forms.Label();
+            this.lblWeaponMax = new System.Windows.Forms.Label();
+            this.txtWeaponMin = new System.Windows.Forms.TextBox();
+            this.txtWeaponMax = new System.Windows.Forms.TextBox();
             this.grpDwellerInfo.SuspendLayout();
             this.tabControlEquipment.SuspendLayout();
             this.tabPageOutfit.SuspendLayout();
@@ -110,6 +116,7 @@
             this.tabPagePet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxPets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
+            this.grpWeaponDamage.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackbarS
@@ -423,6 +430,7 @@
             // comboGender
             // 
             this.comboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboGender.Enabled = false;
             this.comboGender.FormattingEnabled = true;
             this.comboGender.Items.AddRange(new object[] {
             "Male",
@@ -431,6 +439,7 @@
             this.comboGender.Name = "comboGender";
             this.comboGender.Size = new System.Drawing.Size(100, 21);
             this.comboGender.TabIndex = 9;
+            this.comboGender.SelectedIndexChanged += new System.EventHandler(this.comboGender_SelectedIndexChanged);
             // 
             // trackbarA
             // 
@@ -879,6 +888,8 @@
             // tabPageWeapon
             // 
             this.tabPageWeapon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageWeapon.Controls.Add(this.grpWeaponDamage);
+            this.tabPageWeapon.Controls.Add(this.btnWeaponUndoChanges);
             this.tabPageWeapon.Controls.Add(this.pictboxWeapons);
             this.tabPageWeapon.Controls.Add(this.lstWeapons);
             this.tabPageWeapon.Location = new System.Drawing.Point(4, 22);
@@ -908,6 +919,7 @@
             this.lstWeapons.Name = "lstWeapons";
             this.lstWeapons.Size = new System.Drawing.Size(171, 95);
             this.lstWeapons.TabIndex = 0;
+            this.lstWeapons.ValueMember = "WeaponID";
             this.lstWeapons.SelectedIndexChanged += new System.EventHandler(this.lstWeapons_SelectedIndexChanged);
             // 
             // weaponBindingSource
@@ -952,6 +964,67 @@
             // 
             this.petBindingSource.DataSource = typeof(FOS_SaveEditor.GameData.Pet);
             // 
+            // btnWeaponUndoChanges
+            // 
+            this.btnWeaponUndoChanges.Location = new System.Drawing.Point(184, 254);
+            this.btnWeaponUndoChanges.Name = "btnWeaponUndoChanges";
+            this.btnWeaponUndoChanges.Size = new System.Drawing.Size(262, 23);
+            this.btnWeaponUndoChanges.TabIndex = 2;
+            this.btnWeaponUndoChanges.Text = "Undo Changes";
+            this.btnWeaponUndoChanges.UseVisualStyleBackColor = true;
+            this.btnWeaponUndoChanges.Click += new System.EventHandler(this.btnWeaponUndoChanges_Click);
+            // 
+            // grpWeaponDamage
+            // 
+            this.grpWeaponDamage.Controls.Add(this.txtWeaponMax);
+            this.grpWeaponDamage.Controls.Add(this.txtWeaponMin);
+            this.grpWeaponDamage.Controls.Add(this.lblWeaponMax);
+            this.grpWeaponDamage.Controls.Add(this.lblWeaponMin);
+            this.grpWeaponDamage.Location = new System.Drawing.Point(184, 6);
+            this.grpWeaponDamage.Name = "grpWeaponDamage";
+            this.grpWeaponDamage.Size = new System.Drawing.Size(105, 55);
+            this.grpWeaponDamage.TabIndex = 3;
+            this.grpWeaponDamage.TabStop = false;
+            this.grpWeaponDamage.Text = "Damage";
+            // 
+            // lblWeaponMin
+            // 
+            this.lblWeaponMin.AutoSize = true;
+            this.lblWeaponMin.Location = new System.Drawing.Point(10, 16);
+            this.lblWeaponMin.Name = "lblWeaponMin";
+            this.lblWeaponMin.Size = new System.Drawing.Size(24, 13);
+            this.lblWeaponMin.TabIndex = 0;
+            this.lblWeaponMin.Text = "Min";
+            // 
+            // lblWeaponMax
+            // 
+            this.lblWeaponMax.AutoSize = true;
+            this.lblWeaponMax.Location = new System.Drawing.Point(7, 33);
+            this.lblWeaponMax.Name = "lblWeaponMax";
+            this.lblWeaponMax.Size = new System.Drawing.Size(27, 13);
+            this.lblWeaponMax.TabIndex = 1;
+            this.lblWeaponMax.Text = "Max";
+            // 
+            // txtWeaponMin
+            // 
+            this.txtWeaponMin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtWeaponMin.Location = new System.Drawing.Point(35, 16);
+            this.txtWeaponMin.Name = "txtWeaponMin";
+            this.txtWeaponMin.ReadOnly = true;
+            this.txtWeaponMin.Size = new System.Drawing.Size(57, 13);
+            this.txtWeaponMin.TabIndex = 2;
+            this.txtWeaponMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtWeaponMax
+            // 
+            this.txtWeaponMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtWeaponMax.Location = new System.Drawing.Point(35, 33);
+            this.txtWeaponMax.Name = "txtWeaponMax";
+            this.txtWeaponMax.ReadOnly = true;
+            this.txtWeaponMax.Size = new System.Drawing.Size(57, 13);
+            this.txtWeaponMax.TabIndex = 3;
+            this.txtWeaponMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // DwellerEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -982,6 +1055,8 @@
             this.tabPagePet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictboxPets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
+            this.grpWeaponDamage.ResumeLayout(false);
+            this.grpWeaponDamage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1056,5 +1131,11 @@
         private System.Windows.Forms.Label lblBonusValueP;
         private System.Windows.Forms.Label lblBonusValueS;
         private System.Windows.Forms.Button btnUndoOutfitChanges;
+        private System.Windows.Forms.Button btnWeaponUndoChanges;
+        private System.Windows.Forms.GroupBox grpWeaponDamage;
+        private System.Windows.Forms.TextBox txtWeaponMax;
+        private System.Windows.Forms.TextBox txtWeaponMin;
+        private System.Windows.Forms.Label lblWeaponMax;
+        private System.Windows.Forms.Label lblWeaponMin;
     }
 }

@@ -48,11 +48,11 @@ namespace FOS_SaveEditor.UserControls
             trackbarI.Value = _dwellerData.DwellerStatI;
             trackbarA.Value = _dwellerData.DwellerStatA;
             trackbarL.Value = _dwellerData.DwellerStatL;
+            
             UpdateAllLabels();
 
-            Console.WriteLine(comboGender.SelectedText);
-            GameDataIDs.outfitListBindingSource.Filter = "OutfitGender = '" + comboGender.SelectedText + "' OR OutfitGender = 'Both'";
-            lstOutfit.Invalidate();
+            UpdateOutfitGender();  
+            //lstOutfit.Invalidate();
         }
 
         private void CommitDwellerData()
@@ -75,13 +75,15 @@ namespace FOS_SaveEditor.UserControls
 
             // Outfit
             _dwellerData.OutfitId = lstOutfit.SelectedValue as string;
-            
+            _dwellerData.WeaponId = lstWeapons.SelectedValue as string;
+
         }
 
         private void formDwellerEdit_Load(object sender, EventArgs e)
         {
             LoadDwellerData();
             lstOutfit.SelectedValue = _dwellerData.OutfitId;
+            lstWeapons.SelectedValue = _dwellerData.WeaponId;
         }
 
         public void UpdateLabels(Label l, Label lb, MACTrackBar tb)
@@ -150,11 +152,23 @@ namespace FOS_SaveEditor.UserControls
             Close();
         }
 
+        private Color GetRarityColor(string rarity)
+        {
+            if (rarity == "Normal")
+                return Color.DarkGray;
+            if (rarity == "Rare")
+                return Color.DodgerBlue;
+            if (rarity == "Legendary")
+                return Color.Gold;
+            return Color.Black;
+        }
+
         private void lstOutfit_SelectedIndexChanged(object sender, EventArgs e)
         {
             var outfit = lstOutfit.SelectedItem as Outfit;
             _outfitImage?.Dispose();
             _outfitImage = new Bitmap("Resources//OutfitImages//" + outfit.OutfitType + ".png");
+            pictboxOutfit.BackColor = GetRarityColor(outfit.OutfitRarity);
             pictboxOutfit.Image = _outfitImage;
 
             txtOutfitS.Text = (trackbarS.BonusValue = outfit.OutfitSpecialS).ToString();
@@ -186,7 +200,11 @@ namespace FOS_SaveEditor.UserControls
             var weapon = lstWeapons.SelectedItem as Weapon;
             _weaponImage?.Dispose();
             _weaponImage = new Bitmap("Resources//WeaponImages//" + weapon.WeaponType + ".png");
+            pictboxWeapons.BackColor = GetRarityColor(weapon.WeaponRarity);
             pictboxWeapons.Image = _weaponImage;
+
+            txtWeaponMin.Text = weapon.WeaponMinDamage.ToString();
+            txtWeaponMax.Text = weapon.WeaponMaxDamage.ToString();
         }
 
         private void lstPets_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,6 +218,32 @@ namespace FOS_SaveEditor.UserControls
         private void btnUndoOutfitChanges_Click(object sender, EventArgs e)
         {
             lstOutfit.SelectedValue = _dwellerData.OutfitId;
+        }
+
+        private void comboGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateOutfitGender();
+        }
+
+        private void UpdateOutfitGender()
+        {
+            if (comboGender.SelectedIndex == 0)
+            {
+                var source = lstOutfit.DataSource as BindingSource;
+                if (source != null)
+                    source.DataSource = GameDataIDs.maleOutfitBindingList;
+            }
+            if (comboGender.SelectedIndex == 1)
+            {
+                var bindingSource = lstOutfit.DataSource as BindingSource;
+                if (bindingSource != null)
+                    bindingSource.DataSource = GameDataIDs.femaleOutfitBindingList;
+            }
+        }
+
+        private void btnWeaponUndoChanges_Click(object sender, EventArgs e)
+        {
+            lstWeapons.SelectedValue = _dwellerData.WeaponId;
         }
     }
 }

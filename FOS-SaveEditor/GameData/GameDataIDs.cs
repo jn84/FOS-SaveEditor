@@ -22,9 +22,10 @@ namespace FOS_SaveEditor.GameData
         private static List<Weapon> weaponList = new List<Weapon>();
         //private static List<Dweller> dwellerList = new List<Dweller>();
 
-        public static FilteredBindingList<Outfit> outfitBindingList;
-        public static FilteredBindingList<Pet> petBindingList;
-        public static FilteredBindingList<Weapon> weaponBindingList;
+        public static BindingList<Outfit> maleOutfitBindingList;
+        public static BindingList<Outfit> femaleOutfitBindingList;
+        public static BindingList<Pet> petBindingList;
+        public static BindingList<Weapon> weaponBindingList;
 
         public static BindingSource outfitListBindingSource;
         public static BindingSource petListBindingSource;
@@ -42,10 +43,30 @@ namespace FOS_SaveEditor.GameData
             outfitList.Sort(Comparer<Outfit>.Create((x, y) => 
                 string.Compare(x.OutfitName, y.OutfitName, StringComparison.Ordinal)));
 
+            maleOutfitBindingList = new BindingList<Outfit>();
+            femaleOutfitBindingList = new BindingList<Outfit>();
 
-            outfitBindingList = new FilteredBindingList<Outfit>(outfitList);
-            petBindingList = new FilteredBindingList<Pet>(petList);
-            weaponBindingList = new FilteredBindingList<Weapon>(weaponList);
+            Console.WriteLine("new? " + maleOutfitBindingList.AllowNew);
+
+            foreach (var outfit in outfitList)
+            {
+                switch (outfit.OutfitGender)
+                {
+                    case "Both":
+                        maleOutfitBindingList.Add(outfit);
+                        femaleOutfitBindingList.Add(outfit);
+                        continue;
+                    case "Male":
+                        maleOutfitBindingList.Add(outfit);
+                        continue;
+                    case "Female":
+                        femaleOutfitBindingList.Add(outfit);
+                        continue;
+                }
+            }
+
+            petBindingList = new BindingList<Pet>(petList);
+            weaponBindingList = new BindingList<Weapon>(weaponList);
 
             // DataSources for equipment editing
             outfitListBindingSource = new BindingSource(new BindingList<Outfit>(outfitList), null);
