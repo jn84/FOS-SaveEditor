@@ -3,7 +3,7 @@ using CsvHelper.Configuration;
 
 namespace FOS_SaveEditor.GameData
 {
-    public sealed class DwellerMap : CsvClassMap<Dweller>
+    public sealed class DwellerMap : CsvClassMap<Dweller>, IComparable
     {
         public DwellerMap()
         {
@@ -23,6 +23,11 @@ namespace FOS_SaveEditor.GameData
             Map(m => m.DwellerStatI).Name("I");
             Map(m => m.DwellerStatA).Name("A");
             Map(m => m.DwellerStatL).Name("L");
+        }
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -19,7 +19,7 @@ namespace FOS_SaveEditor.GameData
         }
     }
 
-    public class Pet
+    public class Pet : IComparable<Pet>
     {
         public Pet() {}
 
@@ -43,6 +43,11 @@ namespace FOS_SaveEditor.GameData
                 PetBonus + " " +
                 PetMinValue + " " +
                 PetMaxValue);
+        }
+
+        public int CompareTo(Pet other)
+        {
+            return string.CompareOrdinal(this.PetID, other.PetID);
         }
     }
 }

@@ -26,15 +26,17 @@ namespace FOS_SaveEditor.GameData
             Map(m => m.OutfitSpecialL).Name("L");
             Map(m => m.OutfitCraftable).Name("Craftable");
             Map(m => m.OutfitRecipeAvailable).Name("Recipe available");
+            Map(m => m.OutfitGender).Name("Gender");
         }
     }
 
-    public class Outfit
+    public class Outfit : IComparable<Outfit>
     {
         public Outfit() {}
 
-        public bool outfitCraftable;
-        public bool outfitRecipeAvailable;
+        private bool outfitCraftable;
+        private bool outfitRecipeAvailable;
+        private int outfitGender;
 
         public string OutfitID { get; set; }
         public string OutfitName { get; set; }
@@ -60,6 +62,37 @@ namespace FOS_SaveEditor.GameData
             set { outfitRecipeAvailable = (value == "Yes"); }
         }
 
+        public string OutfitGender
+        {
+            get
+            {
+                switch (outfitGender)
+                {
+                    case 1:
+                        return "Male";
+                    case 2:
+                        return "Female";
+                    default:
+                        return "Both";
+                }
+            }
+            set
+            {
+                switch (value)
+                {
+                    case "Male":
+                        outfitGender = 1;
+                        return;
+                    case "Female":
+                        outfitGender = 2;
+                        return;
+                    default:
+                        outfitGender = 0;
+                        return;
+                }
+            }
+        }
+
         public void Print()
         {
             Console.WriteLine(
@@ -75,6 +108,11 @@ namespace FOS_SaveEditor.GameData
                 OutfitSpecialL + " " +
                 OutfitCraftable + " " +
                 OutfitRecipeAvailable);
+        }
+
+        public int CompareTo(Outfit other)
+        {
+            return string.CompareOrdinal(this.OutfitID, other.OutfitID);
         }
     }
 }

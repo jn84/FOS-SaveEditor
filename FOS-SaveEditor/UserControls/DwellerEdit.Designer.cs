@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.trackbarS = new XComponent.SliderBar.MACTrackBar();
             this.grpDwellerInfo = new System.Windows.Forms.GroupBox();
+            this.lblBonusValueL = new System.Windows.Forms.Label();
+            this.lblBonusValueA = new System.Windows.Forms.Label();
+            this.lblBonusValueI = new System.Windows.Forms.Label();
+            this.lblBonusValueC = new System.Windows.Forms.Label();
+            this.lblBonusValueE = new System.Windows.Forms.Label();
+            this.lblBonusValueP = new System.Windows.Forms.Label();
+            this.lblBonusValueS = new System.Windows.Forms.Label();
             this.btnMaxSPECIAL = new System.Windows.Forms.Button();
             this.lblL = new System.Windows.Forms.Label();
             this.lblA = new System.Windows.Forms.Label();
@@ -64,6 +71,22 @@
             this.btnCancelClose = new System.Windows.Forms.Button();
             this.tabControlEquipment = new System.Windows.Forms.TabControl();
             this.tabPageOutfit = new System.Windows.Forms.TabPage();
+            this.btnUndoOutfitChanges = new System.Windows.Forms.Button();
+            this.grpOutfitSPECIAL = new System.Windows.Forms.GroupBox();
+            this.lblOutfitL = new System.Windows.Forms.Label();
+            this.lblOutfitA = new System.Windows.Forms.Label();
+            this.lblOutfitI = new System.Windows.Forms.Label();
+            this.lblOutfitC = new System.Windows.Forms.Label();
+            this.lblOutfitE = new System.Windows.Forms.Label();
+            this.lblOutfitP = new System.Windows.Forms.Label();
+            this.lblOutfitS = new System.Windows.Forms.Label();
+            this.txtOutfitL = new System.Windows.Forms.TextBox();
+            this.txtOutfitA = new System.Windows.Forms.TextBox();
+            this.txtOutfitI = new System.Windows.Forms.TextBox();
+            this.txtOutfitC = new System.Windows.Forms.TextBox();
+            this.txtOutfitE = new System.Windows.Forms.TextBox();
+            this.txtOutfitP = new System.Windows.Forms.TextBox();
+            this.txtOutfitS = new System.Windows.Forms.TextBox();
             this.pictboxOutfit = new System.Windows.Forms.PictureBox();
             this.lstOutfit = new System.Windows.Forms.ListBox();
             this.outfitBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,6 +101,7 @@
             this.grpDwellerInfo.SuspendLayout();
             this.tabControlEquipment.SuspendLayout();
             this.tabPageOutfit.SuspendLayout();
+            this.grpOutfitSPECIAL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxOutfit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outfitBindingSource)).BeginInit();
             this.tabPageWeapon.SuspendLayout();
@@ -96,7 +120,7 @@
             this.trackbarS.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarS.IndentHeight = 6;
-            this.trackbarS.Location = new System.Drawing.Point(7, 155);
+            this.trackbarS.Location = new System.Drawing.Point(7, 143);
             this.trackbarS.Maximum = 10;
             this.trackbarS.Minimum = 1;
             this.trackbarS.Name = "trackbarS";
@@ -118,6 +142,13 @@
             // 
             // grpDwellerInfo
             // 
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueL);
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueA);
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueI);
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueC);
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueE);
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueP);
+            this.grpDwellerInfo.Controls.Add(this.lblBonusValueS);
             this.grpDwellerInfo.Controls.Add(this.btnMaxSPECIAL);
             this.grpDwellerInfo.Controls.Add(this.lblL);
             this.grpDwellerInfo.Controls.Add(this.lblA);
@@ -155,9 +186,72 @@
             this.grpDwellerInfo.TabStop = false;
             this.grpDwellerInfo.Text = "Dweller Information";
             // 
+            // lblBonusValueL
+            // 
+            this.lblBonusValueL.Location = new System.Drawing.Point(152, 295);
+            this.lblBonusValueL.Name = "lblBonusValueL";
+            this.lblBonusValueL.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueL.TabIndex = 31;
+            this.lblBonusValueL.Text = "10";
+            this.lblBonusValueL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBonusValueA
+            // 
+            this.lblBonusValueA.Location = new System.Drawing.Point(128, 295);
+            this.lblBonusValueA.Name = "lblBonusValueA";
+            this.lblBonusValueA.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueA.TabIndex = 30;
+            this.lblBonusValueA.Text = "10";
+            this.lblBonusValueA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBonusValueI
+            // 
+            this.lblBonusValueI.Location = new System.Drawing.Point(104, 295);
+            this.lblBonusValueI.Name = "lblBonusValueI";
+            this.lblBonusValueI.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueI.TabIndex = 29;
+            this.lblBonusValueI.Text = "10";
+            this.lblBonusValueI.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBonusValueC
+            // 
+            this.lblBonusValueC.Location = new System.Drawing.Point(80, 295);
+            this.lblBonusValueC.Name = "lblBonusValueC";
+            this.lblBonusValueC.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueC.TabIndex = 28;
+            this.lblBonusValueC.Text = "10";
+            this.lblBonusValueC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBonusValueE
+            // 
+            this.lblBonusValueE.Location = new System.Drawing.Point(56, 295);
+            this.lblBonusValueE.Name = "lblBonusValueE";
+            this.lblBonusValueE.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueE.TabIndex = 27;
+            this.lblBonusValueE.Text = "10";
+            this.lblBonusValueE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBonusValueP
+            // 
+            this.lblBonusValueP.Location = new System.Drawing.Point(33, 295);
+            this.lblBonusValueP.Name = "lblBonusValueP";
+            this.lblBonusValueP.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueP.TabIndex = 26;
+            this.lblBonusValueP.Text = "10";
+            this.lblBonusValueP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBonusValueS
+            // 
+            this.lblBonusValueS.Location = new System.Drawing.Point(8, 295);
+            this.lblBonusValueS.Name = "lblBonusValueS";
+            this.lblBonusValueS.Size = new System.Drawing.Size(23, 16);
+            this.lblBonusValueS.TabIndex = 25;
+            this.lblBonusValueS.Text = "10";
+            this.lblBonusValueS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnMaxSPECIAL
             // 
-            this.btnMaxSPECIAL.Location = new System.Drawing.Point(7, 117);
+            this.btnMaxSPECIAL.Location = new System.Drawing.Point(7, 109);
             this.btnMaxSPECIAL.Name = "btnMaxSPECIAL";
             this.btnMaxSPECIAL.Size = new System.Drawing.Size(168, 23);
             this.btnMaxSPECIAL.TabIndex = 24;
@@ -168,7 +262,7 @@
             // lblL
             // 
             this.lblL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblL.Location = new System.Drawing.Point(153, 143);
+            this.lblL.Location = new System.Drawing.Point(153, 131);
             this.lblL.Name = "lblL";
             this.lblL.Size = new System.Drawing.Size(24, 19);
             this.lblL.TabIndex = 23;
@@ -178,7 +272,7 @@
             // lblA
             // 
             this.lblA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA.Location = new System.Drawing.Point(129, 143);
+            this.lblA.Location = new System.Drawing.Point(129, 131);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(24, 19);
             this.lblA.TabIndex = 22;
@@ -188,7 +282,7 @@
             // lblI
             // 
             this.lblI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblI.Location = new System.Drawing.Point(105, 143);
+            this.lblI.Location = new System.Drawing.Point(105, 131);
             this.lblI.Name = "lblI";
             this.lblI.Size = new System.Drawing.Size(24, 19);
             this.lblI.TabIndex = 21;
@@ -198,7 +292,7 @@
             // lblC
             // 
             this.lblC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC.Location = new System.Drawing.Point(81, 143);
+            this.lblC.Location = new System.Drawing.Point(81, 131);
             this.lblC.Name = "lblC";
             this.lblC.Size = new System.Drawing.Size(24, 19);
             this.lblC.TabIndex = 20;
@@ -208,7 +302,7 @@
             // lblE
             // 
             this.lblE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblE.Location = new System.Drawing.Point(57, 143);
+            this.lblE.Location = new System.Drawing.Point(57, 131);
             this.lblE.Name = "lblE";
             this.lblE.Size = new System.Drawing.Size(24, 19);
             this.lblE.TabIndex = 19;
@@ -218,7 +312,7 @@
             // lblP
             // 
             this.lblP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP.Location = new System.Drawing.Point(34, 143);
+            this.lblP.Location = new System.Drawing.Point(34, 131);
             this.lblP.Name = "lblP";
             this.lblP.Size = new System.Drawing.Size(24, 19);
             this.lblP.TabIndex = 18;
@@ -228,7 +322,7 @@
             // lblS
             // 
             this.lblS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblS.Location = new System.Drawing.Point(10, 143);
+            this.lblS.Location = new System.Drawing.Point(10, 131);
             this.lblS.Name = "lblS";
             this.lblS.Size = new System.Drawing.Size(24, 19);
             this.lblS.TabIndex = 17;
@@ -237,7 +331,7 @@
             // 
             // lblLValue
             // 
-            this.lblLValue.Location = new System.Drawing.Point(152, 290);
+            this.lblLValue.Location = new System.Drawing.Point(152, 278);
             this.lblLValue.Name = "lblLValue";
             this.lblLValue.Size = new System.Drawing.Size(23, 16);
             this.lblLValue.TabIndex = 16;
@@ -246,7 +340,7 @@
             // 
             // lblAValue
             // 
-            this.lblAValue.Location = new System.Drawing.Point(128, 290);
+            this.lblAValue.Location = new System.Drawing.Point(128, 278);
             this.lblAValue.Name = "lblAValue";
             this.lblAValue.Size = new System.Drawing.Size(23, 16);
             this.lblAValue.TabIndex = 15;
@@ -255,7 +349,7 @@
             // 
             // lblIValue
             // 
-            this.lblIValue.Location = new System.Drawing.Point(104, 290);
+            this.lblIValue.Location = new System.Drawing.Point(104, 278);
             this.lblIValue.Name = "lblIValue";
             this.lblIValue.Size = new System.Drawing.Size(23, 16);
             this.lblIValue.TabIndex = 14;
@@ -264,7 +358,7 @@
             // 
             // lblCValue
             // 
-            this.lblCValue.Location = new System.Drawing.Point(80, 290);
+            this.lblCValue.Location = new System.Drawing.Point(80, 278);
             this.lblCValue.Name = "lblCValue";
             this.lblCValue.Size = new System.Drawing.Size(23, 16);
             this.lblCValue.TabIndex = 13;
@@ -273,7 +367,7 @@
             // 
             // lblEValue
             // 
-            this.lblEValue.Location = new System.Drawing.Point(56, 290);
+            this.lblEValue.Location = new System.Drawing.Point(56, 278);
             this.lblEValue.Name = "lblEValue";
             this.lblEValue.Size = new System.Drawing.Size(23, 16);
             this.lblEValue.TabIndex = 12;
@@ -282,7 +376,7 @@
             // 
             // lblPValue
             // 
-            this.lblPValue.Location = new System.Drawing.Point(32, 290);
+            this.lblPValue.Location = new System.Drawing.Point(33, 278);
             this.lblPValue.Name = "lblPValue";
             this.lblPValue.Size = new System.Drawing.Size(23, 16);
             this.lblPValue.TabIndex = 11;
@@ -291,7 +385,7 @@
             // 
             // lblSValue
             // 
-            this.lblSValue.Location = new System.Drawing.Point(8, 290);
+            this.lblSValue.Location = new System.Drawing.Point(8, 278);
             this.lblSValue.Name = "lblSValue";
             this.lblSValue.Size = new System.Drawing.Size(23, 16);
             this.lblSValue.TabIndex = 10;
@@ -306,7 +400,7 @@
             this.trackbarL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarL.IndentHeight = 6;
-            this.trackbarL.Location = new System.Drawing.Point(151, 155);
+            this.trackbarL.Location = new System.Drawing.Point(151, 143);
             this.trackbarL.Maximum = 10;
             this.trackbarL.Minimum = 1;
             this.trackbarL.Name = "trackbarL";
@@ -346,7 +440,7 @@
             this.trackbarA.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarA.IndentHeight = 6;
-            this.trackbarA.Location = new System.Drawing.Point(127, 155);
+            this.trackbarA.Location = new System.Drawing.Point(127, 143);
             this.trackbarA.Maximum = 10;
             this.trackbarA.Minimum = 1;
             this.trackbarA.Name = "trackbarA";
@@ -382,7 +476,7 @@
             this.trackbarI.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarI.IndentHeight = 6;
-            this.trackbarI.Location = new System.Drawing.Point(103, 155);
+            this.trackbarI.Location = new System.Drawing.Point(103, 143);
             this.trackbarI.Maximum = 10;
             this.trackbarI.Minimum = 1;
             this.trackbarI.Name = "trackbarI";
@@ -405,12 +499,12 @@
             // trackbarC
             // 
             this.trackbarC.BackColor = System.Drawing.Color.Transparent;
-            this.trackbarC.BonusValue = 3;
+            this.trackbarC.BonusValue = 0;
             this.trackbarC.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.trackbarC.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarC.IndentHeight = 6;
-            this.trackbarC.Location = new System.Drawing.Point(79, 155);
+            this.trackbarC.Location = new System.Drawing.Point(79, 143);
             this.trackbarC.Maximum = 10;
             this.trackbarC.Minimum = 1;
             this.trackbarC.Name = "trackbarC";
@@ -445,7 +539,7 @@
             this.trackbarE.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarE.IndentHeight = 6;
-            this.trackbarE.Location = new System.Drawing.Point(55, 155);
+            this.trackbarE.Location = new System.Drawing.Point(55, 143);
             this.trackbarE.Maximum = 10;
             this.trackbarE.Minimum = 1;
             this.trackbarE.Name = "trackbarE";
@@ -480,7 +574,7 @@
             this.trackbarP.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trackbarP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.trackbarP.IndentHeight = 6;
-            this.trackbarP.Location = new System.Drawing.Point(31, 155);
+            this.trackbarP.Location = new System.Drawing.Point(31, 143);
             this.trackbarP.Maximum = 10;
             this.trackbarP.Minimum = 1;
             this.trackbarP.Name = "trackbarP";
@@ -571,6 +665,8 @@
             // tabPageOutfit
             // 
             this.tabPageOutfit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageOutfit.Controls.Add(this.btnUndoOutfitChanges);
+            this.tabPageOutfit.Controls.Add(this.grpOutfitSPECIAL);
             this.tabPageOutfit.Controls.Add(this.pictboxOutfit);
             this.tabPageOutfit.Controls.Add(this.lstOutfit);
             this.tabPageOutfit.Location = new System.Drawing.Point(4, 22);
@@ -580,6 +676,179 @@
             this.tabPageOutfit.TabIndex = 0;
             this.tabPageOutfit.Text = "Outfit";
             this.tabPageOutfit.UseVisualStyleBackColor = true;
+            // 
+            // btnUndoOutfitChanges
+            // 
+            this.btnUndoOutfitChanges.Location = new System.Drawing.Point(184, 255);
+            this.btnUndoOutfitChanges.Name = "btnUndoOutfitChanges";
+            this.btnUndoOutfitChanges.Size = new System.Drawing.Size(262, 23);
+            this.btnUndoOutfitChanges.TabIndex = 3;
+            this.btnUndoOutfitChanges.Text = "Undo Changes";
+            this.btnUndoOutfitChanges.UseVisualStyleBackColor = true;
+            this.btnUndoOutfitChanges.Click += new System.EventHandler(this.btnUndoOutfitChanges_Click);
+            // 
+            // grpOutfitSPECIAL
+            // 
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitL);
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitA);
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitI);
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitC);
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitE);
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitP);
+            this.grpOutfitSPECIAL.Controls.Add(this.lblOutfitS);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitL);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitA);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitI);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitC);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitE);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitP);
+            this.grpOutfitSPECIAL.Controls.Add(this.txtOutfitS);
+            this.grpOutfitSPECIAL.Location = new System.Drawing.Point(184, 7);
+            this.grpOutfitSPECIAL.Name = "grpOutfitSPECIAL";
+            this.grpOutfitSPECIAL.Size = new System.Drawing.Size(262, 71);
+            this.grpOutfitSPECIAL.TabIndex = 2;
+            this.grpOutfitSPECIAL.TabStop = false;
+            this.grpOutfitSPECIAL.Text = "Outfit Stats";
+            // 
+            // lblOutfitL
+            // 
+            this.lblOutfitL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitL.Location = new System.Drawing.Point(225, 16);
+            this.lblOutfitL.Name = "lblOutfitL";
+            this.lblOutfitL.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitL.TabIndex = 12;
+            this.lblOutfitL.Text = "L";
+            this.lblOutfitL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOutfitA
+            // 
+            this.lblOutfitA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitA.Location = new System.Drawing.Point(189, 16);
+            this.lblOutfitA.Name = "lblOutfitA";
+            this.lblOutfitA.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitA.TabIndex = 11;
+            this.lblOutfitA.Text = "A";
+            this.lblOutfitA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOutfitI
+            // 
+            this.lblOutfitI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitI.Location = new System.Drawing.Point(153, 16);
+            this.lblOutfitI.Name = "lblOutfitI";
+            this.lblOutfitI.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitI.TabIndex = 8;
+            this.lblOutfitI.Text = "I";
+            this.lblOutfitI.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOutfitC
+            // 
+            this.lblOutfitC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitC.Location = new System.Drawing.Point(117, 16);
+            this.lblOutfitC.Name = "lblOutfitC";
+            this.lblOutfitC.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitC.TabIndex = 10;
+            this.lblOutfitC.Text = "C";
+            this.lblOutfitC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOutfitE
+            // 
+            this.lblOutfitE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitE.Location = new System.Drawing.Point(81, 16);
+            this.lblOutfitE.Name = "lblOutfitE";
+            this.lblOutfitE.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitE.TabIndex = 9;
+            this.lblOutfitE.Text = "E";
+            this.lblOutfitE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOutfitP
+            // 
+            this.lblOutfitP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitP.Location = new System.Drawing.Point(45, 16);
+            this.lblOutfitP.Name = "lblOutfitP";
+            this.lblOutfitP.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitP.TabIndex = 8;
+            this.lblOutfitP.Text = "P";
+            this.lblOutfitP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOutfitS
+            // 
+            this.lblOutfitS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutfitS.Location = new System.Drawing.Point(9, 16);
+            this.lblOutfitS.Name = "lblOutfitS";
+            this.lblOutfitS.Size = new System.Drawing.Size(30, 19);
+            this.lblOutfitS.TabIndex = 7;
+            this.lblOutfitS.Text = "S";
+            this.lblOutfitS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtOutfitL
+            // 
+            this.txtOutfitL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitL.Location = new System.Drawing.Point(224, 38);
+            this.txtOutfitL.Name = "txtOutfitL";
+            this.txtOutfitL.ReadOnly = true;
+            this.txtOutfitL.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitL.TabIndex = 6;
+            this.txtOutfitL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOutfitA
+            // 
+            this.txtOutfitA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitA.Location = new System.Drawing.Point(188, 38);
+            this.txtOutfitA.Name = "txtOutfitA";
+            this.txtOutfitA.ReadOnly = true;
+            this.txtOutfitA.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitA.TabIndex = 5;
+            this.txtOutfitA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOutfitI
+            // 
+            this.txtOutfitI.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitI.Location = new System.Drawing.Point(152, 38);
+            this.txtOutfitI.Name = "txtOutfitI";
+            this.txtOutfitI.ReadOnly = true;
+            this.txtOutfitI.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitI.TabIndex = 4;
+            this.txtOutfitI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOutfitC
+            // 
+            this.txtOutfitC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitC.Location = new System.Drawing.Point(116, 38);
+            this.txtOutfitC.Name = "txtOutfitC";
+            this.txtOutfitC.ReadOnly = true;
+            this.txtOutfitC.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitC.TabIndex = 3;
+            this.txtOutfitC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOutfitE
+            // 
+            this.txtOutfitE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitE.Location = new System.Drawing.Point(80, 38);
+            this.txtOutfitE.Name = "txtOutfitE";
+            this.txtOutfitE.ReadOnly = true;
+            this.txtOutfitE.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitE.TabIndex = 2;
+            this.txtOutfitE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOutfitP
+            // 
+            this.txtOutfitP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitP.Location = new System.Drawing.Point(44, 38);
+            this.txtOutfitP.Name = "txtOutfitP";
+            this.txtOutfitP.ReadOnly = true;
+            this.txtOutfitP.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitP.TabIndex = 1;
+            this.txtOutfitP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOutfitS
+            // 
+            this.txtOutfitS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOutfitS.Location = new System.Drawing.Point(8, 38);
+            this.txtOutfitS.Name = "txtOutfitS";
+            this.txtOutfitS.ReadOnly = true;
+            this.txtOutfitS.Size = new System.Drawing.Size(30, 13);
+            this.txtOutfitS.TabIndex = 0;
+            this.txtOutfitS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictboxOutfit
             // 
@@ -600,6 +869,7 @@
             this.lstOutfit.Name = "lstOutfit";
             this.lstOutfit.Size = new System.Drawing.Size(171, 95);
             this.lstOutfit.TabIndex = 0;
+            this.lstOutfit.ValueMember = "OutfitID";
             this.lstOutfit.SelectedIndexChanged += new System.EventHandler(this.lstOutfit_SelectedIndexChanged);
             // 
             // outfitBindingSource
@@ -702,6 +972,8 @@
             this.grpDwellerInfo.PerformLayout();
             this.tabControlEquipment.ResumeLayout(false);
             this.tabPageOutfit.ResumeLayout(false);
+            this.grpOutfitSPECIAL.ResumeLayout(false);
+            this.grpOutfitSPECIAL.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictboxOutfit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outfitBindingSource)).EndInit();
             this.tabPageWeapon.ResumeLayout(false);
@@ -761,5 +1033,28 @@
         private System.Windows.Forms.ListBox lstWeapons;
         private System.Windows.Forms.PictureBox pictboxPets;
         private System.Windows.Forms.ListBox lstPets;
+        private System.Windows.Forms.GroupBox grpOutfitSPECIAL;
+        private System.Windows.Forms.Label lblOutfitL;
+        private System.Windows.Forms.Label lblOutfitA;
+        private System.Windows.Forms.Label lblOutfitI;
+        private System.Windows.Forms.Label lblOutfitC;
+        private System.Windows.Forms.Label lblOutfitE;
+        private System.Windows.Forms.Label lblOutfitP;
+        private System.Windows.Forms.Label lblOutfitS;
+        private System.Windows.Forms.TextBox txtOutfitL;
+        private System.Windows.Forms.TextBox txtOutfitA;
+        private System.Windows.Forms.TextBox txtOutfitI;
+        private System.Windows.Forms.TextBox txtOutfitC;
+        private System.Windows.Forms.TextBox txtOutfitE;
+        private System.Windows.Forms.TextBox txtOutfitP;
+        private System.Windows.Forms.TextBox txtOutfitS;
+        private System.Windows.Forms.Label lblBonusValueL;
+        private System.Windows.Forms.Label lblBonusValueA;
+        private System.Windows.Forms.Label lblBonusValueI;
+        private System.Windows.Forms.Label lblBonusValueC;
+        private System.Windows.Forms.Label lblBonusValueE;
+        private System.Windows.Forms.Label lblBonusValueP;
+        private System.Windows.Forms.Label lblBonusValueS;
+        private System.Windows.Forms.Button btnUndoOutfitChanges;
     }
 }

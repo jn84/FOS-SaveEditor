@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using FOS_SaveEditor.Utility;
 using FOS_SaveEditor.GameData;
+using XComponent.SliderBar;
 
 namespace FOS_SaveEditor.UserControls
 {
@@ -24,7 +26,6 @@ namespace FOS_SaveEditor.UserControls
         {
             InitializeComponent();
             _dwellerData = d;
-            LoadDwellerData();
 
             lstOutfit.DataSource = GameDataIDs.outfitListBindingSource;
             lstWeapons.DataSource = GameDataIDs.weaponListBindingSource;
@@ -47,6 +48,11 @@ namespace FOS_SaveEditor.UserControls
             trackbarI.Value = _dwellerData.DwellerStatI;
             trackbarA.Value = _dwellerData.DwellerStatA;
             trackbarL.Value = _dwellerData.DwellerStatL;
+            UpdateAllLabels();
+
+            Console.WriteLine(comboGender.SelectedText);
+            GameDataIDs.outfitListBindingSource.Filter = "OutfitGender = '" + comboGender.SelectedText + "' OR OutfitGender = 'Both'";
+            lstOutfit.Invalidate();
         }
 
         private void CommitDwellerData()
@@ -66,54 +72,60 @@ namespace FOS_SaveEditor.UserControls
             _dwellerData.DwellerStatI = trackbarI.Value;
             _dwellerData.DwellerStatA = trackbarA.Value;
             _dwellerData.DwellerStatL = trackbarL.Value;
+
+            // Outfit
+            _dwellerData.OutfitId = lstOutfit.SelectedValue as string;
+            
         }
 
         private void formDwellerEdit_Load(object sender, EventArgs e)
         {
-            //foreach (var outfit in GameData.GameDataIDs.outfitList)
-            //{
-            //    lstOutfit.Items.Add(outfit.OutfitName);
-            //}
+            LoadDwellerData();
+            lstOutfit.SelectedValue = _dwellerData.OutfitId;
         }
 
-        public void SetLabel(Label l, string val)
+        public void UpdateLabels(Label l, Label lb, MACTrackBar tb)
         {
-            l.Text = val;
+            l.Text = tb.Value.ToString();
+            if (tb.BonusValue > 0)
+                lb.Text += @"+" + tb.BonusValue;
+            else
+                lb.Text = "";
         }
 
         private void trackbarS_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblSValue, trackbarS.Value.ToString());
+            UpdateLabels(lblSValue, lblBonusValueS, trackbarS);
         }
 
         private void trackbarP_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblPValue, trackbarP.Value.ToString());
+            UpdateLabels(lblPValue, lblBonusValueP, trackbarP);
         }
 
         private void trackbarE_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblEValue, trackbarE.Value.ToString());
+            UpdateLabels(lblEValue, lblBonusValueE, trackbarE);
         }
 
         private void trackbarC_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblCValue, trackbarC.Value.ToString());
+            UpdateLabels(lblCValue, lblBonusValueC, trackbarC);
         }
 
         private void trackbarI_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblIValue, trackbarI.Value.ToString());
+            UpdateLabels(lblIValue, lblBonusValueI, trackbarI);
         }
 
         private void trackbarA_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblAValue, trackbarA.Value.ToString());
+            UpdateLabels(lblAValue, lblBonusValueA, trackbarA);
         }
 
         private void trackbarL_ValueChanged(object sender, decimal value)
         {
-            SetLabel(lblLValue, trackbarL.Value.ToString());
+            UpdateLabels(lblLValue, lblBonusValueL, trackbarL);
         }
 
         private void btnMaxSPECIAL_Click(object sender, EventArgs e)
@@ -144,6 +156,29 @@ namespace FOS_SaveEditor.UserControls
             _outfitImage?.Dispose();
             _outfitImage = new Bitmap("Resources//OutfitImages//" + outfit.OutfitType + ".png");
             pictboxOutfit.Image = _outfitImage;
+
+            txtOutfitS.Text = (trackbarS.BonusValue = outfit.OutfitSpecialS).ToString();
+            txtOutfitP.Text = (trackbarP.BonusValue = outfit.OutfitSpecialP).ToString();
+            txtOutfitE.Text = (trackbarE.BonusValue = outfit.OutfitSpecialE).ToString();
+            txtOutfitC.Text = (trackbarC.BonusValue = outfit.OutfitSpecialC).ToString();
+            txtOutfitI.Text = (trackbarI.BonusValue = outfit.OutfitSpecialI).ToString();
+            txtOutfitA.Text = (trackbarA.BonusValue = outfit.OutfitSpecialA).ToString();
+            txtOutfitL.Text = (trackbarL.BonusValue = outfit.OutfitSpecialL).ToString();
+
+            UpdateAllLabels();
+        }
+
+        // ReSharper disable once InconsistentNaming
+        private void UpdateAllLabels()
+        {
+            // Crappy label workaround
+            UpdateLabels(lblSValue, lblBonusValueS, trackbarS);
+            UpdateLabels(lblPValue, lblBonusValueP, trackbarP);
+            UpdateLabels(lblEValue, lblBonusValueE, trackbarE);
+            UpdateLabels(lblCValue, lblBonusValueC, trackbarC);
+            UpdateLabels(lblIValue, lblBonusValueI, trackbarI);
+            UpdateLabels(lblAValue, lblBonusValueA, trackbarA);
+            UpdateLabels(lblLValue, lblBonusValueL, trackbarL);
         }
 
         private void lstWeapons_SelectedIndexChanged(object sender, EventArgs e)
@@ -160,6 +195,11 @@ namespace FOS_SaveEditor.UserControls
             _petImage?.Dispose();
             _petImage = new Bitmap("Resources//PetImages//" + pet.PetBreed + ".png");
             pictboxPets.Image = _petImage;
+        }
+
+        private void btnUndoOutfitChanges_Click(object sender, EventArgs e)
+        {
+            lstOutfit.SelectedValue = _dwellerData.OutfitId;
         }
     }
 }

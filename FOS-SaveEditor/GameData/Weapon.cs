@@ -19,7 +19,7 @@ namespace FOS_SaveEditor.GameData
         }
     }
 
-    public class Weapon
+    public class Weapon : IComparable<Weapon>
     {
         private bool weaponCraftable = false;
         private bool weaponRecipe = false;
@@ -61,6 +61,11 @@ namespace FOS_SaveEditor.GameData
                 WeaponRarity + " " +
                 WeaponCraftable + " " +
                 WeaponRecipe);
+        }
+
+        public int CompareTo(Weapon other)
+        {
+            return string.CompareOrdinal(this.WeaponID, other.WeaponID);
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using BindingFiltering;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -19,6 +21,10 @@ namespace FOS_SaveEditor.GameData
         private static List<Pet> petList = new List<Pet>();
         private static List<Weapon> weaponList = new List<Weapon>();
         //private static List<Dweller> dwellerList = new List<Dweller>();
+
+        public static FilteredBindingList<Outfit> outfitBindingList;
+        public static FilteredBindingList<Pet> petBindingList;
+        public static FilteredBindingList<Weapon> weaponBindingList;
 
         public static BindingSource outfitListBindingSource;
         public static BindingSource petListBindingSource;
@@ -35,6 +41,11 @@ namespace FOS_SaveEditor.GameData
 
             outfitList.Sort(Comparer<Outfit>.Create((x, y) => 
                 string.Compare(x.OutfitName, y.OutfitName, StringComparison.Ordinal)));
+
+
+            outfitBindingList = new FilteredBindingList<Outfit>(outfitList);
+            petBindingList = new FilteredBindingList<Pet>(petList);
+            weaponBindingList = new FilteredBindingList<Weapon>(weaponList);
 
             // DataSources for equipment editing
             outfitListBindingSource = new BindingSource(new BindingList<Outfit>(outfitList), null);
@@ -80,6 +91,8 @@ namespace FOS_SaveEditor.GameData
                 Console.WriteLine(@"Some exception loading file....");
                 Console.WriteLine(e.StackTrace + "\n\n");
                 Console.WriteLine(e.Message + "\n\n");
+
+                
             }
         }
     }
