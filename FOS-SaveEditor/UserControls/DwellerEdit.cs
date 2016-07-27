@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using FOS_SaveEditor.Utility;
 using FOS_SaveEditor.GameData;
@@ -41,6 +40,7 @@ namespace FOS_SaveEditor.UserControls
             txtLastName.Text = _dwellerData.DwellerLastName;
             txtLevel.Text = _dwellerData.DwellerLevel.ToString();
             comboGender.SelectedIndex = _dwellerData.DwellerGender == 'M' ? 0 : 1;
+
             trackbarS.Value = _dwellerData.DwellerStatS;
             trackbarP.Value = _dwellerData.DwellerStatP;
             trackbarE.Value = _dwellerData.DwellerStatE;
@@ -51,8 +51,9 @@ namespace FOS_SaveEditor.UserControls
             
             UpdateAllLabels();
 
-            UpdateOutfitGender();  
-            //lstOutfit.Invalidate();
+            UpdateOutfitGender();
+
+            lstPets.SelectedValue = _dwellerData.PetId;
         }
 
         private void CommitDwellerData()
@@ -62,9 +63,11 @@ namespace FOS_SaveEditor.UserControls
 
             _dwellerData.DwellerFirstName = txtFirstName.Text;
             _dwellerData.DwellerLastName = txtLastName.Text;
+
             // Does nothing since DwellerLevel setter has no code.
             _dwellerData.DwellerLevel = Convert.ToInt32(txtLevel.Text);
             _dwellerData.DwellerGender = comboGender.SelectedIndex == 0 ? 'M' : 'F';
+
             _dwellerData.DwellerStatS = trackbarS.Value;
             _dwellerData.DwellerStatP = trackbarP.Value;
             _dwellerData.DwellerStatE = trackbarE.Value;
@@ -76,6 +79,23 @@ namespace FOS_SaveEditor.UserControls
             // Outfit
             _dwellerData.OutfitId = lstOutfit.SelectedValue as string;
             _dwellerData.WeaponId = lstWeapons.SelectedValue as string;
+
+            if (lstPets.SelectedValue != "null")
+            {
+
+                var pet = lstPets.SelectedItem as Pet;
+
+                if (pet == null)
+                    Console.WriteLine("pet object is NULL!!!");
+
+                _dwellerData.AddPet(
+                    pet.PetID,
+                    pet.PetName,
+                    pet.PetBonus,
+                    pet.PetMaxValue);
+            }
+            else 
+                _dwellerData.RemovePet();
 
         }
 
@@ -90,43 +110,50 @@ namespace FOS_SaveEditor.UserControls
         {
             l.Text = tb.Value.ToString();
             if (tb.BonusValue > 0)
-                lb.Text += @"+" + tb.BonusValue;
+                lb.Text = @"+" + tb.BonusValue;
             else
                 lb.Text = "";
         }
 
         private void trackbarS_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("S " + trackbarS.BonusValue);
             UpdateLabels(lblSValue, lblBonusValueS, trackbarS);
         }
 
         private void trackbarP_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("P " + trackbarP.BonusValue);
             UpdateLabels(lblPValue, lblBonusValueP, trackbarP);
         }
 
         private void trackbarE_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("E " + trackbarE.BonusValue);
             UpdateLabels(lblEValue, lblBonusValueE, trackbarE);
         }
 
         private void trackbarC_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("C " + trackbarC.BonusValue);
             UpdateLabels(lblCValue, lblBonusValueC, trackbarC);
         }
 
         private void trackbarI_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("I " + trackbarI.BonusValue);
             UpdateLabels(lblIValue, lblBonusValueI, trackbarI);
         }
 
         private void trackbarA_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("A " + trackbarA.BonusValue);
             UpdateLabels(lblAValue, lblBonusValueA, trackbarA);
         }
 
         private void trackbarL_ValueChanged(object sender, decimal value)
         {
+            Console.WriteLine("L " + trackbarL.BonusValue);
             UpdateLabels(lblLValue, lblBonusValueL, trackbarL);
         }
 
@@ -211,8 +238,16 @@ namespace FOS_SaveEditor.UserControls
         {
             var pet = lstPets.SelectedItem as Pet;
             _petImage?.Dispose();
-            _petImage = new Bitmap("Resources//PetImages//" + pet.PetBreed + ".png");
-            pictboxPets.Image = _petImage;
+            try
+            {
+                if (pet != null)
+                    _petImage = new Bitmap("Resources//PetImages//" + pet.PetBreed + ".png");
+                pictboxPets.Image = _petImage;
+            }
+            catch (Exception)
+            {
+                pictboxPets.Image = null;
+            }
         }
 
         private void btnUndoOutfitChanges_Click(object sender, EventArgs e)
@@ -244,6 +279,11 @@ namespace FOS_SaveEditor.UserControls
         private void btnWeaponUndoChanges_Click(object sender, EventArgs e)
         {
             lstWeapons.SelectedValue = _dwellerData.WeaponId;
+        }
+
+        private void btnPetUndoChanges_Click(object sender, EventArgs e)
+        {
+            lstPets.SelectedValue = _dwellerData.PetId;
         }
     }
 }

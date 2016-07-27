@@ -141,9 +141,14 @@ namespace FOS_SaveEditor.Utility
 			VaultData["vault"]["LunchBoxesCount"] = newArr.Count;
 		}
 
-		public List<JToken> GetDwellers()
+        // Find all references!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		public List<JObject> GetDwellers()
 		{
-			return VaultData["dwellers"]["dwellers"].ToList();
+		    var arr = VaultData["dwellers"]["dwellers"].ToArray();
+
+		    List<JObject> dList = arr.Select(dweller => new JObject(dweller)).ToList();
+
+		    return dList;
 		}
 
 		public void WriteDwellers(List<JToken> dwellerList)

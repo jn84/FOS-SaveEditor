@@ -1,4 +1,5 @@
 ID,BaseName,Breed,Type,Rarity,Bonus,Min bonus value,Max bonus value
+null,None,null,null,null,null,0,0
 abyssinian_r,Abyssinian,Abyssinian,Cat,Rare,Resistance,36,40
 abyssinian_c,Abyssinian,Abyssinian,Cat,Normal,Resistance,20,24
 akita_r,Akita,Akita,Dog,Rare,MysteriousMagnet,2,5,2,5

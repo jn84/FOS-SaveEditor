@@ -209,33 +209,100 @@ namespace FOS_SaveEditor.Utility
         //  }
         //},
 
+	    public void AddPet(string id, string name, string bonusType, double bonusValue)
+	    {
+	        RawDwellerData["equipedPet"]["id"] = id;
+	        RawDwellerData["equipedPet"]["type"] = "Pet";
+	        RawDwellerData["equipedPet"]["hasBeenAssigned"] = false;
+	        RawDwellerData["equipedPet"]["hasRandomWeaponBeenAssigned"] = false;
+	        RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = name;
+	        RawDwellerData["equipedPet"]["extraData"]["bonus"] = bonusType;
+	        RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = bonusValue;
+	    }
+
+	    public void RemovePet()
+	    {
+	        RawDwellerData["equipedPet"].Remove();
+	    }
+
         public string PetId
         {
-            get { return RawDwellerData["equipedPet"]["id"].Value<string>(); }
+            get
+            {
+                try
+                {
+                    return RawDwellerData["equipedPet"]["id"].Value<string>();
+                }
+                catch (Exception)
+                {
+                    return "null";
+                }
+            }
             set { RawDwellerData["equipedPet"]["id"] = value; }
         }
 
         public bool PetAssigned
         {
-            get { return RawDwellerData["equipedPet"]["hasBeenAssigned"].Value<bool>(); }
+            get
+            {
+                try
+                {
+                    return RawDwellerData["equipedPet"]["hasBeenAssigned"].Value<bool>();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
             set { RawDwellerData["equipedPet"]["hasBeenAssigned"] = value; }
         }
 
 	    public string PetName
 	    {
-            get { return RawDwellerData["equipedPet"]["extraData"]["uniqueName"].Value<string>(); }
+	        get
+	        {
+	            try
+	            {
+                    return RawDwellerData["equipedPet"]["extraData"]["uniqueName"].Value<string>();
+                }
+	            catch (Exception)
+	            {
+	                return "null";
+	            }
+	        }
             set { RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = value; }
         }
 
         public string PetBonusType
         {
-            get { return RawDwellerData["equipedPet"]["extraData"]["bonus"].Value<string>(); }
+            get
+            {
+                try
+                {
+                    return RawDwellerData["equipedPet"]["extraData"]["bonus"].Value<string>();
+                }
+                catch (Exception)
+                {
+                    return "null";
+                }
+            }
             set { RawDwellerData["equipedPet"]["extraData"]["bonus"] = value; }
         }
 
         public int PetBonusValue
         {
-            get { return (int)RawDwellerData["equipedPet"]["extraData"]["bonusValue"].Value<double>(); }
+            get
+            {
+                try
+                {
+                    return (int)RawDwellerData["equipedPet"]["extraData"]["bonusValue"].Value<double>();
+                }
+                catch (Exception)
+                {
+                    return 0;
+                    throw;
+                }
+            }
             set { RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = (double)value; }
         }
 
