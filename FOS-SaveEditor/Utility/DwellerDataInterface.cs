@@ -7,9 +7,9 @@ namespace FOS_SaveEditor.Utility
 {
 	public class DwellerDataInterface
 	{
-		public JToken RawDwellerData { get; }
+		public JObject RawDwellerData { get; }
 
-        public DwellerDataInterface(JToken dData)
+        public DwellerDataInterface(JObject dData)
         {
             RawDwellerData = dData;
         }
@@ -53,6 +53,9 @@ namespace FOS_SaveEditor.Utility
 	    public int DwellerLevel
 	    {
 	        get { return RawDwellerData["experience"]["currentLevel"].Value<int>(); }
+
+			// Might eventually be implemented
+			// We need a formula for the relationship between dweller experience and dweller level
 	        // ReSharper disable once ValueParameterNotUsed
             set { }
 	    }
@@ -211,7 +214,12 @@ namespace FOS_SaveEditor.Utility
 
 	    public void AddPet(string id, string name, string bonusType, double bonusValue)
 	    {
-	        RawDwellerData["equipedPet"]["id"] = id;
+			// Reproduce exception
+			// Edit a dweller without a pet
+			// Modify the dweller so that it owns a pet
+		    // Save the changes to the dweller
+			RawDwellerData.Add("equipedPet", JObject.Parse("{ \"id\": \"goldenret_c\", \"type\": \"Pet\", \"hasBeenAssigned\": false, \"hasRandonWeaponBeenAssigned\": false, \"extraData\": { \"uniqueName\": \"\", \"bonus\": \"\", \"bonusValue\": 0.0 } }"));
+			RawDwellerData["equipedPet"]["id"] = id;
 	        RawDwellerData["equipedPet"]["type"] = "Pet";
 	        RawDwellerData["equipedPet"]["hasBeenAssigned"] = false;
 	        RawDwellerData["equipedPet"]["hasRandomWeaponBeenAssigned"] = false;
@@ -222,7 +230,14 @@ namespace FOS_SaveEditor.Utility
 
 	    public void RemovePet()
 	    {
-	        RawDwellerData["equipedPet"].Remove();
+		    try
+		    {
+			    RawDwellerData.Remove("equipedPet");
+		    }
+		    catch (NullReferenceException)
+		    {
+			    // Dweller already lacked a pet node. Removing will throw NRE
+		    }
 	    }
 
         public string PetId

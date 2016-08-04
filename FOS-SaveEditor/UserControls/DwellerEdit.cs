@@ -80,7 +80,9 @@ namespace FOS_SaveEditor.UserControls
             _dwellerData.OutfitId = lstOutfit.SelectedValue as string;
             _dwellerData.WeaponId = lstWeapons.SelectedValue as string;
 
-            if (lstPets.SelectedValue != "null")
+			Console.WriteLine(lstPets.SelectedValue);
+
+            if ((string)lstPets.SelectedValue != @"null")
             {
 
                 var pet = lstPets.SelectedItem as Pet;

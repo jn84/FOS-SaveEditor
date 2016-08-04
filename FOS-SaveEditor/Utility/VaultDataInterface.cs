@@ -142,18 +142,16 @@ namespace FOS_SaveEditor.Utility
 		}
 
         // Find all references!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-		public List<JObject> GetDwellers()
+		public JArray GetDwellers()
 		{
-		    var arr = VaultData["dwellers"]["dwellers"].ToArray();
+			var jArr = JArray.Parse(VaultData["dwellers"]["dwellers"].ToString());
 
-		    List<JObject> dList = arr.Select(dweller => new JObject(dweller)).ToList();
-
-		    return dList;
+		    return jArr;
 		}
 
-		public void WriteDwellers(List<JToken> dwellerList)
+		public void WriteDwellers(JArray d)
 		{
-			VaultData["dwellers"]["dwellers"] = new JArray(dwellerList);
+			VaultData["dwellers"]["dwellers"] = d;
 		}
 	}
 }

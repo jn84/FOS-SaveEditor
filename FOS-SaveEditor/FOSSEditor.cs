@@ -8,6 +8,7 @@ using FOS_SaveEditor.GameData;
 using FOS_SaveEditor.UserControls;
 using FOS_SaveEditor.Utility;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FOS_SaveEditor
 {
@@ -148,7 +149,7 @@ namespace FOS_SaveEditor
 
             dwellerList =
                 vaultData.GetDwellers().
-                    Select(dweller => new DwellerDataInterface(dweller)).ToList();
+                    Select(dweller => new DwellerDataInterface(JObject.Parse(dweller.ToString()))).ToList();
 
             bindingDwellerList = new BindingList<DwellerDataInterface>(dwellerList);
             dwellerListBindingSource = new BindingSource(bindingDwellerList, null);
