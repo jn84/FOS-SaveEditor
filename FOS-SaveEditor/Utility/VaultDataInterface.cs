@@ -153,5 +153,11 @@ namespace FOS_SaveEditor.Utility
 		{
 			VaultData["dwellers"]["dwellers"] = d;
 		}
+
+		public void WriteDwellers(List<DwellerDataInterface> ds)
+		{
+			for (int i = 0; i < ds.Count; i++)
+				VaultData["dwellers"]["dwellers"][i] = ds[i].RawDwellerData;
+		}
 	}
 }

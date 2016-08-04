@@ -130,6 +130,7 @@ namespace FOS_SaveEditor
             vaultData.SetEnergy((int) numudEnergy.Value);
             vaultData.SetFood((int) numudFood.Value);
             vaultData.SetWater((int) numudWater.Value);
+			vaultData.WriteDwellers(dwellerList);
         }
 
         private void PopulateVaultData()
@@ -194,9 +195,16 @@ namespace FOS_SaveEditor
             {
                 var selectedDwellerId = dgridDwellers.Rows[row].Cells["dwellerID"].Value;
                 var dwellerData = dwellerList.Find(elem => elem.DwellerID.Equals(selectedDwellerId));
-                var dwellerEditForm = new DwellerEdit(dwellerData);
+                var dwellerEditForm = new DwellerEdit(ref dwellerData);
                 dwellerEditForm.ShowDialog();
-                dgridDwellers.Invalidate();
+	            if (dwellerEditForm.DialogResult == DialogResult.OK)
+	            {
+		            // Update the grid
+		            // Could we update just the changed row?
+		            dgridDwellers.Invalidate();
+
+
+	            }
             }
         }
 

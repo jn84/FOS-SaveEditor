@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using FOS_SaveEditor.GameData;
 using Newtonsoft.Json.Linq;
 
 namespace FOS_SaveEditor.Utility
@@ -212,23 +213,19 @@ namespace FOS_SaveEditor.Utility
         //  }
         //},
 
-	    public void AddPet(string id, string name, string bonusType, double bonusValue)
-	    {
-			// Reproduce exception
-			// Edit a dweller without a pet
-			// Modify the dweller so that it owns a pet
-		    // Save the changes to the dweller
+		public void AddPet(Pet p)
+		{
 			RawDwellerData.Add("equipedPet", JObject.Parse("{ \"id\": \"goldenret_c\", \"type\": \"Pet\", \"hasBeenAssigned\": false, \"hasRandonWeaponBeenAssigned\": false, \"extraData\": { \"uniqueName\": \"\", \"bonus\": \"\", \"bonusValue\": 0.0 } }"));
-			RawDwellerData["equipedPet"]["id"] = id;
-	        RawDwellerData["equipedPet"]["type"] = "Pet";
-	        RawDwellerData["equipedPet"]["hasBeenAssigned"] = false;
-	        RawDwellerData["equipedPet"]["hasRandomWeaponBeenAssigned"] = false;
-	        RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = name;
-	        RawDwellerData["equipedPet"]["extraData"]["bonus"] = bonusType;
-	        RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = bonusValue;
-	    }
+			RawDwellerData["equipedPet"]["id"] = p.PetID;
+			RawDwellerData["equipedPet"]["type"] = "Pet";
+			RawDwellerData["equipedPet"]["hasBeenAssigned"] = false;
+			RawDwellerData["equipedPet"]["hasRandonWeaponBeenAssigned"] = false;
+			RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = p.PetName;
+			RawDwellerData["equipedPet"]["extraData"]["bonus"] = p.PetBonus;
+			RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = p.PetMaxValue;
+		}
 
-	    public void RemovePet()
+		public void RemovePet()
 	    {
 		    try
 		    {
@@ -236,7 +233,7 @@ namespace FOS_SaveEditor.Utility
 		    }
 		    catch (NullReferenceException)
 		    {
-			    // Dweller already lacked a pet node. Removing will throw NRE
+			    // Dweller already lacked a pet node. Removing will throw NRE since it doesn't exist
 		    }
 	    }
 
@@ -315,7 +312,6 @@ namespace FOS_SaveEditor.Utility
                 catch (Exception)
                 {
                     return 0;
-                    throw;
                 }
             }
             set { RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = (double)value; }

@@ -10,7 +10,7 @@ namespace FOS_SaveEditor.UserControls
 {
     public partial class DwellerEdit : Form
     {
-        private readonly DwellerDataInterface _dwellerData;
+        private DwellerDataInterface _dwellerData;
 
         private Image _outfitImage;
         private Image _weaponImage;
@@ -21,7 +21,9 @@ namespace FOS_SaveEditor.UserControls
             InitializeComponent();
         }
 
-        public DwellerEdit(DwellerDataInterface d)
+
+		// DwellerDataInterface is a class object, and shouldn't need to be passed with ref
+        public DwellerEdit(ref DwellerDataInterface d)
         {
             InitializeComponent();
             _dwellerData = d;
@@ -58,6 +60,7 @@ namespace FOS_SaveEditor.UserControls
 
         private void CommitDwellerData()
         {
+			// We should figure out why it's null, not just ignore it
             if (_dwellerData == null)
                 return;
 
@@ -88,17 +91,12 @@ namespace FOS_SaveEditor.UserControls
                 var pet = lstPets.SelectedItem as Pet;
 
                 if (pet == null)
-                    Console.WriteLine("pet object is NULL!!!");
+                    Console.WriteLine(@"pet object is NULL");
 
-                _dwellerData.AddPet(
-                    pet.PetID,
-                    pet.PetName,
-                    pet.PetBonus,
-                    pet.PetMaxValue);
+                _dwellerData.AddPet(pet);
             }
             else 
                 _dwellerData.RemovePet();
-
         }
 
         private void formDwellerEdit_Load(object sender, EventArgs e)
@@ -189,7 +187,7 @@ namespace FOS_SaveEditor.UserControls
                 return Color.DodgerBlue;
             if (rarity == "Legendary")
                 return Color.Gold;
-            return Color.Black;
+            return Color.White;
         }
 
         private void lstOutfit_SelectedIndexChanged(object sender, EventArgs e)
