@@ -215,21 +215,21 @@ namespace FOS_SaveEditor.Utility
 
 		public void AddPet(Pet p)
 		{
-			RawDwellerData.Add("equipedPet", JObject.Parse("{ \"id\": \"goldenret_c\", \"type\": \"Pet\", \"hasBeenAssigned\": false, \"hasRandonWeaponBeenAssigned\": false, \"extraData\": { \"uniqueName\": \"\", \"bonus\": \"\", \"bonusValue\": 0.0 } }"));
-			RawDwellerData["equipedPet"]["id"] = p.PetID;
-			RawDwellerData["equipedPet"]["type"] = "Pet";
-			RawDwellerData["equipedPet"]["hasBeenAssigned"] = false;
-			RawDwellerData["equipedPet"]["hasRandonWeaponBeenAssigned"] = false;
-			RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = p.PetName;
-			RawDwellerData["equipedPet"]["extraData"]["bonus"] = p.PetBonus;
-			RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = p.PetMaxValue;
+			RawDwellerData.Add("equippedPet", JObject.Parse("{ \"id\": \"goldenret_c\", \"type\": \"Pet\", \"hasBeenAssigned\": false, \"hasRandonWeaponBeenAssigned\": false, \"extraData\": { \"uniqueName\": \"\", \"bonus\": \"\", \"bonusValue\": 0.0 } }"));
+			RawDwellerData["equippedPet"]["id"] = p.PetID;
+			RawDwellerData["equippedPet"]["type"] = "Pet";
+			RawDwellerData["equippedPet"]["hasBeenAssigned"] = false;
+			RawDwellerData["equippedPet"]["hasRandonWeaponBeenAssigned"] = false;
+			RawDwellerData["equippedPet"]["extraData"]["uniqueName"] = p.PetName;
+			RawDwellerData["equippedPet"]["extraData"]["bonus"] = p.PetBonus;
+			RawDwellerData["equippedPet"]["extraData"]["bonusValue"] = p.PetMaxValue;
 		}
 
 		public void RemovePet()
 	    {
 		    try
 		    {
-			    RawDwellerData.Remove("equipedPet");
+			    RawDwellerData.Remove("equippedPet");
 		    }
 		    catch (NullReferenceException)
 		    {
@@ -243,14 +243,14 @@ namespace FOS_SaveEditor.Utility
             {
                 try
                 {
-                    return RawDwellerData["equipedPet"]["id"].Value<string>();
+                    return RawDwellerData["equippedPet"]["id"].Value<string>();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     return "null";
                 }
             }
-            set { RawDwellerData["equipedPet"]["id"] = value; }
+            set { RawDwellerData["equippedPet"]["id"] = value; }
         }
 
         public bool PetAssigned
@@ -259,14 +259,14 @@ namespace FOS_SaveEditor.Utility
             {
                 try
                 {
-                    return RawDwellerData["equipedPet"]["hasBeenAssigned"].Value<bool>();
+                    return RawDwellerData["equippedPet"]["hasBeenAssigned"].Value<bool>();
                 }
                 catch (Exception)
                 {
                     return false;
                 }
             }
-            set { RawDwellerData["equipedPet"]["hasBeenAssigned"] = value; }
+            set { RawDwellerData["equippedPet"]["hasBeenAssigned"] = value; }
         }
 
 	    public string PetName
@@ -275,14 +275,14 @@ namespace FOS_SaveEditor.Utility
 	        {
 	            try
 	            {
-                    return RawDwellerData["equipedPet"]["extraData"]["uniqueName"].Value<string>();
+                    return RawDwellerData["equippedPet"]["extraData"]["uniqueName"].Value<string>();
                 }
 	            catch (Exception)
 	            {
 	                return "null";
 	            }
 	        }
-            set { RawDwellerData["equipedPet"]["extraData"]["uniqueName"] = value; }
+            set { RawDwellerData["equippedPet"]["extraData"]["uniqueName"] = value; }
         }
 
         public string PetBonusType
@@ -291,14 +291,14 @@ namespace FOS_SaveEditor.Utility
             {
                 try
                 {
-                    return RawDwellerData["equipedPet"]["extraData"]["bonus"].Value<string>();
+                    return RawDwellerData["equippedPet"]["extraData"]["bonus"].Value<string>();
                 }
                 catch (Exception)
                 {
                     return "null";
                 }
             }
-            set { RawDwellerData["equipedPet"]["extraData"]["bonus"] = value; }
+            set { RawDwellerData["equippedPet"]["extraData"]["bonus"] = value; }
         }
 
         public int PetBonusValue
@@ -307,14 +307,14 @@ namespace FOS_SaveEditor.Utility
             {
                 try
                 {
-                    return (int)RawDwellerData["equipedPet"]["extraData"]["bonusValue"].Value<double>();
+                    return (int)RawDwellerData["equippedPet"]["extraData"]["bonusValue"].Value<double>();
                 }
                 catch (Exception)
                 {
                     return 0;
                 }
             }
-            set { RawDwellerData["equipedPet"]["extraData"]["bonusValue"] = (double)value; }
+            set { RawDwellerData["equippedPet"]["extraData"]["bonusValue"] = (double)value; }
         }
 
     }

@@ -54,8 +54,6 @@ namespace FOS_SaveEditor.UserControls
             UpdateAllLabels();
 
             UpdateOutfitGender();
-
-            lstPets.SelectedValue = _dwellerData.PetId;
         }
 
         private void CommitDwellerData()
@@ -104,7 +102,8 @@ namespace FOS_SaveEditor.UserControls
             LoadDwellerData();
             lstOutfit.SelectedValue = _dwellerData.OutfitId;
             lstWeapons.SelectedValue = _dwellerData.WeaponId;
-        }
+			lstPets.SelectedValue = _dwellerData.PetId;
+		}
 
         public void UpdateLabels(Label l, Label lb, MACTrackBar tb)
         {
@@ -194,18 +193,35 @@ namespace FOS_SaveEditor.UserControls
         {
             var outfit = lstOutfit.SelectedItem as Outfit;
             _outfitImage?.Dispose();
-            _outfitImage = new Bitmap("Resources//OutfitImages//" + outfit.OutfitType + ".png");
-            pictboxOutfit.BackColor = GetRarityColor(outfit.OutfitRarity);
-            pictboxOutfit.Image = _outfitImage;
+	        try
+	        {
+				// The first line in this try block will throw an exception if the image file cannot be found
+				// If it does, then we assume that the dweller has not yet been accepted into the vault, and is wearing a generic costume
+		        _outfitImage = new Bitmap("Resources//OutfitImages//" + outfit.OutfitType + ".png");
+				pictboxOutfit.BackColor = GetRarityColor(outfit.OutfitRarity);
+				pictboxOutfit.Image = _outfitImage;
+				txtOutfitS.Text = (trackbarS.BonusValue = outfit.OutfitSpecialS).ToString();
+				txtOutfitP.Text = (trackbarP.BonusValue = outfit.OutfitSpecialP).ToString();
+				txtOutfitE.Text = (trackbarE.BonusValue = outfit.OutfitSpecialE).ToString();
+				txtOutfitC.Text = (trackbarC.BonusValue = outfit.OutfitSpecialC).ToString();
+				txtOutfitI.Text = (trackbarI.BonusValue = outfit.OutfitSpecialI).ToString();
+				txtOutfitA.Text = (trackbarA.BonusValue = outfit.OutfitSpecialA).ToString();
+				txtOutfitL.Text = (trackbarL.BonusValue = outfit.OutfitSpecialL).ToString();
+			}
+	        catch (NullReferenceException)
+	        {
+		        _outfitImage = new Bitmap("Resources//OutfitImages//Unavailable.png");
+		        pictboxOutfit.BackColor = Color.White;
+				pictboxOutfit.Image = _outfitImage;
 
-            txtOutfitS.Text = (trackbarS.BonusValue = outfit.OutfitSpecialS).ToString();
-            txtOutfitP.Text = (trackbarP.BonusValue = outfit.OutfitSpecialP).ToString();
-            txtOutfitE.Text = (trackbarE.BonusValue = outfit.OutfitSpecialE).ToString();
-            txtOutfitC.Text = (trackbarC.BonusValue = outfit.OutfitSpecialC).ToString();
-            txtOutfitI.Text = (trackbarI.BonusValue = outfit.OutfitSpecialI).ToString();
-            txtOutfitA.Text = (trackbarA.BonusValue = outfit.OutfitSpecialA).ToString();
-            txtOutfitL.Text = (trackbarL.BonusValue = outfit.OutfitSpecialL).ToString();
-
+				txtOutfitS.Text = (trackbarS.BonusValue = 0).ToString();
+				txtOutfitP.Text = (trackbarP.BonusValue = 0).ToString();
+				txtOutfitE.Text = (trackbarE.BonusValue = 0).ToString();
+				txtOutfitC.Text = (trackbarC.BonusValue = 0).ToString();
+				txtOutfitI.Text = (trackbarI.BonusValue = 0).ToString();
+				txtOutfitA.Text = (trackbarA.BonusValue = 0).ToString();
+				txtOutfitL.Text = (trackbarL.BonusValue = 0).ToString();
+			}
             UpdateAllLabels();
         }
 
@@ -285,5 +301,5 @@ namespace FOS_SaveEditor.UserControls
         {
             lstPets.SelectedValue = _dwellerData.PetId;
         }
-    }
+	}
 }

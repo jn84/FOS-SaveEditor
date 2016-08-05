@@ -1233,5 +1233,5 @@
         private System.Windows.Forms.Label lblWeaponMax;
         private System.Windows.Forms.Label lblWeaponMin;
         private System.Windows.Forms.Button btnPetUndoChanges;
-    }
+	}
 }
